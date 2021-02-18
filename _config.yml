@@ -1,0 +1,13 @@
+title: Vespa Documentation
+lang: en
+description: Installation, application user manuals, technical development topics, and more!
+
+remote_theme: rundocs/jekyll-rtd-theme
+
+readme_index:
+  with_frontmatter: true
+
+exclude:
+  - Makefile
+  - Gemfile
+  - Gemfile.lock
