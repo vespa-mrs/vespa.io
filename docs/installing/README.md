@@ -2,8 +2,8 @@
 sort: 1
 ---
 
-# Installation
+# Intallation
 
-This is the recommended way to install:
+There are two contexts where you will need to install Vespa:
 
-
+{% include list.liquid %}
