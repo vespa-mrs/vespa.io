@@ -1,137 +1,24 @@
----
-sort: 3
----
+# DataSim User Manual
 
-# DataSim User Manual 
-
-Version 1.0.0rc4
-Release date: February 15^th^, 2021
+Version 1.0.0rc4 - Release date: February 15^th^, 2021
 
 Developed by:
 
-- **Brian J. Soher, Ph.D.** - Duke University, Department of Radiology, Durham, NC
-- **Philip Semanchuk** - Duke University, Department of Radiology, Durham, NC
-- **Karl Young, Ph.D.** - UCSF, San Francisco, CA
-- **David Todd, Ph.D.** - UCSF, San Francisco, CA
+-   **Brian J. Soher, Ph.D.** - Duke University, Department of
+    Radiology, Durham, NC
+
+-   **Philip Semanchuk** - Duke University, Department of Radiology,
+    Durham, NC
+
+-   **Karl Young, Ph.D.** - UCSF, San Francisco, CA
+
+-   **David Todd, Ph.D.** - UCSF, San Francisco, CA
 
 **Developed with support from NIH, grant \# EB008387-01A1**
 
-Table of Contents
+##  1. Introduction to DataSim
 
-[Overview of the Vespa Package 3](#overview-of-the-vespa-package)
-
-[Installation 3](#installation)
-
-[Other Online Resources 3](#other-online-resources)
-
-[Introduction to Vespa-DataSim 4](#introduction-to-vespa-datasim)
-
-[Using DataSim -- A User Manual 6](#using-datasim-a-user-manual)
-
-[1. Overview -- How to launch Vespa-DataSim
-6](#overview-how-to-launch-vespa-datasim)
-
-[2. The DataSim Main Window 8](#the-datasim-main-window)
-
-[2.1 The DataSim Notebook 9](#the-datasim-notebook)
-
-[2.2 DataSim Tabs 9](#datasim-tabs)
-
-[2.3 Mouse Events in Plots 10](#mouse-events-in-plots)
-
-[3. Spectral Settings Sub-tab 12](#spectral-settings-sub-tab)
-
-[3.1 General 12](#general)
-
-[3.2 Metabolite Spectral Settings Section
-13](#metabolite-spectral-settings-section)
-
-[3.3 Dataset Noise Settings Section 14](#dataset-noise-settings-section)
-
-[4. Metabolite Signals Sub-tab 15](#metabolite-signals-sub-tab)
-
-[4.1 General 15](#general-1)
-
-[4.2 Metabolite Signals Parameters 15](#metabolite-signals-parameters)
-
-[5. Macromolecule Signals Sub-tab 16](#macromolecule-signals-sub-tab)
-
-[5.1 General 16](#general-2)
-
-[5.2 Macromolecule Signals Controls 16](#macromolecule-signals-controls)
-
-[6. Baseline Signals Sub-tab 18](#baseline-signals-sub-tab)
-
-[6.1 General 18](#general-3)
-
-[6.2 Baseline Signals Controls 18](#baseline-signals-controls)
-
-[7. Results Output 20](#results-output)
-
-[7.1 Plot results to image file formats
-20](#plot-results-to-image-file-formats)
-
-[7.2 Plot results to vector graphics formats
-20](#plot-results-to-vector-graphics-formats)
-
-[7.3 Simulated Data Output to File 20](#simulated-data-output-to-file)
-
-[7.3.1 VIFF -- Vespa Interchange File Format
-20](#viff-vespa-interchange-file-format)
-
-[7.3.2 Siemens \*.RDA Format 21](#siemens-.rda-format)
-
-##  Overview of the Vespa Package
-
-Vespa stands for "Versatile Simulation, Pulses and Analysis". The Vespa
-package is an integrated, open-source, platform for magnetic resonance
-spectroscopy (MRS) research and data analysis. Applications in the Vespa
-package include:
-
--   Vespa-Simulation -- software for spectral simulation (using the
-    GAMMA library)
-
--   Vespa-Pulse -- software for RF pulse design
-
--   Vespa-Analysis -- spectral data processing and analysis
-
--   Vespa-DataSim -- used to create 'fake' MRS data sets from Simulation
-    results
-
-The Vespa project addresses software limitations seen across the MRS
-field, including: non-standard data access, closed source multiple
-language software that complicates algorithm extension and comparison,
-lack of integration between programs for sharing prior information, and
-incomplete or missing documentation and educational content.
-
-### Installation
-
-Vespa is a Python package. It requires that a Python environment be
-installed with certain required additional modules (all easily obtained)
-and then Vespa can be automatically installed from the PyPI web site.
-For historical reasons, the package on PyPI is called Vespa-Suite. As of
-version 1.0.0, Vespa only runs under Python 3.
-
-Full instructions for installation can be accessed online at:
-
-<https://scion.duhs.duke.edu/vespa/project/wiki/HowToInstallVespa>
-
-Vespa is an actively developed project that has frequent releases. Once
-you have it installed, it is easy to upgrade as described here:
-
-<https://scion.duhs.duke.edu/vespa/project/wiki/Upgrading>
-
-### Other Online Resources 
-
-The Vespa project and each of its applications have Trac Wiki sites with
-extensive information about how to use, and develop new functionality
-for, each application. These can be accessed through the main portal
-site at
-
-<https://scion.duhs.duke.edu/vespa/>
-
-
-##  Introduction to Vespa-DataSim
+### 1.1 Functionality
 
 Vespa-DataSim is application written in the Python programming language
 that allows users to create simulated MR data sets. Vespa-DataSim allows
@@ -170,6 +57,8 @@ users to:
     containing the same signal model but different noise, for use in
     Monte Carlo evaluations.
 
+### 1.2 Basic Concepts
+
 **What is a DataSim?** A 'DataSim' consists of a simulated MR
 spectroscopy (MRS) data set that has be created using prior information
 from a Vespa-Simulation Experiment. The combination of "simulated data
@@ -200,27 +89,16 @@ for example:
 Specific file and directory names will appear in a fixed-width font
 within the main text.
 
-[Online Resources]{.ul}:
-
-The Vespa project and each of its applications have Trac Wiki sites with
-extensive information about how to use, and develop new functionality
-for, each application. These can be accessed through the main portal
-site at
-
-<http://scion.duhs.duke.edu/vespa/>
-
-## Using DataSim -- A User Manual
-
-*This section assumes Vespa-DataSim has been downloaded and installed.
-See the Vespa Installation guide on the Vespa main project wiki for
-details on how to install the software and package dependencies.
-<http://scion.duhs.duke.edu/vespa>*.
+*The following sections assumes Vespa-DataSim has been downloaded and
+installed. See the Vespa Installation guide on the Vespa main project
+wiki for details on how to install the software and package
+dependencies. <http://scion.duhs.duke.edu/vespa>*.
 
 In the following, screenshots are based on running DataSim on the
 Windows OS, but aside from starting the program, the basic commands are
 the same on all platforms.
 
-## 1. Overview - Launching DataSim
+### 1.3 How to launch Vespa-DataSim
 
 Double click on the DataSim icon that the installer created on your
 Desktop.
@@ -229,7 +107,7 @@ Shown below is the Vespa-DataSim main window as it appears on first
 opening. No actual DataSim windows are open, only the 'Welcome' banner
 is displayed.
 
-![](media_datasim\image1.png){width="5.455022965879265in"
+![](media_datasim\media\image1.png){width="5.455022965879265in"
 height="4.152461723534558in"}
 
 Use the **DataSim → Open DataSim** menu to open a saved DataSim session
@@ -240,9 +118,10 @@ Shown below is a screen shot of a Vespa-DataSim session showing data
 from a PRESS 30ms simulation. The functionality of all sub-tabs will be
 described further in the following sections.
 
-![](media_datasim\image2.png){width="6.5in" height="4.9430555555555555in"}
+![](media_datasim\media\image2.png){width="6.5in"
+height="4.9430555555555555in"}
 
-## 2. The DataSim Main Window
+##  2. The DataSim Main Window
 
 This is a view of the main Vespa-DataSim user interface window. It is
 the first window that appears when you run the program. It contains the
@@ -254,7 +133,7 @@ baseline signals, each of which has its own sub-tab in the respective
 datasim tab. Sub-tabs are organized along the bottom edge, while datasim
 tabs are organized along the top edge.
 
-![](media_datasim\image3.png){width="4.567361111111111in"
+![](media_datasim\media\image3.png){width="4.567361111111111in"
 height="3.4770833333333333in"}The datasim Notebook is initially
 populated with a welcome text window, but no datasims are loaded. From
 the DataSim menu bar you can 1) open a datasim that has previously been
@@ -271,60 +150,58 @@ about the cursor start and end points and the distance between. Finally,
 it also reports short messages that reflect current processing while
 events are running.
 
-### On the Menu Bar
+### 2.1 On the Menu Bar
 
-**DataSim→Open** Opens an existing VIFF datasim XML file into a new
-datasim tab in the datasim Notebook. The state of the datasim as it was
-saved, including all sub-tab settings and simulated data, are restored
-as the datasim is opened into its tab.
+These are the functions of various menu items in the application:
 
-**DataSim →New** Allows the user to create a new datasim in a new Tab.
+-   **DataSim→Open** Opens an existing VIFF datasim XML file into a new
+    > datasim tab in the datasim Notebook. The state of the datasim as
+    > it was saved, including all sub-tab settings and simulated data,
+    > are restored as the datasim is opened into its tab.
 
-**DataSim →Save** Saves the state of the datasim as it currently exists,
-including all sub-tab settings and data, into a VIFF (Vespa Interchange
-File Format) XML file.
+-   **DataSim→New** Allows the user to create a new datasim in a new
+    > Tab.
 
-*Note that this does NOT save out a simulated data set, but just a file
-that DataSim can read back in to recreate the current state shown in the
-program. In other words, it saves the DataSim program stuff, not the
-simulated data stuff. Use Export menu items (below) to save out
-simulated data.*
+-   **DataSim→Save** Saves the state of the datasim as it currently
+    > exists, including all sub-tab settings and data, into a VIFF
+    > (Vespa Interchange File Format) XML file. *Note that this does NOT
+    > save out a simulated data set, but just a file that DataSim can
+    > read back in to recreate the current state shown in the program.
+    > In other words, it saves the DataSim program stuff, not the
+    > simulated data stuff. Use Export menu items (below) to save out
+    > simulated data.*
 
-**DataSim →Save As** Same as Save, but allows the user to change the
-file name into which the datasim is saved.
+-   **DataSim→Save As** Same as Save, but allows the user to change the
+    > file name into which the datasim is saved.
 
-**DataSim → Close** Closes the active tab.
+-   **DataSim→ Close** Closes the active tab.
 
-**DataSim**
+-   **DataSim→Export Spectrum \<various\>** Writes the simulated data
+    > from the datasim out to various formats. For formats that allow
+    > it, provenance for the simulated data is included. Otherwise.
+    > Provenance is saved to a separate text file in the same directory.
 
-**→Export Spectrum \<various\>** Writes the simulated data from the
-datasim out to various formats. For formats that allow it, provenance
-for the simulated data is included. Otherwise. Provenance is saved to a
-separate text file in the same directory.
+-   **DataSim→Export Monte Carlo \<various\>** Similar to Export
+    > Spectrum, but an array of spectral data with the same signal
+    > model, but different added noise is saved out to various formats.
 
-**DataSim**
+-   **DataSim→Exit** Closes the application window.
 
-**→Export Monte Carlo \<various\>** Similar to Export Spectrum, but an
-array of spectral data with the same signal model, but different added
-noise is saved out to various formats.
+-   **View→\<various\>** Changes plot options in the plots on each
+    > sub-tab of the active datasim tab, including: display a zero line,
+    > turn x-axis on/off or choose units, select the data type (real,
+    > imag, magn) displayed, and various output options for all plot
+    > windows and experiment in text format.
 
-**DataSim →Exit** Closes the application window.
+-   **Help→User Manual** Launches the user manual (from vespa/docs) into
+    > a PDF file reader.
 
-**View→\<various\>** Changes plot options in the plots on each sub-tab
-of the active datasim tab, including: display a zero line, turn x-axis
-on/off or choose units, select the data type (real, imag, magn)
-displayed, and various output options for all plot windows and
-experiment in text format.
+-   **Help→DataSim/Vespa Online Help** Online wiki for the DataSim
+    > application and Vespa project
 
-**Help→User Manual** Launches the user manual (from vespa/docs) into a
-PDF file reader.
+-   **Help→About** Giving credit where credit is due.
 
-**Help→DataSim/Vespa Online Help** Online wiki for the DataSim
-application and Vespa project
-
-**Help→About** Giving credit where credit is due.
-
-### 2.1 The DataSim Notebook
+### 2.2 The DataSim Notebook
 
 The datasim notebook offers a lot of flexibility. Multiple tabs can be
 opened up inside the window. They can be moved around, arranged and
@@ -335,7 +212,7 @@ also be arranged in any mixture of these positions. There is only the
 one Notebook in the DataSim application, but it can display multiple
 simulated MRS data sets by loading them into DataSim tabs.
 
-### 2.2 DataSim Tabs
+### 2.3 DataSim Tabs
 
 The datasim notebook can be populated with one or more datasim tabs,
 each of which contains the spectral settings, metabolite signals,
@@ -371,37 +248,35 @@ the plots in the active sub-tab. The state of plot options in each
 sub-tab is maintained in each sub-tab as the user switches between them.
 The following lists the functions on the View menu item:
 
-#### On the Menu Bar
+**The following Menu Bar items specifically affect the Plot Canvas in
+the currently active DataSim tab**
 
-**View (this menu affects the plots in the currently active DataSim
-tab)**
+-   **View→ZeroLine→Show** toggle zero line off/on
 
-**→ZeroLine→Show** toggle zero line off/on
+-   **View→ZeroLine→Top/Middle/Bottom** display the zero line in the top
+    10% region, middle or bottom 10% region of the canvas as it is drawn
+    on the screen
 
-**→ZeroLine→Top/Middle/Bottom** display the zero line in the top 10%
-region, middle or bottom 10% region of the canvas as it is drawn on the
-screen
+-   **View→Xaxis →Show** display the x-axis or not
 
-**→Xaxis →Show** display the x-axis or not
+-   **View→Xaxis→PPM/Hz** x-axis value in PPM or Hz
 
-**→Xaxis→PPM/Hz** x-axis value in PPM or Hz
+-   **View→Data Type** select Real, Imaginary, or Magnitude spectral
+    data to display
 
-**→Data Type** select Real, Imaginary, or Magnitude spectral data to
-display
+-   **View→Plot Views→Final/All Three** select whether only the final
+    simulated spectrum is displayed, or the final spectrum, the
+    metabolite signals and , macromolecule signals + baseline signals
+    are each displayed in their own plot.
 
-**→Plot Views→Final/All Three** select whether only the final simulated
-spectrum is displayed, or the final spectrum, the metabolite signals and
-, macromolecule signals + baseline signals are each displayed in their
-own plot.
+-   **View→Output Experiment Text** displays the selected Experiment
+    object in text format in a separate text editor, similarly to what
+    can be displayed in the Vespa-Simulation application.
 
-**→Output Experiment Text** displays the selected Experiment object in
-text format in a separate text editor, similarly to what can be
-displayed in the Vespa-Simulation application.
+-   **View→Output→View→\<various\>** writes the entire plot to file as
+    either PNG, SVG, EPS or PDF format
 
-**→Output→View→\<various\>** writes the entire plot to file as either
-PNG, SVG, EPS or PDF format
-
-### 2.3 Mouse Events in Plots
+### 2.4 Mouse Events in Plots
 
 Most processing sub-tabs have plots in their right hand panels. These
 plots may contain one or more axes which may change dynamically.
@@ -468,9 +343,10 @@ Each datasim tab has four sub-tabs called Spectral Settings, Metabolite
 Signals, Macromolecule Signals and Baseline Signals. The Spectral
 Settings tab is shown below.
 
-![](media_datasim\image4.png){width="6.5in" height="4.9430555555555555in"}
+![](media_datasim\media\image4.png){width="6.5in"
+height="4.9430555555555555in"}
 
-<u>[Theoretical Details]</u>
+**Theoretical Details**
 
 The formula below describes how the simulated data signals are created
 in the time domain as a sum of metabolite *Metab(t)*, macromolecule
@@ -496,7 +372,7 @@ domain FID has been calculated, it is truncated by N integer points (as
 set by the spectral resolution widget) before being Fourier transformed.
 The value N is taken from the Left Shift widget setting.
 
-![](media_datasim\image5.png){width="6.466288276465442in"
+![](media_datasim\media\image5.png){width="6.466288276465442in"
 height="3.822589676290464in"}
 
 ### 3.2 Metabolite Spectral Settings Section
@@ -510,7 +386,7 @@ Spectral resolution and the PPM range of metabolite basis peaks is set
 by using the **Set metabolite spectral resolution and basis PPM range**
 button. This button will launch a dialog (shown below):
 
-![](media_datasim\image6.png){width="2.439903762029746in"
+![](media_datasim\media\image6.png){width="2.439903762029746in"
 height="1.8837106299212598in"}
 
 You can set the **Frequency**, **Spectral Points,** **Spectral Width**
@@ -548,7 +424,7 @@ parameters. ***Note, the noise displayed is updated every time a
 parameter is changed, thus low SNR plots will change appreciably each
 time a parameter changes.***
 
-[Background on SNR calculation]{.ul}
+**Background on SNR calculation**
 
 Arrays of random noise are created using the numpy.random.randn() method
 which creates random floats sampled from a univariate "normal"
@@ -591,7 +467,8 @@ Each datasim tab has four sub-tabs called Spectral Settings, Metabolite
 Signals, Macromolecule Signals and Baseline Signals. The Spectral
 Settings tab is shown below.
 
-![](media_datasim\image7.png){width="6.5in" height="4.9430555555555555in"}
+![](media_datasim\media\image7.png){width="6.5in"
+height="4.9430555555555555in"}
 
 ### 4.2 Metabolite Signals Parameters
 
@@ -624,7 +501,8 @@ Signals tab, and we have included both tabs to allow you to create
 non-metabolite signal contributions with both Lorentzian and Gaussian
 lineshapes.
 
-![](media_datasim\image8.png){width="6.5in" height="4.9430555555555555in"}
+![](media_datasim\media\image8.png){width="6.5in"
+height="4.9430555555555555in"}
 
 ### 5.2 Macromolecule Signals Controls
 
@@ -694,7 +572,8 @@ Signals tab, and we have included both tabs to allow you to create
 non-metabolite signal contributions with both Lorentzian and Gaussian
 lineshapes.
 
-![](media_datasim\image9.png){width="6.5in" height="4.9430555555555555in"}
+![](media_datasim\media\image9.png){width="6.5in"
+height="4.9430555555555555in"}
 
 ### 6.2 Baseline Signals Controls
 
@@ -818,8 +697,6 @@ no noise
 4\. fbase_noise.xml - the time domain added noise in the summed data
 
 5\. fbase_summed.xml - the sum of the above three files, final spectrum
-
-### 
 
 ### 7.3.2 Siemens \*.RDA Format
 
