@@ -1,3 +1,7 @@
+---
+sort: 3
+---
+
 # DataSim User Manual
 
 Version 1.0.0rc4 - Release date: February 15^th^, 2021
@@ -21,39 +25,39 @@ Developed by:
 ### 1.1 Functionality
 
 Vespa-DataSim is application written in the Python programming language
-that allows users to create simulated MR data sets. Vespa-DataSim allows
-users to:
+that allows users to create simulated MR data sets. DataSim allows users
+to:
 
-1)  Select from existing Vespa-Simulation Experiments in the Vespa
+1.  Select from existing Vespa-Simulation Experiments in the Vespa
     database.
 
-2)  Specify a single set of Experiment loop parameters (if more than
+2.  Specify a single set of Experiment loop parameters (if more than
     one) on which to base the DataSim's metabolite basis functions.
 
-3)  Specify the spectral resolution as the bandwidth and number of
+3.  Specify the spectral resolution as the bandwidth and number of
     points in the FIDs.
 
-4)  Scale individual metabolite areas.
+4.  Scale individual metabolite areas.
 
-5)  Create a Voigt lineshape envelope that has a specific T~a~ (T~2~)
+5.  Create a Voigt lineshape envelope that has a specific T~a~ (T~2~)
     value for each metabolite and a global T~b~ (T~2~\*) value for the
     entire Datasim.
 
-6)  Add unlimited Gaussian or Lorentzian spectral peaks with independent
+6.  Add unlimited Gaussian or Lorentzian spectral peaks with independent
     area, ppm, linewidth and phase to create simulated macromolecular
     signals.
 
-7)  Add unlimited Gaussian or Lorentzian spectral peaks with independent
+7.  Add unlimited Gaussian or Lorentzian spectral peaks with independent
     area, ppm, linewidth and phase to create simulated baseline signals.
 
-8)  SNR can be set using an independent reference line (not included in
+8.  SNR can be set using an independent reference line (not included in
     spectrum) to maintain RMS noise levels even as metabolite line shape
     changes.
 
-9)  Output to Vespa-Analysis compatible data format, a simple
+9.  Output to Vespa-Analysis compatible data format, a simple
     text/binary header/data format (Siemens \*.rda).
 
-10) Output a single simulated spectrum OR an array of spectra,
+10. Output a single simulated spectrum OR an array of spectra,
     containing the same signal model but different noise, for use in
     Monte Carlo evaluations.
 
@@ -154,52 +158,51 @@ events are running.
 
 These are the functions of various menu items in the application:
 
--   **DataSim→Open** Opens an existing VIFF datasim XML file into a new
-    > datasim tab in the datasim Notebook. The state of the datasim as
-    > it was saved, including all sub-tab settings and simulated data,
-    > are restored as the datasim is opened into its tab.
+-   **DataSim→Open** - Opens an existing VIFF datasim XML file into a
+    new datasim tab in the datasim Notebook. The state of the datasim as
+    it was saved, including all sub-tab settings and simulated data, are
+    restored as the datasim is opened into its tab.
 
--   **DataSim→New** Allows the user to create a new datasim in a new
-    > Tab.
+-   **DataSim→New** - Allows the user to create a new datasim in a new
+    Tab.
 
--   **DataSim→Save** Saves the state of the datasim as it currently
-    > exists, including all sub-tab settings and data, into a VIFF
-    > (Vespa Interchange File Format) XML file. *Note that this does NOT
-    > save out a simulated data set, but just a file that DataSim can
-    > read back in to recreate the current state shown in the program.
-    > In other words, it saves the DataSim program stuff, not the
-    > simulated data stuff. Use Export menu items (below) to save out
-    > simulated data.*
+-   **DataSim→Save** - Saves the state of the datasim as it currently
+    exists, including all sub-tab settings and data, into a VIFF (Vespa
+    Interchange File Format) XML file. *Note that this does NOT save out
+    a simulated data set, but just a file that DataSim can read back in
+    to recreate the current state shown in the program. In other words,
+    it saves the DataSim program stuff, not the simulated data stuff.
+    Use Export menu items (below) to save out simulated data.*
 
--   **DataSim→Save As** Same as Save, but allows the user to change the
-    > file name into which the datasim is saved.
+-   **DataSim→Save As** - Same as Save, but allows the user to change
+    the file name into which the datasim is saved.
 
--   **DataSim→ Close** Closes the active tab.
+-   **DataSim→ Close** - Closes the active tab.
 
--   **DataSim→Export Spectrum \<various\>** Writes the simulated data
-    > from the datasim out to various formats. For formats that allow
-    > it, provenance for the simulated data is included. Otherwise.
-    > Provenance is saved to a separate text file in the same directory.
+-   **DataSim→Export Spectrum \<various\>** - Writes the simulated data
+    from the datasim out to various formats. For formats that allow it,
+    provenance for the simulated data is included. Otherwise. Provenance
+    is saved to a separate text file in the same directory.
 
--   **DataSim→Export Monte Carlo \<various\>** Similar to Export
-    > Spectrum, but an array of spectral data with the same signal
-    > model, but different added noise is saved out to various formats.
+-   **DataSim→Export Monte Carlo \<various\>** - Similar to Export
+    Spectrum, but an array of spectral data with the same signal model,
+    but different added noise is saved out to various formats.
 
--   **DataSim→Exit** Closes the application window.
+-   **DataSim→Exit** - Closes the application window.
 
--   **View→\<various\>** Changes plot options in the plots on each
-    > sub-tab of the active datasim tab, including: display a zero line,
-    > turn x-axis on/off or choose units, select the data type (real,
-    > imag, magn) displayed, and various output options for all plot
-    > windows and experiment in text format.
+-   **View→\<various\>** - Changes plot options in the plots on each
+    sub-tab of the active datasim tab, including: display a zero line,
+    turn x-axis on/off or choose units, select the data type (real,
+    imag, magn) displayed, and various output options for all plot
+    windows and experiment in text format.
 
--   **Help→User Manual** Launches the user manual (from vespa/docs) into
-    > a PDF file reader.
+-   **Help→User Manual** - Launches the user manual (from vespa/docs)
+    into a PDF file reader.
 
--   **Help→DataSim/Vespa Online Help** Online wiki for the DataSim
-    > application and Vespa project
+-   **Help→DataSim/Vespa Online Help** - Online wiki for the DataSim
+    application and Vespa project
 
--   **Help→About** Giving credit where credit is due.
+-   **Help→About** - Giving credit where credit is due.
 
 ### 2.2 The DataSim Notebook
 
@@ -251,29 +254,29 @@ The following lists the functions on the View menu item:
 **The following Menu Bar items specifically affect the Plot Canvas in
 the currently active DataSim tab**
 
--   **View→ZeroLine→Show** toggle zero line off/on
+-   **View→ZeroLine→Show** - toggle zero line off/on
 
--   **View→ZeroLine→Top/Middle/Bottom** display the zero line in the top
-    10% region, middle or bottom 10% region of the canvas as it is drawn
-    on the screen
+-   **View→ZeroLine→Top/Middle/Bottom** - display the zero line in the
+    top 10% region, middle or bottom 10% region of the canvas as it is
+    drawn on the screen
 
--   **View→Xaxis →Show** display the x-axis or not
+-   **View→Xaxis →Show** - display the x-axis or not
 
--   **View→Xaxis→PPM/Hz** x-axis value in PPM or Hz
+-   **View→Xaxis→PPM/Hz** - x-axis value in PPM or Hz
 
--   **View→Data Type** select Real, Imaginary, or Magnitude spectral
+-   **View→Data Type** - select Real, Imaginary, or Magnitude spectral
     data to display
 
--   **View→Plot Views→Final/All Three** select whether only the final
+-   **View→Plot Views→Final/All Three** - select whether only the final
     simulated spectrum is displayed, or the final spectrum, the
-    metabolite signals and , macromolecule signals + baseline signals
-    are each displayed in their own plot.
+    metabolite signals and, macromolecule signals + baseline signals are
+    each displayed in their own plot.
 
--   **View→Output Experiment Text** displays the selected Experiment
+-   **View→Output Experiment Text** - displays the selected Experiment
     object in text format in a separate text editor, similarly to what
     can be displayed in the Vespa-Simulation application.
 
--   **View→Output→View→\<various\>** writes the entire plot to file as
+-   **View→Output→View→\<various\>** - writes the entire plot to file as
     either PNG, SVG, EPS or PDF format
 
 ### 2.4 Mouse Events in Plots
@@ -686,17 +689,17 @@ Five files are output with provenance stored in each one's header. The
 user selects a base filename (fbase) and then extension strings are
 added to fbase to indicate the data in each file:
 
-1\. fbase_metabolites.xml - time domain summed metabolite signals, no
-noise
+1.  fbase_metabolites.xml - time domain summed metabolite signals, no
+    noise
 
-2\. fbase_macromolecules.xml - time domain summed macromolecule signals,
-no noise
+2.  fbase_macromolecules.xml - time domain summed macromolecule signals,
+    no noise
 
-3\. fbase_baseline.xml - time domain summed baseline signals, no noise
+3.  fbase_baseline.xml - time domain summed baseline signals, no noise
 
-4\. fbase_noise.xml - the time domain added noise in the summed data
+4.  fbase_noise.xml - the time domain added noise in the summed data
 
-5\. fbase_summed.xml - the sum of the above three files, final spectrum
+5.  fbase_summed.xml - the sum of the above three files, final spectrum
 
 ### 7.3.2 Siemens \*.RDA Format
 
@@ -713,20 +716,21 @@ file format. Six files are output, five data and one provenance. The
 user selects a base filename (fbase) and then extension strings are
 added to fbase to indicate which data is in the file:
 
-1\. fbase_metabolites.rda - time domain summed metabolite signals, no
-noise
+1.  fbase_metabolites.rda - time domain summed metabolite signals, no
+    noise
 
-2\. fbase_macromolecules.rda - time domain summed macromolecule signals,
-no noise
+2.  fbase_macromolecules.rda - time domain summed macromolecule signals,
+    no noise
 
-3\. fbase_baseline.rda - time domain summed baseline signals, no noise
+3.  fbase_baseline.rda - time domain summed baseline signals, no noise
 
-4\. fbase_noise.rda - the time domain added noise in the summed data
+4.  fbase_noise.rda - the time domain added noise in the summed data
 
-5\. fbase_summed.rda - the sum of the above three files, final spectrum
+5.  fbase_summed.rda - the sum of the above three files, final spectrum
 
-6\. fbase_provenance.rda - text file, info about Vespa-DataSim setting
-used to create the above files. This is created because Siemens RDA has
-limited ability to store provenance information within its header.
+6.  fbase_provenance.rda - text file, info about Vespa-DataSim setting
+    used to create the above files. This is created because Siemens RDA
+    has limited ability to store provenance information within its
+    header.
 
 # 

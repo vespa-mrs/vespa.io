@@ -2,7 +2,7 @@
 sort: 1
 ---
 
-# Intallation
+# Installation
 
 There are two contexts where you will need to install Vespa:
 
