@@ -2,28 +2,27 @@
 sort: 1
 ---
 
-# Overview
+# New Vespa Installation
+
+## Overview
 
 Vespa is a Python package. It requires a Python environment be installed with certain dependencies (all easily obtained) and then Vespa can be automatically installed from the PyPI web site. For historical reasons, the package on PyPI is called Vespa-Suite. As of version 1.0.0, (Jan 2021) Vespa runs under Python 3. 
 
-Vespa is an actively developed project that has frequent releases. Once you have it installed, it is simple to upgrade. See the instructions listed in the next section.
-
-## New Installalation 
+Vespa is an actively developed project that has frequent releases. Once you have it installed, it is simple to upgrade. See the instructions listed in the next section of the documentation.
 
 _Note. At the moment, Vespa only runs under Python 3.7 due to our conversion from Python 2 to Python 3. Work is under way to make it run under other Python 3.x versions._
 
-The following instructions are based on using the conda 'miniconda' installation to install the dependencies that Vespa requires. We are only installing the packages we need for simplicity. You could install these packages yourself using other means, but this HowTo uses conda. Here we go. You'll need to use the command line for most of these instructions. Be careful of typos.
+The following instructions are based on using the 'miniconda' installation that is part of the Conda package management sytem to install the dependencies that Vespa requires. We are only installing the packages we need for simplicity. You could install these packages yourself using other means, but this method uses conda. Here we go. You'll need to use the command line for most of these instructions. Be careful of typos.
 
 ### Step 1 - Install Python
 
 Vespa uses 64-bit Python 3.7. We recommend using Miniconda, an automated Python distribution system. These instructions assume that you used Miniconda to install 64-bit Python as described below.
 
-Get the 64-bit Miniconda3 package for your system from here and follow their directions for installing it:
-<http://conda.pydata.org/miniconda.html>
+Get the 64-bit Miniconda3 package for your system from here and follow their directions for installing it: <http://conda.pydata.org/miniconda.html>
 
-As of September 2020, this will install conda with a base Python of version 3.8, but Vespa requires Python 3.7. Not to worry, Miniconda allow you to create virtual environments with any version of Python 3, and this is what we will use to install/run the Vespa package. So, fire up the conda base command window and create your first environment. This is simple (see below) and it is good to do your actual work in Python outside of the base environment.
+As of September 2020, this will install conda with a base Python of version 3.8, but Vespa requires Python 3.7. Not to worry, Miniconda allow you to create virtual environments with any version of Python 3, and this is what we will use to install/run the Vespa package. So, fire up the conda base command window and create your first environment. This is simple (see below) and it is good to do your actual work in a Python environment outside of the base environment.
 
-Create an environment called python37 (or whatever you want to name it) by typing:  
+Create a second environment within your miniconda installation called 'python37' (or whatever you want to name it) by typing:  
 
 `>conda create --name python37 python=3.7` 
 
@@ -60,7 +59,7 @@ If that goes OK, run this command:
 
 `>python -m vespa.create_shortcuts`
 
-_**Note. The last step may not work under Windows (Thanks, Microsoft!). So, see below if you want to manually set up Shortcuts on the Desktop for running the Vespa apps.**_ 
+_**Note. The last step may not work under Windows (Thanks, Microsoft!). So, see below if you want to manually set up Shortcuts on the Windows Desktop for running the Vespa apps.**_ 
 
 And, You're Done! Double click on one of the shortcuts to start using Vespa!
 
@@ -106,11 +105,11 @@ change path to where your miniconda install lives (note two 'double quotes' at t
 
 `“D:\Users\bsoher\miniconda2\envs\python27”`
 
-change path to select the conda environment for Python 2.7
+change path to select the conda environment for Python 3.7
 
 `python “D:\Users\bsoher\miniconda2\envs\python27\Lib\site-packages\vespa\analysis\main.py”`
 
-change path to where Vespa is installed, usually under “Lib\site-packages\vespa” in your Py 2.7 directory
+change path to where Vespa is installed, usually under “Lib\site-packages\vespa” in your Py 3.7 directory
 
 Last step, copy the edited command from your text editor into the Shortcut you created. Right click its icon, click Properties. On “Shortcut” tab, delete all text in the Target line, and paste new command text into Target. Click OK and dialog should close. With luck, you can now click on the Shortcut icon and Vespa Analysis will run.
 

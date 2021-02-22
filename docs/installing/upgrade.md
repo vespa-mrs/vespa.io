@@ -2,16 +2,18 @@
 sort: 2
 ---
 
-# Overview
+# Upgrading Vespa
 
-**_Note. As of Vespa version 1.0.0, Vespa is running under Python 3. If you have a Vespa version less than 1.0.0, that is running under Python 2.7 and can not be upgraded.  You should use the 'New Installation' instructions._**
+## Overview
+
+**_Note. As of Vespa version 1.0.0, Vespa is running under Python 3. If you have a Vespa version less than 1.0.0 it is running under Python 2.7 and can not be upgraded.  You should use the 'New Installation' instructions._**
 
 The instructions below assume that you already have Vespa installed and that it is version 1.0.0 or higher. 
 
 
 ## Upgrade Vespa 
 
-Run a command shell in the conda environment in which Vespa is installed.
+Start a command shell in the conda environment in which Vespa is installed.
 
 Run this command:
 
