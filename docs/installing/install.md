@@ -87,11 +87,11 @@ So, this assumes that you have installed Python 3.7.x using miniconda. The comma
 The following command that you need to put into the Shortcut "Target" box is all one line. It tells the Shortcut to do 4 things, in order. 
 
 - create a Windows cmd.exe window
-- use a minconda script to activate your Python 2.7 conda environment in the cmd window
+- use a minconda script to activate your Python 3.7 conda environment in the cmd window
 - run the Vespa Analysis main.py script
 - when Analysis quits, exit the cmd window 
 
-`%windir%\System32\cmd.exe /k ““D:\Users\bsoher\miniconda2\Scripts\activate.bat” “D:\Users\bsoher\miniconda3\envs\python37” && python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py” && exit”`
+`%windir%\System32\cmd.exe /k ““D:\Users\bsoher\miniconda3\Scripts\activate.bat” “D:\Users\bsoher\miniconda3\envs\python37” && python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py” && exit”`
 
 Let’s parse this and tell you what you need to change:
 
@@ -99,15 +99,15 @@ Let’s parse this and tell you what you need to change:
 
 change nothing
 
-`"“D:\Users\bsoher\miniconda2\Scripts\activate.bat”`
+`"“D:\Users\bsoher\miniconda3\Scripts\activate.bat”`
 
 change path to where your miniconda install lives (note two 'double quotes' at the start of the line)
 
-`“D:\Users\bsoher\miniconda2\envs\python27”`
+`“D:\Users\bsoher\miniconda3\envs\python37”`
 
 change path to select the conda environment for Python 3.7
 
-`python “D:\Users\bsoher\miniconda2\envs\python27\Lib\site-packages\vespa\analysis\main.py”`
+`python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py”`
 
 change path to where Vespa is installed, usually under “Lib\site-packages\vespa” in your Py 3.7 directory
 
