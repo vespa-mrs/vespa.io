@@ -1,5 +1,5 @@
 ---
-sort: 2
+sort: 3
 ---
 
 # Doing a Vespa Release to PyPI

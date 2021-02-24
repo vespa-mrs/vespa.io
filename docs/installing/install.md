@@ -4,15 +4,15 @@ sort: 1
 
 # New Vespa Installation
 
-## Overview
+## Installation Steps
 
-Vespa is a Python package. It requires a Python environment be installed with certain dependencies (all easily obtained) and then Vespa can be automatically installed from the PyPI web site. For historical reasons, the package on PyPI is called Vespa-Suite. As of version 1.0.0, (Jan 2021) Vespa runs under Python 3. 
+Vespa is a Python package. It requires a Python environment be installed with certain dependencies (all easily obtained) and then Vespa can be automatically installed from the PyPI web site. For historical reasons, the package on PyPI is called Vespa-Suite. 
 
-Vespa is an actively developed project that has frequent releases. Once you have it installed, it is simple to upgrade. See the instructions listed in the next section of the documentation.
+Vespa is an actively developed project that has frequent releases. Once you have it installed, it is simple to [Upgrade](upgrade.md). 
 
 _Note. At the moment, Vespa only runs under Python 3.7 due to our conversion from Python 2 to Python 3. Work is under way to make it run under other Python 3.x versions._
 
-The following instructions are based on using the 'miniconda' installation that is part of the Conda package management sytem to install the dependencies that Vespa requires. We are only installing the packages we need for simplicity. You could install these packages yourself using other means, but this method uses conda. Here we go. You'll need to use the command line for most of these instructions. Be careful of typos.
+The following instructions are based on using the 'miniconda' installation, part of the Conda package management sytem, to install the dependencies that Vespa requires. We are only installing the packages we need for simplicity. You could install these packages yourself using other means, but these instructions use conda. Here we go. You'll need to use the command line for most of these instructions. Be careful of typos.
 
 ### Step 1 - Install Python
 
@@ -34,7 +34,7 @@ The last step here is to activate the new python37 environment by typing:
 
 This switches you from whatever virtual conda environment you are currently in, into the 'python37' (or whatever name you chose) environment you just created. All the additional software installation steps will now be applied to that environment.
 
-### Step 2 - Install Vespa's Dependencies
+### Step 2 - Install Vespa Dependencies
 
 At the command line, run this command:
  
@@ -44,14 +44,16 @@ Then run this command:
 
 `>conda install -c conda-forge lmfit pydicom pypubsub `
 
-Then run this command:
+### Step 3 - Now Install the Vespa Package 
+
+At the command line, run this command:
  
 `>pip install packaging pygamma vespa-suite`
 
 
-### Step 3 - Now Install the Vespa Package 
+### Step 4 - Doublecheck Vepsa Dependencies 
 
-Run this command:
+At the command line, run this command:
  
 `>python -m vespa.check_dependencies `
 
@@ -81,40 +83,47 @@ So, this assumes that you have installed Python 3.7.x using miniconda. The comma
 
 3. Enter a name for your Shortcut like “Vespa Analysis”, hit enter. You now have a shortcut that you can modify …
 
-4. Copy the following line (below) into a word process and modify it to match the location of <various things> on your computer. Use a word processor so it is easier to read/type. Then paste that line into the Shortcut 'Target' box. **_Be very careful to get the directory names and all the quote symbols correct!_** 
+4. Copy the following line (below) into a word process and modify it to match the location of <various things> on your computer. Use a word processor so it is easier to read/type. *_Be very careful to get the directory names and all the quote symbols correct!_* 
+
+    ```
+    %windir%\System32\cmd.exe /k ““D:\Users\bsoher\miniconda3\Scripts\activate.bat” “D:\Users\bsoher\miniconda3\envs\python37” && python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py” && exit”
+    ```
+    
+    This tells the Shortcut to do 4 things, in order: 
+
+    - create a Windows cmd.exe window
+    - use a minconda script to activate your Python 3.7 conda environment in the cmd window
+    - run the Vespa Analysis main.py script
+    - when Analysis quits, exit the cmd window 
+
+    Let’s parse these steps and tell you what you need to change for it to work on your computer:
+
+    `%windir%\System32\cmd.exe /k`
+
+    change nothing
+
+    `"“D:\Users\bsoher\miniconda3\Scripts\activate.bat”`
+
+    change path to where your miniconda install lives (note two 'double quotes' at the start of the line)
+
+    `“D:\Users\bsoher\miniconda3\envs\python37”`
+
+    change path to select the conda environment for Python 3.7
+
+    `python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py”`
+
+    change path to where Vespa is installed, usually under “Lib\site-packages\vespa” in your Python 3.7 directory
+
+5. Copy the edited command from your text editor into the Shortcut you created. Right click its icon, click Properties. On “Shortcut” tab, delete all text in the Target line, and paste new command text into Target. Click OK and dialog should close. With luck, you can now click on the Shortcut icon and Vespa Analysis will run.
+
+6. Create new Shortcuts for the other Vespa applications. Create New Shortcuts, or copy/paste this first one, and change the command in each Target box to the Python script that runs Simulation, Pulse, or DataSim by changing the word 'analysis' to either 'simulation', 'pulse', or 'datasim', respectively.
 
 
-The following command that you need to put into the Shortcut "Target" box is all one line. It tells the Shortcut to do 4 things, in order. 
+## Questions?  
 
-- create a Windows cmd.exe window
-- use a minconda script to activate your Python 3.7 conda environment in the cmd window
-- run the Vespa Analysis main.py script
-- when Analysis quits, exit the cmd window 
+If you have any questions, feel free to ask them on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>). 
 
-`%windir%\System32\cmd.exe /k ““D:\Users\bsoher\miniconda3\Scripts\activate.bat” “D:\Users\bsoher\miniconda3\envs\python37” && python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py” && exit”`
 
-Let’s parse this and tell you what you need to change:
+## Other Useful Notes
 
-`%windir%\System32\cmd.exe /k`
-
-change nothing
-
-`"“D:\Users\bsoher\miniconda3\Scripts\activate.bat”`
-
-change path to where your miniconda install lives (note two 'double quotes' at the start of the line)
-
-`“D:\Users\bsoher\miniconda3\envs\python37”`
-
-change path to select the conda environment for Python 3.7
-
-`python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py”`
-
-change path to where Vespa is installed, usually under “Lib\site-packages\vespa” in your Py 3.7 directory
-
-Last step, copy the edited command from your text editor into the Shortcut you created. Right click its icon, click Properties. On “Shortcut” tab, delete all text in the Target line, and paste new command text into Target. Click OK and dialog should close. With luck, you can now click on the Shortcut icon and Vespa Analysis will run.
-
-Create new Shortcuts (or copy/paste this first one) and change the Python script that is run to create shortcuts to run Simulation, Pulse, etc. by changing the word 'analysis' to either 'simulation', 'pulse', or 'datasim' respectively.
-
-## Useful Notes
-
-For OS X and Linux users, we are aware (and maybe you are too) that Python comes preinstalled as part of OS X. The general consensus is that the preinstalled Python belongs to OS X and you shouldn't use it in case you change it in some way that breaks OS X (and vice versa). We recommend that you install another Python instead of using the preinstalled, system Python. This is covered in the installation guide above.
+1. For OS X and Linux users, we are aware (and maybe you are too) that Python comes preinstalled as part of OS X. The general consensus is that the preinstalled Python belongs to OS X and you shouldn't use it in case you change it in some way that breaks OS X (and vice versa). We recommend that you install another Python instead of using the preinstalled, system Python. This is covered in the installation guide above.
