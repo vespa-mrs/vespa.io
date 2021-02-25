@@ -2,8 +2,6 @@
 sort: 2
 ---
 
-# Vespa Application Topics
-
-## Applications
+# Technical Notes
 
 {% include list.liquid %}
