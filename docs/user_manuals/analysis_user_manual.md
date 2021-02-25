@@ -118,10 +118,7 @@ priors:
 > 1.5 T: acquisition and automated spectral analysis*. Magn Reson
 > Imaging;18(9):1159-65 (2000).
 
-*The following sections assume you have downloaded and installed
-Vespa-Analysis. See the Vespa Installation guide on the Vespa main
-project wiki for details on how to install the software and package
-dependencies. <http://scion.duhs.duke.edu/vespa>*.
+*The following sections assume Vespa-Pulse has been downloaded and installed. See the [Vespa Installation guide](../installing/install.md) for details on how to install the software and package dependencies.*
 
 In the following, screenshots are based on running Analysis on the
 Windows OS, but aside from starting the program, the basic commands are
@@ -131,6 +128,14 @@ the same on all platforms.
 
 Double click on the Analysis icon that the installer created on your
 Desktop.
+
+_Alternatively, find the install location for Vespa in miniconda. On my computer it is located in `D:\Users\bsoher\miniconda2\Lib\site-packages\vespa`. Change to that directory and from there you can launch an application by typing in a command window:_
+
+```
+>python analysis\main.py
+```
+
+_or substitute in any other application name to run that application._
 
 Shown below is the Vespa-Analysis main window as it appears on first
 opening. No actual Dataset windows are open, only the ‘Welcome’ banner

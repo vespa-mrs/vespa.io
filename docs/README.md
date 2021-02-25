@@ -12,5 +12,8 @@ The Vespa project addresses software limitations seen across the MRS field, incl
 
 **Other Resources**
 
-The Vespa project and each of its applications have Trac Wiki sites with extensive information about how to use, and develop new functionality for, each application. These can be accessed through the main portal site at 
-<https://scion.duhs.duke.edu/vespa/>
+The Vespa project and each of its applications have GitHub Pages User Manuals (see left) with extensive information about how to use, and develop new functionality, for each application. 
+
+More technical information for the Vespa Project as a whole, and for each application specifically, can be found in the DEVELOPMENT Pages (left)
+
+**_Note. These GitHub Pages are translations of earlier Trac documents. We are still weeding through them to get all the links and formatting sorted out.  Thank you for your patience._**

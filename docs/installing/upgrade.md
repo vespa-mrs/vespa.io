@@ -6,7 +6,7 @@ sort: 2
 
 ## Overview
 
-**_Note. As of Vespa version 1.0.0, Vespa is running under Python 3. If you have a Vespa version less than 1.0.0 it is running under Python 2.7 and can not be upgraded.  You should use the 'New Installation' instructions._**
+**_Note. As of version 1.0.0, Vespa is running under Python 3. If you have a version less than 1.0.0 it is running under Python 2.7 and can not be upgraded.  You should use [the 'New Installation' instructions.](install.md)_**
 
 The instructions below assume that you already have Vespa installed and that it is version 1.0.0 or higher. 
 

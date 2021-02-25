@@ -93,10 +93,7 @@ for example:
 Specific file and directory names will appear in a fixed-width font
 within the main text.
 
-*The following sections assumes Vespa-DataSim has been downloaded and
-installed. See the Vespa Installation guide on the Vespa main project
-wiki for details on how to install the software and package
-dependencies. <http://scion.duhs.duke.edu/vespa>*.
+*The following sections assume Vespa-Pulse has been downloaded and installed. See the [Vespa Installation guide](../installing/install.md) for details on how to install the software and package dependencies.*
 
 In the following, screenshots are based on running DataSim on the
 Windows OS, but aside from starting the program, the basic commands are
@@ -106,6 +103,14 @@ the same on all platforms.
 
 Double click on the DataSim icon that the installer created on your
 Desktop.
+
+_Alternatively, find the install location for Vespa in miniconda. On my computer it is located in `D:\Users\bsoher\miniconda2\Lib\site-packages\vespa`. Change to that directory and from there you can launch an application by typing in a command window:_
+
+```
+>python datasim\main.py
+```
+
+_or substitute in any other application name to run that application._
 
 Shown below is the Vespa-DataSim main window as it appears on first
 opening. No actual DataSim windows are open, only the 'Welcome' banner

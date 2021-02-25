@@ -18,11 +18,11 @@ The following instructions are based on using the 'miniconda' installation, part
 
 Vespa uses 64-bit Python 3.7. We recommend using Miniconda, an automated Python distribution system. These instructions assume that you used Miniconda to install 64-bit Python as described below.
 
-Get the 64-bit Miniconda3 package for your system from here and follow their directions for installing it: <http://conda.pydata.org/miniconda.html>
+Download [the 64-bit Miniconda3 package](https://docs.conda.io/en/latest/miniconda.html) for your system.
 
 As of September 2020, this will install conda with a base Python of version 3.8, but Vespa requires Python 3.7. Not to worry, Miniconda allow you to create virtual environments with any version of Python 3, and this is what we will use to install/run the Vespa package. So, fire up the conda base command window and create your first environment. This is simple (see below) and it is good to do your actual work in a Python environment outside of the base environment.
 
-Create a second environment within your miniconda installation called 'python37' (or whatever you want to name it) by typing:  
+Create a new environment within your miniconda installation called 'python37' (or whatever you want to name it) by typing:  
 
 `>conda create --name python37 python=3.7` 
 
