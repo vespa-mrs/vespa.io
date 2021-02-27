@@ -57,7 +57,7 @@ TOPICS TO BE INCLUDED
 ### Preamble
 As mentioned above, some of this was borrowed from, http://www.possibility.com/Cpp/CppCodingStandard.html, with permission as described here, "If you want to make a local copy of this standard and use it as your own you are perfectly free to do so. That's why I made it! If you find any errors or make any improvements please let me know at tmh@possibility.com."  See also http://www.possibility.com/Tmh and http://www.possibility.com/epowiki/Wiki.jsp.
 
-However, as this is a new gamma standard, if you have any immediate issues, complaints or suggestions then send an email to david.todd@va.gov, or whoever is managing this standard.
+However, as this is a new gamma standard, if you have any immediate issues, complaints or suggestions then send an email to vespa.bugs@gmail.com, or whoever is managing this standard.
 
 ### Introduction
 Standardization is Important. It helps if the standard annoys everyone in some way, so that all members of the team feel they are on the same playing field. 

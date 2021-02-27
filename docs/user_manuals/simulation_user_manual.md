@@ -31,22 +31,13 @@ written in the Python programming language that provides a user friendly
 front end to the GAMMA/PyGAMMA NMR simulation libraries. The
 Vespa-Simulation interface allows users to:
 
-1.  Create and run a simulated Experiment (consisting of one or more
-    spectral simulations) from lists of metabolites and pulse sequences.
-
+1.  Create and run a simulated Experiment (consisting of one or more spectral simulations) from lists of metabolites and pulse sequences.
 2.  Store simulated Experiment results in a database.
-
 3.  Display the results in a flexible plotting/graphing tool.
-
 4.  Compare side-by-side results from one or more simulated Experiments
-
 5.  Output results in text or graphical format
-
-6.  Export/Import experiments, metabolites or pulse sequences from other
-    users
-
-7.  Design and test their own PyGAMMA pulse sequences for addition to
-    the list of pulse sequences available for use in Experiments.
+6.  Export/Import experiments, metabolites or pulse sequences from other users
+7.  Design and test their own PyGAMMA pulse sequences for addition to the list of pulse sequences available for use in Experiments.
 
 ### 1.2 Basic Concepts
 
@@ -134,6 +125,14 @@ Experiment tabs opened side by side for comparison. The functionality of
 all tools will be described in the following sections.
 
 <img src="media_simulation\media\image2.png" style="width:6.5in;height:2.84167in" />
+
+### 1.4 Vespa Forum and Bug Reports
+
+If you have questions, comments or a solution about some topic in Vespa, please post them on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>). 
+
+Pure and simple Bug Reports should be sent to us directly at the main Vespa contact email - **vespa.bugs@gmail.com**. Alternatively, they can be posted on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>), too. Both methods send an email to the Vespa Team. 
+
+*Please remember to paste the Exception report provided by the application if the bug caused a crash.*
 
 ##  2. The Simulation Main Window
 

@@ -10,14 +10,9 @@ Version 1.0.0rc4 - Release date: February 15th, 2021
 
 Developed by:
 
--   **Brian J. Soher, Ph.D.** - Duke University, Department of
-    Radiology, Durham, NC
-
--   **Philip Semanchuk** - Duke University, Department of Radiology,
-    Durham, NC
-
+-   **Brian J. Soher, Ph.D.** - Duke University, Department of Radiology, Durham, NC
+-   **Philip Semanchuk** - Duke University, Department of Radiology, Durham, NC
 -   **Karl Young, Ph.D.** - UCSF, San Francisco, CA
-
 -   **David Todd, Ph.D.** - UCSF, San Francisco, CA
 
 **Developed with support from NIH, grant \# EB008387-01A1**
@@ -30,26 +25,14 @@ Vespa-Analysis is an application written in the Python programming
 language that allows users to interactively read, process and analyze MR
 spectroscopic data. Analysis allows users to:
 
-1.  Read one or more single voxel data files from various standard
-    formats.
-
+1.  Read one or more single voxel data files from various standard formats.
 2.  Perform typical spatial and/or spectral Fourier processing steps.
-
 3.  Apply HLSVD methods to remove unwanted signal components.
-
-4.  Apply iterative time domain + frequency domain metabolite and
-    baseline models to fit MRS data and estimate metabolite signal
-    areas.
-
+4.  Apply iterative time domain + frequency domain metabolite and baseline models to fit MRS data and estimate metabolite signal areas.  
 5.  Observe graphically the results of processing steps ‘on the fly’.
-
-6.  Store processed results and processing settings into a human
-    readable XML format.
-
+6.  Store processed results and processing settings into a human readable XML format.
 7.  Do side-by-side comparison of results from two or more data sets.
-
 8.  Output results in text or graphical format
-
 9.  Exchange data and processing settings between users.
 
 ### 1.2 Basic Concepts
@@ -156,6 +139,14 @@ the Dataset2 tab does not. The functionality of all processing tabs will
 be described further in the following sections.
 
 <img src="media_analysis\media\image4.png" style="width:8.34167in;height:4.09597in" />
+
+### 1.4 Vespa Forum and Bug Reports
+
+If you have questions, comments or a solution about some topic in Vespa, please post them on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>). 
+
+Pure and simple Bug Reports should be sent to us directly at the main Vespa contact email - **vespa.bugs@gmail.com**. Alternatively, they can be posted on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>), too. Both methods send an email to the Vespa Team. 
+
+*Please remember to paste the Exception report provided by the application if the bug caused a crash.*
 
 ##  2. The Analysis Main Window
 

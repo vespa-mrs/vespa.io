@@ -8,14 +8,9 @@ Version 1.0.0rc4 - Release date: February 15^th^, 2021
 
 Developed by:
 
--   **Brian J. Soher, Ph.D.** - Duke University, Department of
-    Radiology, Durham, NC
-
--   **Philip Semanchuk** - Duke University, Department of Radiology,
-    Durham, NC
-
+-   **Brian J. Soher, Ph.D.** - Duke University, Department of Radiology, Durham, NC
+-   **Philip Semanchuk** - Duke University, Department of Radiology, Durham, NC
 -   **Karl Young, Ph.D.** - UCSF, San Francisco, CA
-
 -   **David Todd, Ph.D.** - UCSF, San Francisco, CA
 
 **Developed with support from NIH, grant \# EB008387-01A1**
@@ -24,42 +19,18 @@ Developed by:
 
 ### 1.1 Functionality
 
-Vespa-DataSim is application written in the Python programming language
-that allows users to create simulated MR data sets. DataSim allows users
-to:
+Vespa-DataSim is application written in the Python programming language that allows users to create simulated MR data sets. DataSim allows users to:
 
-1.  Select from existing Vespa-Simulation Experiments in the Vespa
-    database.
-
-2.  Specify a single set of Experiment loop parameters (if more than
-    one) on which to base the DataSim's metabolite basis functions.
-
-3.  Specify the spectral resolution as the bandwidth and number of
-    points in the FIDs.
-
+1.  Select from existing Vespa-Simulation Experiments in the Vespa database.
+2.  Specify a single set of Experiment loop parameters (if more than one) on which to base the DataSim's metabolite basis functions.
+3.  Specify the spectral resolution as the bandwidth and number of points in the FIDs.
 4.  Scale individual metabolite areas.
-
-5.  Create a Voigt lineshape envelope that has a specific T~a~ (T~2~)
-    value for each metabolite and a global T~b~ (T~2~\*) value for the
-    entire Datasim.
-
-6.  Add unlimited Gaussian or Lorentzian spectral peaks with independent
-    area, ppm, linewidth and phase to create simulated macromolecular
-    signals.
-
-7.  Add unlimited Gaussian or Lorentzian spectral peaks with independent
-    area, ppm, linewidth and phase to create simulated baseline signals.
-
-8.  SNR can be set using an independent reference line (not included in
-    spectrum) to maintain RMS noise levels even as metabolite line shape
-    changes.
-
-9.  Output to Vespa-Analysis compatible data format, a simple
-    text/binary header/data format (Siemens \*.rda).
-
-10. Output a single simulated spectrum OR an array of spectra,
-    containing the same signal model but different noise, for use in
-    Monte Carlo evaluations.
+5.  Create a Voigt lineshape envelope that has a specific T~a~ (T~2~) value for each metabolite and a global T~b~ (T~2~\*) value for the entire Datasim.
+6.  Add unlimited Gaussian or Lorentzian spectral peaks with independent area, ppm, linewidth and phase to create simulated macromolecular signals.
+7.  Add unlimited Gaussian or Lorentzian spectral peaks with independent area, ppm, linewidth and phase to create simulated baseline signals.
+8.  SNR can be set using an independent reference line (not included in spectrum) to maintain RMS noise levels even as metabolite line shape changes.
+9.  Output to Vespa-Analysis compatible data format, a simple text/binary header/data format (Siemens \*.rda).
+10. Output a single simulated spectrum OR an array of spectra, containing the same signal model but different noise, for use in Monte Carlo evaluations.
 
 ### 1.2 Basic Concepts
 
@@ -101,8 +72,7 @@ the same on all platforms.
 
 ### 1.3 How to launch Vespa-DataSim
 
-Double click on the DataSim icon that the installer created on your
-Desktop.
+Double click on the DataSim icon that the installer created on your Desktop.
 
 _Alternatively, find the install location for Vespa in miniconda. On my computer it is located in `D:\Users\bsoher\miniconda2\Lib\site-packages\vespa`. Change to that directory and from there you can launch an application by typing in a command window:_
 
@@ -129,6 +99,14 @@ described further in the following sections.
 
 ![](media_datasim\media\image2.png){width="6.5in"
 height="4.9430555555555555in"}
+
+### 1.4 Vespa Forum and Bug Reports
+
+If you have questions, comments or a solution about some topic in Vespa, please post them on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>). 
+
+Pure and simple Bug Reports should be sent to us directly at the main Vespa contact email - **vespa.bugs@gmail.com**. Alternatively, they can be posted on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>), too. Both methods send an email to the Vespa Team. 
+
+*Please remember to paste the Exception report provided by the application if the bug caused a crash.*
 
 ##  2. The DataSim Main Window
 

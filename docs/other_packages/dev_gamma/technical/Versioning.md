@@ -67,4 +67,4 @@ Rebuilding the binaries is necessary because they embed the GAMMA version number
  python setup.py register 
 ```
 1. [PyGammaHowToUploadWheels Upload the wheel files].
-1. You might want to announce the new version on the Vespa email list.
+1. You might want to announce the new version on the Vespa MRSHub Forum.

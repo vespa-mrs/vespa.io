@@ -35,23 +35,13 @@ create/modify algorithms using the integrated design/test dialog.
 **What can Pulse do?**
 
 1.  Create new RF pulse designs from a list of user defined algorithms
-
 2.  Store pulse designs and their design parameters into a database
-
 3.  Re-load previous pulse designs
-
-4.  Display pulse results for each step of the design process in a
-    flexible plotting tool
-
+4.  Display pulse results for each step of the design process in a flexible plotting tool
 5.  Compare side-by-side results from one or more pulse designs
-
-6.  Output results in text or graphical format, including MR
-    manufacturer platform formats
-
+6.  Output results in text or graphical format, including MR manufacturer platform formats
 7.  Export/Import Vespa pulse designs to/from other users
-
-8.  Be an open source test bed for your own algorithms and
-    transformations.
+8.  Be an open source test bed for your own algorithms and transformations.
 
 ### 1.2 Basic Concepts
 
@@ -122,6 +112,14 @@ tools, algorithms and transformation will be described in the
 following sections.
 
 <img src="media_pulse\media\image2.png" style="width:8.56667in;height:3.83795in" />
+
+### 1.4 Vespa Forum and Bug Reports
+
+If you have questions, comments or a solution about some topic in Vespa, please post them on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>). 
+
+Pure and simple Bug Reports should be sent to us directly at the main Vespa contact email - **vespa.bugs@gmail.com**. Alternatively, they can be posted on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>), too. Both methods send an email to the Vespa Team. 
+
+*Please remember to paste the Exception report provided by the application if the bug caused a crash.*
 
 ##  2. Quick Guide – The Nuts and Bolts of Pulse
 

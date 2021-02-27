@@ -123,6 +123,8 @@ So, this assumes that you have installed Python 3.7.x using miniconda. The comma
 
 If you have any questions, feel free to ask them on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>). 
 
+If you want to report a bug, please email us directly at - vespa.bugs@gmail.com.
+
 
 ## Other Useful Notes
 
