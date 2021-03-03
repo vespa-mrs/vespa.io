@@ -38,7 +38,7 @@ This switches you from whatever virtual conda environment you are currently in, 
 
 At the command line, run this command:
  
-`>conda install numpy scipy matplotlib wxPython configobj`
+`>conda install numpy scipy matplotlib wxpython configobj packaging`  (if wxpython does not install, try from conda-forge, next section)
 
 Then run this command:
 
@@ -48,7 +48,7 @@ Then run this command:
 
 At the command line, run this command:
  
-`>pip install packaging pygamma vespa-suite`
+`>pip install  pygamma vespa-suite`
 
 
 ### Step 4 - Doublecheck Vepsa Dependencies 
