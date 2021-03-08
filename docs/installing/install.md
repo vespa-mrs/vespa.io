@@ -10,17 +10,17 @@ Vespa is a Python package. It requires a Python environment be installed with ce
 
 Vespa is an actively developed project that has frequent releases. Once you have it installed, it is simple to [Upgrade](upgrade.md). 
 
-_Note. At the moment, Vespa only runs under Python 3.7 due to our conversion from Python 2 to Python 3. Work is under way to make it run under other Python 3.x versions._
+_Note. At the moment, Vespa has been teste mainly under Python 3.7 due to our conversion from Python 2 to Python 3. Work is under way to make sure it runs under other Python 3.x versions._
 
 The following instructions are based on using the 'miniconda' installation, part of the Conda package management sytem, to install the dependencies that Vespa requires. We are only installing the packages we need for simplicity. You could install these packages yourself using other means, but these instructions use conda. Here we go. You'll need to use the command line for most of these instructions. Be careful of typos.
 
 ### Step 1 - Install Python
 
-Vespa uses 64-bit Python 3.7. We recommend using Miniconda, an automated Python distribution system. These instructions assume that you used Miniconda to install 64-bit Python as described below.
+Vespa has been tested under Python 3.7. We recommend using Miniconda, an automated Python distribution system. These instructions assume that you used Miniconda to install 64-bit Python as described below.
 
 Download [the 64-bit Miniconda3 package](https://docs.conda.io/en/latest/miniconda.html) for your system.
 
-As of September 2020, this will install conda with a base Python of version 3.8, but Vespa requires Python 3.7. Not to worry, Miniconda allow you to create virtual environments with any version of Python 3, and this is what we will use to install/run the Vespa package. So, fire up the conda base command window and create your first environment. This is simple (see below) and it is good to do your actual work in a Python environment outside of the base environment.
+As of September 2020, this will install conda with a base Python of version 3.8, but Vespa has only been tested under Python 3.7. Not to worry, Miniconda allow you to create virtual environments with any version of Python 3, and this is what we will use to install/run the Vespa package. So, fire up the conda base command window and create your first environment. This is simple (see below) and it is good to do your actual work in a Python environment outside of the base environment.
 
 Create a new environment within your miniconda installation called 'python37' (or whatever you want to name it) by typing:  
 
@@ -38,7 +38,7 @@ This switches you from whatever virtual conda environment you are currently in, 
 
 At the command line, run this command:
  
-`>conda install numpy scipy matplotlib wxpython configobj packaging`  (if wxpython does not install, try from conda-forge, next section)
+`>conda install numpy scipy matplotlib wxpython configobj packaging`  (if wxpython does not install, try installing it from conda-forge, as in the next lines below)
 
 Then run this command:
 
@@ -79,11 +79,11 @@ So, this assumes that you have installed Python 3.7.x using miniconda. The comma
 
 1. Right click on your desktop, and create a New Shortcut.
 
-2. In the dialog that pops up, browse for any Python (*.py) file (to get the corresponding icon). You could browse for the Vespa Analysis main.py script now if you want, as you will need this path later.
+1. In the dialog that pops up, browse for any Python (*.py) file (to get the corresponding icon). You could browse for the Vespa Analysis main.py script now if you want, as you will need this path later.
 
-3. Enter a name for your Shortcut like “Vespa Analysis”, hit enter. You now have a shortcut that you can modify …
+1. Enter a name for your Shortcut like “Vespa Analysis”, hit enter. You now have a shortcut that you can modify …
 
-4. Copy the following line (below) into a word process and modify it to match the location of <various things> on your computer. Use a word processor so it is easier to read/type. *_Be very careful to get the directory names and all the quote symbols correct!_* 
+1. Copy the following line (below) into a word process and modify it to match the location of <various things> on your computer. Use a word processor so it is easier to read/type. *_Be very careful to get the directory names and all the quote symbols correct!_* 
 
     ```
     %windir%\System32\cmd.exe /k ““D:\Users\bsoher\miniconda3\Scripts\activate.bat” “D:\Users\bsoher\miniconda3\envs\python37” && python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py” && exit”
@@ -114,9 +114,16 @@ So, this assumes that you have installed Python 3.7.x using miniconda. The comma
 
     change path to where Vespa is installed, usually under “Lib\site-packages\vespa” in your Python 3.7 directory
 
-5. Copy the edited command from your text editor into the Shortcut you created. Right click its icon, click Properties. On “Shortcut” tab, delete all text in the Target line, and paste new command text into Target. Click OK and dialog should close. With luck, you can now click on the Shortcut icon and Vespa Analysis will run.
+1. Copy the edited command from your text editor into the Shortcut you created. Right click its icon, click Properties. On “Shortcut” tab, delete all text in the Target line, and paste new command text into Target. Click OK and dialog should close. With luck, you can now click on the Shortcut icon and Vespa Analysis will run.
 
-6. Create new Shortcuts for the other Vespa applications. Create New Shortcuts, or copy/paste this first one, and change the command in each Target box to the Python script that runs Simulation, Pulse, or DataSim by changing the word 'analysis' to either 'simulation', 'pulse', or 'datasim', respectively.
+1. Create new Shortcuts for the other Vespa applications. Create New Shortcuts, or copy/paste this first one, and change the command in each Target box to the Python script that runs Simulation, Pulse, or DataSim by changing the word 'analysis' to either 'simulation', 'pulse', or 'datasim', respectively.
+
+1. (optional) Your shortcut typically has the default icon applied to it. If you want to use the Vespa icons instead, we have included them in the installed Vespa package for you to apply manually.  Just FYI, the icons you see Vespa using are embedded in the code, so nothing you do to these external *.ico files can mess up the applications
+    1. Right click your shortcut, select Properties
+    1. On the 'Shortcut' tab, click on the 'Change Icon...' button.
+    1. Vespa icons are located in the `~\miniconda2\envs\python27\Lib\site-packages\vespa\icons` directory
+    1. Use the Browse button to select the icon for the Application you are setting up.
+    1. Close the Properties dialog by clicking OK twice and it should appear.
 
 
 ## Questions?  
