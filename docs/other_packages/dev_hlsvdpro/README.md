@@ -2,13 +2,13 @@
 sort: 2
 ---
 
-# The HLSVDPro Package
+# HLSVDPro
 
 This package is a Python wrapper around an algorithm based on the 2002 Laudadio JMR paper that fits of a model function (sum of Lorentzian) to time-domain data via the state space approach. This algorithm uses the PROPACK SVD library to calculate the first (user specified) N singular values, and then create an N line approximation to the data.
 
 As of version 2.0.0 we also provide access to the PROPACK SVD function calls. 
 
-*References/Timeline:*
+**References/Timeline:**
 
 - The state space approach is described in S.Y. Kung, K.S. Arun and D.V. Bhaskar Rao, J. Opt. Soc. Am. 73, 1799 (1983).
 
@@ -24,10 +24,6 @@ As of version 2.0.0 we also provide access to the PROPACK SVD function calls.
   - Structured more modularly, so HLSVDPro module also allows access to the PROPACK SVD function calls.
   - Uses f2py front end to access PROPACK SVD calls
   - HLSVDPro algorithm is organized in Python now, with calls to PROPACK or Scipy for computing the 'fitted' Lorentzian model lines
-
-# Topics
-
-{% include list.liquid %}
 
 
 ## Usage From Python
