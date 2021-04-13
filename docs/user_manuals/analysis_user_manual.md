@@ -679,9 +679,9 @@ coming into the Spectral tab is the ‘summed’ FID time data.
 
 When SVS data is acquired as individual FIDs and/or individual coils, it
 is necessary to pre-process the Raw data into the ‘summed’ FID time data
-format for it to be processed by the Spectral workflow tab. This may
+format that is passed to the Spectral workflow tab. This may
 include: coil combination, data exclusion, summation of individual FIDs
-from a single file or from multiple files and/or frequency shift or zero
+from single/multiple files and/or frequency shift or zero
 order phase corrections for each FID to optimize the summed data. These
 processing step(s) occur in the Preprocess Workflow Tab.
 
@@ -709,7 +709,7 @@ side-by-side.
 
 **Processing Control Panels:** The left panel of the Preprocess tab
 displays widget control sections for performing: coil combination, data
-exclusion and FID correction and averaging. One or more of these
+exclusion, FID correction and FID averaging. One or more of these
 sections may be grayed out depending on the type of data loaded.
 
 **Plot Displays:** The Preprocess tab contains four plots, two spectral
@@ -721,20 +721,19 @@ controls as you change this index. The bottom spectrum plot is the sum
 of all FIDs with the peak shift and phase 0 corrections applied as they
 are currently calculated. Mouse controls in the plot for right/left
 mouse buttons (zoom and reference cursors) act as described in Section
-2.3, except that phase events are a bit more complex. The top right plot
+2.3, except that phase events are a bit more complex. The top left X-Y plot
 shows the alignment of all FIDs in a pseudo-2D waterfall plot. And the
-top right plot can be used to show the values for all FIDs of the first
+top right X-Y plot can be used to show the values for all FIDs of the first
 point in the FID, the calculated B0 shift values, or the calculated
-phase 0 values.
+phase 0 values as selected using the '1D Plot' drop menu .
 
-**Right Button Phase Events** – Phase 0 is only applied to correct
-individual FID data, but a ‘global’ Phase 1 can be applied to correct
-the summed FID data.
+**Right Button Phase Events** – Phase 0/1 can be applied to the middle and
+ bottom spectra as described below:
 
 -   Phase events are only active in the two (spectral) plots in the
     middle and bottom of the screen.
 
--   Top Spectrum Plot Phase 0 – Pressing the right button and moving
+-   Middle Spectrum Plot Phase 0 – Pressing the right button and moving
     up/down will change the Phase 0 correction for (only) the FID
     currently displayed. The value in the Phase 0 widget will have phase
     added/subtracted to it as the mouse moves and the spectrum in the
@@ -876,9 +875,9 @@ summed FID calculation.
     you to ‘push’ the current Peak and Shift values for all FIDs in this
     dataset to all associated datasets.
 
-### 4.3 Coil Combine Algorithms
+### 4.3 Step 1 - Coil Combination
 
-The Coil Combine panel is used to combine data from individual elements
+The Coil Combination panel is used to combine data from individual elements
 of a multi-channel receive RF coil into a single FID before the FIDs are
 summed into a final Summed FID result that is sent on to the Spectral
 Tab. The coil combine panel is **only** available when there are
@@ -887,7 +886,7 @@ data dimension equals 1, then the panel is grayed out.
 
 There are three choices of algorithm for Coil Combination:
 
-1.  'Siemens' – This algorithm is similar to that in the Siemens
+1.  **'Siemens'** – This algorithm is similar to that in the Siemens
     IceSpectroF processing pipeline. Channels are combined using weights
     and phases calculated within each FID acquisition, independent of
     other FIDs. Weights are calculated from the magnitude value of the
@@ -895,7 +894,7 @@ There are three choices of algorithm for Coil Combination:
     square of the group. Zero order phase for each channel is calculated
     as the normalized complex conjugate of the first data point.
 
-2.  'CMRR' – This algorithm is courtesy of Dinesh Deelschand of the CMRR
+2.  **'CMRR'** – This algorithm is courtesy of Dinesh Deelschand of the CMRR
     group in Minnesota. Channels are combined using weights and phases
     calculated from the first FID and then applied equally to all
     subsequent FIDs. Zero order phase for each channel is calculated as
@@ -904,19 +903,19 @@ There are three choices of algorithm for Coil Combination:
     magnitude spectrum of the first FID. The last polynomial is the zero
     order coefficient and thus the channel weight.
 
-3.  'CMRR-Sequential' – This algorithm is the same as the ‘CMRR’
+3.  **'CMRR-Sequential'** – This algorithm is the same as the ‘CMRR’
     algorithm, except that it is applied individually to each FID,
     independent of the others.
 
-### 4.4 Data Exclusion
+### 4.4 Step 2 - FID Exclusion
 
-The Data Exclusion panel is used to remove individual FIDs from the
+The FID Exclusion panel is used to remove individual FIDs from the
 final Summed FID result that is sent on to the Spectral Tab. The data
 exclusion panel is **only** available when there are individual FIDs
 available in the raw data set. If the ‘number of FIDs’ data dimension
 equals 1, then the panel is grayed out.
 
-**Data exclusion is a manual process.** The user adds or removes FID
+**FID exclusion is a manual process.** The user adds or removes FID
 indices to a list (shown in the text field below the ‘Apply Data
 Exclusion check box) and during pre-processing these FIDs are excluded
 from the final Summed FID result. Data exclusion is only applied when
@@ -934,9 +933,9 @@ button. Note that the FID index number nearest to the mouse is listed in
 the status bar as the mouse moves. You can also zoom in/out to better
 select the FID you want.
 
-The bottom plot displays an X-Y plot with three different types of data
+The top right plot X-Y plot can display three different types of data
 to help you decide if a FID should be excluded. The x-axis is always the
-FID index. Use the ‘Plot Display’ drop list widget to select the values
+FID index. Use the ‘1D Plot’ drop list widget to select the values
 along the y-axis to be: 1) the absolute value of the first point of the
 FID, 2) the Peak Shift in Hz for the FID calculated in the Automated
 Data Corrections panel, or 3) the Phase 0 in degrees for the FID
@@ -945,7 +944,7 @@ option 2 or 3 above may be all zeros if you have not performed
 correction calculations yet. You can switch back and forth between these
 three without losing the indices already marked.
 
-The middle plot (summed FID spectrum) is updated as you toggle FID
+The bottom plot (summed FID spectrum) is updated as you toggle FID
 indices. You will only see this plot change if the ‘Apply Data
 Exclusion’ box is checked. This is useful since you can slowly work
 through all FIDs and exclude them one by one, but at the end you can see
@@ -955,86 +954,41 @@ box on/off.
 For your convenience, we list the number of FIDs remaining in the Summed
 FID result to the right of the ‘Plot Display’ widget.
 
-### 4.5 Automated Data Corrections – Peak Shift and Zero Order Phase
+### 4.5 Step 3 - Frequency and Zero Order Phase Corrections 
 
-The spectral quality of the final Summed FID result can sometimes be
-improved by correcting each individual FID for frequency and zero order
-phase errors.
+The spectral quality of the final Summed FID result can sometimes be improved by correcting each individual FID for frequency and zero order phase errors. The algorithms for calculating frequency and phase0 deltas are described below. But, general behaviors of the Tab are given here first.
 
-This panel allows the user to control Peak Shift and Phase0 correction
-processing. These algorithms are only performed when the ‘Calculate
-Corrections’ button is pressed. The user can turn each correction on/off
-using the ‘Apply Peak Shift’ and ‘Apply Phase0’ check boxes,
-respectively. If the box is checked, the algorithm is run and the Peak
-Shift and/or Phase0 results are updated. If the box is NOT checked, that
-algorithm is not run, but the values currently set for that variable are
-NOT changed either. Use the ‘Reset Peak Shifts’ or ‘Reset Phase0 Values’
-buttons to set these values back to zero for all FIDs.
+This panel allows the user to control Peak Shift and Phase0 correction processing. The selected algorithm is only performed when the ‘Calculate Corrections’ button is pressed (in Adjustments panel). Once calculated, the user can then control whether the corrections are applied by using the ‘Apply Peak Shift’ and ‘Apply Phase0’ check boxes, respectively (also in the Adjustments panel). Turning these on/off are a good way to check on the effect of the algorithms. Note. calculated correction values are not changed by turning them on/off. Use the ‘Reset Peak Shifts’ or ‘Reset Phase0 Values’ buttons to set these values back to zero for all FIDs.
 
-As you change the ‘FID Index’ widget value, the calculated values for
-Peak Shift and Phase0 are updated in the ‘Peak Shift \[Hz\]’ and ‘Phase
-0 \[deg\]’ widgets. You can also plot these values in the bottom plot as
-an X-Y plot for each FID index using the ‘Plot Display’ drop list widget
-in the Data Exclusion panel.
+As you change the ‘FID Index’ widget value, the calculated values for Peak Shift and Phase0 are updated in the ‘Peak Shift \[Hz\]’ and ‘Phase 0 \[deg\]’ widgets. You can also plot these values in the top right plot as an X-Y plot for each FID index using the ‘1D Plot’ drop list widget in the 'Results and Display' panel.
 
-**Peak Shift Algorithm** – Shifts (in Hz) are calculated relative to the
-reference peak and search width specified by the user. Each FID is
-transformed into the frequency domain and a peak search is performed in
-the reference peak +/- search width region of the magnitude data for the
-max peak. This correction is applied (if turned on) prior to Phase0
-corrections.
+**Frequency and Phase Correction Algorithms** – Use the 'Method' drop list to select the algorithm to use to calculate both frequency and phase corrections. The widgets displayed in the panel will change depending on the inputs the algorithm requires.
 
-**Phase0 Algorithm** – Zero order phase corrections (in degrees) are
-calculated relative to a ‘standardized’ frequency spectrum created by
-summing all FIDs and transforming this into the frequency domain. If
-Shift corrections are calculated already, these are applied to this step
-as well. Phase 0 corrections for each FID are optimized to maximize a
-correlation function of the phased individual FID to the ‘standardized’
-spectrum in the range specified by the user. Note, that if the phase of
-the peak(s) in the user defined region do not show an absorption
-spectrum, then the resultant corrected FIDs will not either.
+- All methods compare each FID against a 'target' spectrum which is compose of some/all of the FIDs averaged together. The 'Target Spectrum Method' drop menu controls which FIDs are averaged.
+- **Optimized Search (vespa)** - Requires a search region  for both peak search and phase correction calculations (PPM center/width and start/end, respectively). Frequency shift is calculated from the max value of the search range of each FID's magnitude spectrum. The FID is shift corrected, then phase range is optimized by least squares comparison of the FID to the target spectrum.  
+- **Correlation (vespa)** - This algorithm is very similar to the one used in the Fit Tab to set initial values for B0 and Phase. The inputs for this algorithm are a bit more complicated, thus they are set in a pop-up dialog that is launched via the 'Dialog for Preprocessing Prior Settings' button. The user creates a (simplified) ideal spectrum used to correct each FID and sets ranges for B0 and phase correction (PPM start/end). B0 is calculated by shifting the FID through the B0 range and correlating the FID to the ideal spectrum. The absolute max correlation is taken as the B0 shift. The FID is B0 corrected and then the phase range is optimized by least squares comparison of the correlation of the FID to the target spectrum across a series of zero order phase values.
+- **Spectral Registration (suspect)** - This algorithm is based on the RATS algorithm in the Suspect package (https://github.com/openmrslab/suspect), which references: Near, J., Edden, R., Evans, C. J., Paquin, R., Harris, A., & Jezzard, P. (2014). Frequency and phase drift correction of magnetic resonance spectroscopy data by spectral registration in the time domain. Magnetic Resonance in Medicine, 73(1), 44–50.
+- **RATS (suspect)** - This algorithm is based on the RATS algorithm in the Suspect package (https://github.com/openmrslab/suspect), which references: Wilson, M. (2018). Robust retrospective frequency and phase correction for single-voxel MR spectroscopy. Magnetic Resonance in Medicine, 81(5), 2878–2886.
+
+### 4.6 Step 4 - Summed FID Creation and Manual Adjustments
+
+This panel allows the user to control which of the three steps above are included in the final summed FID creation. Results from Steps 1-3 can be turned on/off or reset. The summed FID can be left shifted and have additional zero or first order phase added. To simplify the plots, apodization can be applied, but is not part of the final summed FID passed to the Spectral tab.
 
 ##  5. Workflow Tab – Spectral
 
 ### 5.1 General
 
-When a Dataset Tab is added to the Notebook, it automatically has two
-Workflow Tabs added to it called Raw and Spectral. The top line of
-controls includes (as in all Workflow Tabs) the filename of the
-displayed data, the x-voxel index, and the y-scale of the plot in the
-workflow tab. You can step through each spectrum in the dataset by
-increasing or decreasing the index in the ‘x-voxel’ widget. Parameter
-values specific to each spectrum are automatically updated in the
-widgets of each workflow tab. The y-scale on the plot can be adjusted by
-clicking on the arrows in the Scale control, typing in a value or using
-the roller ball on the mouse while in the plot.
+When a Dataset Tab is added to the Notebook, it automatically has two Workflow Tabs added to it called Raw and Spectral. The top line of controls includes (as in all Workflow Tabs) the filename of the displayed data, the x-voxel index, and the y-scale of the plot in the workflow tab. You can step through each spectrum in the dataset by increasing or decreasing the index in the ‘x-voxel’ widget. Parameter values specific to each spectrum are automatically updated in the widgets of each workflow tab. The y-scale on the plot can be adjusted by clicking on the arrows in the Scale control, typing in a value or using the roller ball on the mouse while in the plot.
+
+There are two workflow sub-tabs on the Spectral Workflow Tab. They are displayed along the top edge and are called ‘General Parameters’ and ‘SVD Filter Parameters’. 
 
 <img src="media_analysis\media\image13.png" style="width:6.56667in;height:4.44353in" />
 
-There are two workflow tabs on the Spectral Workflow Tab. They are
-displayed along the top edge and are called ‘General Parameters’ and
-‘SVD Filter Parameters’. The Spectral – General Parameters sub-tab
-provides controls for most of the typical processing steps involved in
-spectral processing including: eddy current correction, signal
-filtering, zero fill, signal apodization, B0 shift, zero and first order
-phase, first order phase pivot, DC offset, left shift and other
-convenience settings for interactive display of the results from
-changing these processing steps. Most results from changing setting in
-the Spectral tab are displayed in the plot windows as they are made.
-
-As shown in this figure, the eddy current correction and signal filter
-controls can be set to ‘None’ and have no sub-panel of controls showing.
-Or, a filtering method can be selected from the drop menu and a
-sub-panel of controls displayed for that particular algorithm. Due to
-the complexity of user interactions with the eddy current correction and
-signal filter panels, these controls are described in more detail in
-subsequent sections. However, due to the many possible ways of applying
-the results of the SVD filter, we have created an interactive sub-tab,
-SVD Filter Parameters, for you to use to visually examine the results of
-applying various results before applying them in the actual data
-processing.
-
 ### 5.2 On the Spectral – General Parameters Workflow Tab
+
+The General Parameters sub-tab provides controls for most of the typical processing steps involved in spectral processing including: eddy current correction, signal filtering, zero fill, signal apodization, B0 shift, zero and first order phase, first order phase pivot, DC offset, left shift and other convenience settings for interactive display of the results from changing these processing steps. Most results from changing setting in the Spectral tab are displayed in the plot windows as they are made.
+
+As shown in the figure, the eddy current correction and signal filter controls can be set to ‘None’ and have no sub-panel of controls showing. Or, a filtering method can be selected from the drop menu and a sub-panel of controls displayed for that particular algorithm. Due to the complexity of user interactions with the eddy current correction and signal filter panels, these controls are described in more detail in subsequent sections. However, due to the many possible ways of applying the results of the SVD filter, we have created an interactive sub-tab, SVD Filter Parameters, for you to use to visually examine the results of applying various results before applying them in the actual data processing.
 
 -   **Sync** - (check) Flag for whether to sync changes made to the main
     data to whatever data is selected in the PlotB drop menu. Not all
@@ -1342,12 +1296,7 @@ from version 0.5.0 onward.
 
 ### 5.7 Mouse Events in the Spectral – SVD Filter Parameters Plot
 
-The SVD Filtering Parameters sub-tab has a plot that always has three
-axes drawn. We will typically refer to these as top, middle and bottom
-plots. The top plot displays the dataset without any water filtering.
-The middle plot displays an overlay plot of green lines of all the model
-results that are checked. The bottom plot displays the middle (results)
-plot subtracted from the top (data) plot.
+The SVD Filtering Parameters sub-tab has a plot that always has three axes called the top, middle and bottom plots. The top plot displays the dataset without any water filtering. The middle plot displays an overlay plot of green lines of all the model results that are checked. The bottom plot displays the middle (results) plot subtracted from the top (data) plot.
 
 Most mouse events in the plot are as described above in Section 2.3.
 
@@ -1979,42 +1928,25 @@ chosen, different parameter panels may be displayed below the drop list.
 
 #### 6.4.5 On the Optimize Panel
 
-On this control panel you select the general parameters for the
-optimization algorithm, set up the constraints on the Metabolite model,
-and create a Weighting schema to use in the least squares calculation.
+On this control panel you select the general parameters for the optimization algorithm, set up the constraints on the Metabolite model, and create a Weighting schema to use in the least squares calculation.
 
-<img src="media_analysis\media\image25.png" style="width:6.50833in;height:4.48333in" />
+<img src="media_analysis\media\image25.png" style="width:6.6in;height:6.5in" />
 
--   **Optimization Algorithm** - These settings pertain to the
-    optimization algorithm in general.
+- **Algorithm** - (drop list) Selects the optimization algorithm from: None, Constrained Levenburg-Marquardt, LMFIT default, and LMFIT with Jacobian. The image above shows the panel with Constrained Levenburg-Marquardt selected. An additional panel is displayed if any of the LMFIT options are selected (see below).
 
--   **Algorithm** - (drop list) Selects the optimization algorithm from
-    None or Constrained Levenburg-Marquardt list.
+    - **Constrained Levenburg-Marquardt** - This method is based on "CURFIT", a least squares fit to a non-linear function, pages 237-239, Bevington, Data Reduction and Error Analysis for the Physical Sciences. A 'hard-wall mirroring' boundary mechanism has been added to this algorithm to allow users to bound the search space.
+    
+    - **LMFIT default and LMFIT with Jacobian** - Both choices use the **lmfit** package from PyPI. Docs available at: https://lmfit.github.io/lmfit-py/.  This method wraps the scipy 'least_squares' routine, which allows the user to specify a function to evaluate the model function Jacobian, or (by default) will estimate the Jacobian using a '2-point' method. The Vespa-Analysis Voigt model provides a Jacobian calculation, but sometimes it is good to check results using the estimation method as well.
 
--   **Parameter Scaling** - (check) If checked, maintains a workable
-    range between parameters in optimization by scaling prior to the
-    fit, and then un-scaling after the parameters are optimized. This
-    does not affect results.
+- **Parameter Scaling** - (check) If checked, maintains a workable range between parameters in optimization by scaling prior to the fit, and then un-scaling after the parameters are optimized. This does not affect results.
 
--   **Global Iterations** - (spin control) Sets the total number of
-    baseline/metabolite iterations that are performed before stopping
-    the optimization.
+- **Global Iterations** - (spin control) Sets the total number of baseline/metabolite iterations that are performed before stopping the optimization.
 
--   **Stop Tolerance** - (spin control) float. Tolerance between
-    iteration inside LM algorithm (recommend 0.01 to 0.001).
+- **Stop Tolerance** - (spin control) float. Tolerance between iteration inside LM algorithm (recommend 0.01 to 0.001).
 
--   **Max Matrix Iter** - (spin control) For iterations inside the LM
-    algorithm (recommend only 20-100).
+- **Max Matrix Iter** - (spin control) For iterations inside the LM algorithm (recommend only 20-100).
 
--   **Constraints for Metabolite Model Parameters**
-
-    -   **&lt;various&gt;** - (spin control) These controls set the
-        range +/- around the initial value that the optimization
-        searches to find a result. The Ta and Tb ranges show what the
-        min or max line width range would be when both have the same min
-        and max range.
-
--   **Optimization Weight Calculation**
+- **Optimization Weight Calculation**
 
     -   **Weight Scheme** - (drop list) Select the weight array creation
         from Equal Weighting and Local Weighting methods. Equal method
@@ -2051,6 +1983,15 @@ and create a Weighting schema to use in the least squares calculation.
         fits to these smaller peaks to have more emphasis in the least
         squares calculation. Recommend (1-5).
 
+- **Bounds for Model Parameters**
+
+    - **&lt;various&gt;** - (spin control) These controls set the range +/- around the initial value that the optimization searches to find a result. Bounds are divided into those for individual metabolites (areas and frequencies) and those applied globally (phase and lineshape). If the 'Enable' boxes are checked, bounds can be further divided into 'Large' and 'Small' metabolite categories. 'Large' metabolites include: NAA, Cr, Cho, mIno and Glu/Glx. Note. The Ta and Tb ranges show what the min or max line width range would be when both have the same min and max Ta/Tb values.
+
+- **Inequality Constraints for Metabolite Model Parameters (LMFIT only)** - the LMFIT code allows us to set all the bounds listed above, but also include inter-metabolite constraints as well. One example would we maintaining at least 0.03 ppm separation between the NAA and NAAG basis functions if they were both included in a fit. The available constraints are shown in the Figure above in the panel labelled 'Constraints between Metabolite Model Paramters'. These are mainly frequency separation requirements, such as between:  NAAG to NAA, PCr to Cr, PCho to GPc, PCr2 to Cr2, Gln to Glu and Glc to Tau. Users can choose these constraints by checking the box next to each one. If the metabolites for a given constraint are NOT included in the fitting model, the check box will not be activated.
+
+<img src="media_analysis\media\image25a.png" style="width:6.6in;height:7.5in" />
+
+    
 #### 6.4.6 On the Quality Panel
 
 On this control panel you set up the calculation of Confidence Limits
@@ -2144,8 +2085,6 @@ metabolite results in HTML tabular form. Dataset2, which is not active,
 contains a fitted water spectrum used as the reference peak for the
 calibration algorithm.
 
-### 
-
 ### 7.2 Calibration/Quantitation Algorithm
 
 In general, the algorithm can be stated as:
@@ -2155,7 +2094,7 @@ In general, the algorithm can be stated as:
 Where metabArea and waterArea are Fitting values calculated in the two
 Datasets.
 
-### 7.3 On the Spectral – General Parameters Sub-tab
+### 7.3 On the Quantitation Control Panel
 
 There are 5 panels on the Quant workflow tab:
 

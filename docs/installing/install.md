@@ -10,13 +10,15 @@ Vespa is a Python package. It requires a Python environment be installed with ce
 
 Vespa is an actively developed project that has frequent releases. Once you have it installed, it is simple to [Upgrade](upgrade.md). 
 
-_Note. At the moment, Vespa has been teste mainly under Python 3.7 due to our conversion from Python 2 to Python 3. Work is under way to make sure it runs under other Python 3.x versions._
+_Note. Vespa has been tested mainly under Python 3.7 due to our conversion from Python 2 to Python 3. Work is under way to make sure it runs under other Python 3.x versions._
 
-The following instructions are based on using the 'miniconda' installation, part of the Conda package management sytem, to install the dependencies that Vespa requires. We are only installing the packages we need for simplicity. You could install these packages yourself using other means, but these instructions use conda. Here we go. You'll need to use the command line for most of these instructions. Be careful of typos.
+The following instructions are based on using the 'Miniconda' installation, part of the Conda package management sytem, to install the dependencies that Vespa requires. We are only installing the packages we need for simplicity. You could install these packages yourself using other means, but these instructions use conda. 
 
-### Step 1 - Install Python
+You'll need to use the command line for most of these instructions. Be careful of typos.
 
-Vespa has been tested under Python 3.7. We recommend using Miniconda, an automated Python distribution system. These instructions assume that you used Miniconda to install 64-bit Python as described below.
+### Step 1 - Install Python (using Miniconda)
+
+Vespa has been tested under Python 3.7. These instructions assume that you used Miniconda to install 64-bit Python as described below.
 
 Download [the 64-bit Miniconda3 package](https://docs.conda.io/en/latest/miniconda.html) for your system.
 
@@ -83,7 +85,7 @@ So, this assumes that you have installed Python 3.7.x using miniconda. The comma
 
 1. Enter a name for your Shortcut like “Vespa Analysis”, hit enter. You now have a shortcut that you can modify …
 
-1. Copy the following line (below) into a word process and modify it to match the location of <various things> on your computer. Use a word processor so it is easier to read/type. *_Be very careful to get the directory names and all the quote symbols correct!_* 
+1. Copy the following line (below) into a word process and modify it to match the locations of your Miniconda and Vespa installations on your computer. Detailed instructions are listed below. Use a word processor so it is easier to read/type. *_Be very careful to get the directory names and all the quote symbols correct!_* 
 
     ```
     %windir%\System32\cmd.exe /k ““D:\Users\bsoher\miniconda3\Scripts\activate.bat” “D:\Users\bsoher\miniconda3\envs\python37” && python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py” && exit”
