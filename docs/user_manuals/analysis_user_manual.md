@@ -1438,49 +1438,30 @@ below with the results tab displayed.
 
 <img src="media_analysis\media\image16.png" style="width:6.41667in;height:5.9765in" />
 
-There are also three buttons along the bottom of the tab just above the
+There are also four controls along the bottom of the tab just above the
 ‘Fitting’ tab itself. These are visible regardless which Fitting
 workflow tab is selected.
 
--   **Update Initial Values** - (button) Most initial value parameter
-    changes are automatically reflected on the plot. This button allows
-    you to force a recalculation of these values.
+- **Update Initial Values** - (button) Most initial value parameter changes are automatically reflected on the plot. This button allows you to force a recalculation of these values. This is particularly needed if the 'Auto' box is not checked.
 
--   **Fit the Spectrum** - (button) Triggers a fit of the data using the
-    current set of parameters. Progress messages about the various steps
-    of the fitting process are displayed in the status bar. Plots and
-    the Results tab are updated automatically at the end of each fit.
+- **Auto** - (Check) Flag for whether initial value recalculations are done automatically when a widget is changed, or only when the 'Update Initial Values' button is hit. When 'on', any change in the Metabolites or Initial Values sub-tabs will trigger a recalculation of initial values. This calculation can take a noticable amount of time if more than 10 metabolites are selected for the model, OR if many widgets are being changed at once. One example of this is when you are selecting various metabolites to be on/off in the model. During that time, you may want to uncheck the Auto box until your selections are all made.
+    
+- **Fit the Spectrum** - (button) Triggers a fit of the data using the current set of parameters. Progress messages about the various steps of the fitting process are displayed in the status bar. Plots and the Results tab are updated automatically at the end of each fit.
 
--   **Batch Fit All Voxels** - (button) Triggers a fit of all voxels as
-    if you had manually clicked to each Location-X setting and hit the
-    ‘Fit the Spectrum’ button. Progress messages about the various steps
-    of the fitting process are displayed in the status bar.
+- **Batch Fit All Voxels** - (button) Triggers a fit of all voxels as if you had manually clicked to each Location-X setting and hit the ‘Fit the Spectrum’ button. Progress messages about the various steps of the fitting process are displayed in the status bar.
 
 #### 6.2.1 On the Menu Bar
 
 There are some additional menu items on the Fitting tab not available on
 other tabs.
 
--   **View→NumberOfPlots** - The Fitting workflow tab can display
-    between one and four axes drawn in the plot panel to the right.
-    These are typically referred to as Plots A through D. The plot
-    number is set in the View menu. Each of the four plots has its own
-    control menu in the menu bar.
+- **View→NumberOfPlots** - The Fitting workflow tab can display between one and four axes drawn in the plot panel to the right. These are typically referred to as Plots A through D. The plot number is set in the View menu. Each of the four plots has its own control menu in the menu bar.
 
--   **Plot A (B,C,D)→Plot Type** - There are 14 different plot types
-    that can be displayed. For example, in the figure above, Plot A
-    shows “Raw and InitialModel” , Plot B shows “Raw and Base” , Plot C
-    shows “Raw and (Fit+Base)” and Plot D shows “Raw-Fit-Base” or the
-    residual spectrum.
+- **Plot A (B,C,D)→Plot Type** - There are 14 different plot types that can be displayed. For example, in the figure above, Plot A shows “Raw and InitialModel” , Plot B shows “Raw and Base” , Plot C shows “Raw and (Fit+Base)” and Plot D shows “Raw-Fit-Base” or the residual spectrum.
 
--   **Plot A (B,C,D)→Data Type** - Data shown in each plot can be Real,
-    Imaginary or Complex. If the data in the plot consists of 2 or more
-    summed contributions (such as metabolite bases in the fitted data
-    result) you can select to see that result as either Summed or
-    Individual plots.
+- **Plot A (B,C,D)→Data Type** - Data shown in each plot can be Real, Imaginary or Complex. If the data in the plot consists of 2 or more summed contributions (such as metabolite bases in the fitted data result) you can select to see that result as either Summed or Individual plots.
 
-See Section 2.2 for a review of the other menu bar commands and
-selections that affect the plots and output options.
+See Section 2.2 for a review of the other menu bar commands and selections that affect the plots and output options.
 
 ### 6.3 Mouse Events in the Plot
 
@@ -1488,19 +1469,11 @@ Most mouse events in the plot are as described above in Section 2.3.
 
 ### 6.4 Voigt Algorithm Parameter Control Panels
 
-Control widgets for Voigt fitting algorithm parameters are located in a
-notebook whose tabs are arrayed along the top of the left hand panel.
-These include: Metabolites, Initial Values, Baseline, Optimize, Quality
-and Results. Parameter values in these tabs typically apply to all
-voxels. Only the results panel is updated as you navigate through the
-Location-X widget. The controls in each panel are described in more
-detail below
+Control widgets for Voigt fitting algorithm parameters are located in a notebook whose tabs are arrayed along the top of the left hand panel. These include: Metabolites, Initial Values, Baseline, Optimize, Quality and Results. Parameter values in these tabs typically apply to all voxels. Only the results panel is updated as you navigate through the Location-X widget. The controls in each panel are described in more detail below
 
 #### 6.4.1 On the Metabolites Panel
 
-On this control panel, you select the source of prior information for
-the metabolite model. You can also specify which metabolites are
-included in the spectral model and manually modify starting values.
+On this control panel, you select the source of prior information for the metabolite model. You can also specify which metabolites are included in the spectral model and manually modify starting values.
 
 <img src="media_analysis\media\image17.png" style="width:5.9404in;height:6.03268in" />
 
@@ -1858,51 +1831,19 @@ or
         in both Fixed and Variable Knot options. Polynomial power value
         of the splines used in the model.
 
-**Notes on Baseline Algorithms**
+**Notes on Baseline Algorithms (deprecated) **
 
-Use of the **wavelet filter baseline estimate** requires that you have
-installed the **pywavelet** module. Details on this can be found in the
-Analysis wiki, here:
+Vespa-Analysis no longer **requires** the pywavelet module, but will use it if it exists in your envionment. 
 
-<http://scion.duhs.duke.edu/vespa/analysis/wiki/PyWavelets>
+Wavelets are a great way to ‘dial in’ a baseline estimate that has a fixed amount of smoothness relative to a reasonable range of metabolite linewidths. That is, the baseline rate of change is fixed by the minimum dyad scale being used, which in turn is determined by some multiple of the calculated FWHM linewidth for a metabolite singlet peak. In some cases, typically when there are a few areas with very narrow linewidths, the minimum dyad scale can ‘jump’ up and down leading to small but noticeable regional differences in peak areas. The Wavelet Dyad Min Scale control can be used to mitigate this effect.
 
-Wavelets are a great way to ‘dial in’ a baseline estimate that has a
-fixed amount of smoothness relative to a reasonable range of metabolite
-linewidths. That is, the baseline rate of change is fixed by the minimum
-dyad scale being used, which in turn is determined by some multiple of
-the calculated FWHM linewidth for a metabolite singlet peak. In some
-cases, typically when there are a few areas with very narrow linewidths,
-the minimum dyad scale can ‘jump’ up and down leading to small but
-noticeable regional differences in peak areas. The Wavelet Dyad Min
-Scale control can be used to mitigate this effect.
+Both **fixed and variable spline baseline methods** use the scipy.interpolate.splrep() method, which is based on the FORTRAN routine curfit from FITPACK. It finds the b-spline representation of a 1-D curve given the set of data points (x\[i\], y\[i\]) it determines a smooth spline approximation of degree k on the interval xb &lt;= x &lt;= xe. The fixed spline representation places knots based on the user set spacing. The farther apart the knots, generally the smoother the spline baseline estimate. The variable knot representation uses the 's' smoothing condition that splrep can take to determine the tradeoff between closeness of knots and smoothness of the fit. Larger s means more smoothing while smaller values of s indicate less smoothing. See scipy docs for scipy.interpolate.splrep for more details.
 
-Both **fixed and variable spline baseline methods** use the
-scipy.interpolate.splrep() method, which is based on the FORTRAN routine
-curfit from FITPACK. It finds the b-spline representation of a 1-D curve
-given the set of data points (x\[i\], y\[i\]) it determines a smooth
-spline approximation of degree k on the interval xb &lt;= x &lt;= xe.
-The fixed spline representation places knots based on the user set
-spacing. The farther apart the knots, generally the smoother the spline
-baseline estimate. The variable knot representation uses the 's'
-smoothing condition that splrep can take to determine the tradeoff
-between closeness of knots and smoothness of the fit. Larger s means
-more smoothing while smaller values of s indicate less smoothing. See
-scipy docs for scipy.interpolate.splrep for more details.
-
-Note. In Analysis baseline smoothing factor widget value (for variable
-knot) is directly related to the ‘s’ value. Generally, the allowed range
-of 1-100 (unit-less) is mapped internally to a semi-linear increasing
-value of ‘s’ that was determined empirically for a variety of MRS single
-voxel data. In general, we only recommend the use of the variable spline
-baseline if the wavelet filter and fixed spline baseline routines have
-failed, due to the non-linear performance of this routine.
+Note. In Analysis baseline smoothing factor widget value (for variable knot) is directly related to the ‘s’ value. Generally, the allowed range of 1-100 (unit-less) is mapped internally to a semi-linear increasing value of ‘s’ that was determined empirically for a variety of MRS single voxel data. In general, we only recommend the use of the variable spline baseline if the wavelet filter and fixed spline baseline routines have failed, due to the non-linear performance of this routine.
 
 #### 6.4.4 On the Macromol Panel
 
-On this control panel you select a model for accounting for
-macromolecular signal components (at the moment, there is only one) and
-set the parameters for applying that model. Depending on the model
-chosen, different parameter panels may be displayed below the drop list.
+On this control panel you select a model for accounting for macromolecular signal components (at the moment, there is only one) and set the parameters for applying that model. Depending on the model chosen, different parameter panels may be displayed below the drop list.
 
 <img src="media_analysis\media\image24.png" style="width:6.48333in;height:4.35833in" />
 
@@ -2184,7 +2125,7 @@ active Dataset Tab and selected Workflow Tab. Select the
 **Plot to EPS** item. The user will be prompted to pick an output
 filename to which will be appended the appropriate suffix.
 
-### 8.3 (Fitting Tab only) Fitting Plot/Text results to Standard Layouts 
+### 8.3 (Fitting/Quant Tabs) Fitting Plot/Text results to Standard Layouts 
 
 The main differences between this option and the two above is that this
 option is only available in the Fitting tab, and the format layouts are
@@ -2199,25 +2140,22 @@ outputs are image based (PDF and PNG) although they contain text within
 the image. Also, the plots are currently constrained to plot between 5.0
 and 0.0 ppm.
 
-**  
-View→ResultsToFile→LCM Layout**
+**View→ResultsToFile→LCM Layout and LMC Layout Multi (Fit/Quant)**
+- 'LCM Layout' - is a single page plot and table layout that outputs to PDF similar to LCModel.
+- 'LCM Layout Multi' - Begins with the same first page as 'LCM Layout' but then adds multiple additional pages to the PDF file with overlay plots of each metabolite (and macromolecule) and baseline signal on top of the raw data.
 
 <img src="media_analysis\media\image30.png" style="width:5.00833in;height:3.86667in" />
 
-**View→ResultsToFile→Analysis 2 Plot Layout**
+**View→ResultsToFile→Analysis 2 Plot Layout (Fit)**
 
 <img src="media_analysis\media\image31.png" style="width:5.15833in;height:3.975in" />
 
-**  
-View→ResultsToFile→ Analysis 4 Plot Layout**
+**View→ResultsToFile→ Analysis 4 Plot Layout (Fit)**
 
-Plot 1 - Fit+Baseline (green) overlaid on Raw Data (black)
-
-Plot 2 – Baseline (purple) overlaid on Raw Data (black)
-
-Plot 3 – Fit (green) overlaid on Raw Data – Baseline (black)
-
-Plot 4 – Residual data (Raw – Fit – Baseline) (black)
+- Plot 1 - Fit+Baseline (green) overlaid on Raw Data (black)
+- Plot 2 – Baseline (purple) overlaid on Raw Data (black)
+- Plot 3 – Fit (green) overlaid on Raw Data – Baseline (black)
+- Plot 4 – Residual data (Raw – Fit – Baseline) (black)
 
 <img src="media_analysis\media\image32.png" style="width:5.76667in;height:5.76667in" />
 
