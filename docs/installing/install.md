@@ -20,11 +20,13 @@ You'll need to use the command line for most of these instructions. Be careful o
 
 Vespa has been tested under Python 3.7. These instructions assume that you used Miniconda to install 64-bit Python as described below.
 
-Download [the 64-bit Miniconda3 package](https://docs.conda.io/en/latest/miniconda.html) for your system.
+Download [the 64-bit Miniconda3 package](https://docs.conda.io/en/latest/miniconda.html) for your system. Note - we recommend installing miniconda 'for yourself' vs 'all users' as this installs the 'miniconda3' subdirectory in your home directory. We assume for some hard coded paths below that this is the case.
 
-As of September 2020, this will install conda with a base Python of version 3.8, but Vespa has only been tested under Python 3.7. Not to worry, Miniconda allow you to create virtual environments with any version of Python 3, and this is what we will use to install/run the Vespa package. So, fire up the conda base command window and create your first environment. This is simple (see below) and it is good to do your actual work in a Python environment outside of the base environment.
+As of September 2020, this will install conda with a base Python of version 3.8 or 3.8, but Vespa has only been tested under Python 3.7. Not to worry, Miniconda allow you to create virtual environments with any version of Python 3, and this is what we will use to install/run the Vespa package. So, fire up the conda base command window and create your first environment. This is simple (see below) and it is good to do your actual work in a Python environment outside of the base environment.
 
-Create a new environment within your miniconda installation called 'python37' (or whatever you want to name it) by typing:  
+Start an Anaconda (aka 'miniconda') command prompt (on Win10) by clicking the Start button, scrolling down the Programs file list to Anaconda, and selecting "Anaconda Prompt".
+
+In the Anaconda prompt, create a new environment within your miniconda installation called 'python37' (or whatever you want to name it) by typing:  
 
 `>conda create --name python37 python=3.7` 
 
