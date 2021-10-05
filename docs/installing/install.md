@@ -61,11 +61,15 @@ At the command line, run this command:
  
 `>python -m vespa.check_dependencies `
 
-If that goes OK, run this command: 
+_**Note. For Linux Ubuntu 20.04 (minimal install) check_dependencies.py found that the fftw3 package was not installed. As this was a Linux dependency, not a Python module, I installed it manually using apt-get at the command line.**_
+
+### Step 5 (optional) - Create Shortcuts on Desktop to Run Vespa  
+
+At the command line, run this command: 
 
 `>python -m vespa.create_shortcuts`
 
-_**Note. The last step may not work under Windows (Thanks, Microsoft!). So, see below if you want to manually set up Shortcuts on the Windows Desktop for running the Vespa apps.**_ 
+_**Note. Automated Windows shortcut creation may no longer work under Win10 (Thanks, Microsoft!). So, see below if you want to manually set up Shortcuts on the Windows Desktop for running the Vespa apps.**_ 
 
 And, You're Done! Double click on one of the shortcuts to start using Vespa!
 
