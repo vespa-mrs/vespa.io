@@ -1,7 +1,7 @@
 
 Prerequisites - do once
 -----------------------------------
-Before you can use Jekyll to test a site, you must:
+Before you can use Jekyll to test a site, you must: 
 
 1. Install Jekyll.
 2. Create a Jekyll site. 
