@@ -40,11 +40,15 @@ This switches you from whatever virtual conda environment you are currently in, 
 
 ### Step 2 - Install Vespa Dependencies
 
-At the command line, run this command:
+2.1 At the command line, run this command:
  
-`>conda install numpy scipy matplotlib wxpython configobj packaging`  (if wxpython does not install, try installing it from conda-forge, as in the next lines below)
+`>conda install numpy scipy matplotlib configobj packaging`  (if these do not install, try from conda-forge, as in 2.3)` 
 
-Then run this command:
+2.2 Then run this command:
+
+`>conda install matplotlib==3.3.4 wxpython==4.0.4`  (if these do not install, try from conda-forge, as in 2.3)
+
+2.3 Then run this command:
 
 `>conda install -c conda-forge lmfit pydicom pypubsub `
 
