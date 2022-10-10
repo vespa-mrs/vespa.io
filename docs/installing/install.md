@@ -42,7 +42,7 @@ This switches you from whatever virtual conda environment you are currently in, 
 
 2.1 At the command line, run this command:
  
-`>conda install numpy scipy matplotlib configobj packaging`  (if these do not install, try from conda-forge, as in 2.3)` 
+`>conda install numpy scipy configobj packaging`  (if these do not install, try from conda-forge, as in 2.3)` 
 
 2.2 Then run this command:
 
