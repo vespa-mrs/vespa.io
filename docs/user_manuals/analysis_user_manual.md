@@ -2164,8 +2164,6 @@ and 0.0 ppm.
 Data referred to in these tutorials need to be downloaded from the Vespa
 Analysis wiki at:
 
-<http://scion.duhs.duke.edu/vespa/analysis/wiki/Tutorials>
-
 [download tutorial data](files/tutorial_data_analysis.zip)
 
 Data is in a zipped file called analysis\_tutorial\_data.zip. The zipped
