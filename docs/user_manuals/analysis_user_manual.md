@@ -2166,6 +2166,8 @@ Analysis wiki at:
 
 <http://scion.duhs.duke.edu/vespa/analysis/wiki/Tutorials>
 
+[download]({{ site.baseurl }}{% link tutorial_analysis.zip %})
+
 Data is in a zipped file called analysis\_tutorial\_data.zip. The zipped
 data file contains a parent directory called tutorial\_analysis. The
 sub-directories are numbered to correspond to the sections below. For
