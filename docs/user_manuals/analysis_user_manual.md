@@ -2166,7 +2166,7 @@ Analysis wiki at:
 
 [download tutorial data](files/tutorial_data_analysis.zip)
 
-Data is in a zipped file called analysis\_tutorial\_data.zip. The zipped
+Data is in a zipped file called tutorial\_data\_analysis.zip. The zipped
 data file contains a parent directory called tutorial\_analysis. The
 sub-directories are numbered to correspond to the sections below. For
 the most part, the data that we will import will be in the VASF (VA San
