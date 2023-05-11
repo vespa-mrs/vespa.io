@@ -6,18 +6,35 @@ sort: 4
 
 # Analysis User Manual
 
-Version 1.0.0rc4 - Release date: February 15th, 2021
+Version 1.1.0 - Release date: May 10th, 2023
 
-Developed by:
+## Developed by:
 
--   **Brian J. Soher, Ph.D.** - Duke University, Department of Radiology, Durham, NC
--   **Philip Semanchuk** - Duke University, Department of Radiology, Durham, NC
--   **Karl Young, Ph.D.** - UCSF, San Francisco, CA
--   **David Todd, Ph.D.** - UCSF, San Francisco, CA
+-   **Brian J. Soher, Ph.D.** - Duke University, Department of
+    Radiology, Durham, NC
 
-**Developed with support from NIH, grant \# EB008387-01A1**
+-   **Philip Semanchuk** - Duke University, Department of Radiology,
+    Durham, NC
 
-##  1. Introduction to Analysis
+-   **Karl Young, Ph.D.** - University of California, San Francisco, CA
+
+-   **David Todd, Ph.D.** - University of California, San Francisco, CA
+
+## Citation
+
+**If you publish material that makes use of Vespa, please cite:**
+
+> Soher B, Semanchuk P, Todd D, Ji X, Deelchand D, Joers J, Oz G and
+> Young K.  
+> Vespa: Integrated applications for RF pulse design, spectral
+> simulation and MRS data analysis. Magn Reson Med. 2023;1‐16. epub doi:
+> 10.1002/mrm.29686
+
+## NIH and Other Grant Support
+
+R01 EB008387, R01 EB000207, R01 NS080816 and R01 EB000822
+
+## 1. Introduction to Analysis
 
 ### 1.1 Functionality
 
@@ -25,14 +42,26 @@ Vespa-Analysis is an application written in the Python programming
 language that allows users to interactively read, process and analyze MR
 spectroscopic data. Analysis allows users to:
 
-1.  Read one or more single voxel data files from various standard formats.
+1.  Read one or more single voxel data files from various standard
+    formats.
+
 2.  Perform typical spatial and/or spectral Fourier processing steps.
+
 3.  Apply HLSVD methods to remove unwanted signal components.
-4.  Apply iterative time domain + frequency domain metabolite and baseline models to fit MRS data and estimate metabolite signal areas.  
+
+4.  Apply iterative time domain + frequency domain metabolite and
+    baseline models to fit MRS data and estimate metabolite signal
+    areas.
+
 5.  Observe graphically the results of processing steps ‘on the fly’.
-6.  Store processed results and processing settings into a human readable XML format.
+
+6.  Store processed results and processing settings into a human
+    readable XML format.
+
 7.  Do side-by-side comparison of results from two or more data sets.
+
 8.  Output results in text or graphical format
+
 9.  Exchange data and processing settings between users.
 
 ### 1.2 Basic Concepts
@@ -101,7 +130,10 @@ priors:
 > 1.5 T: acquisition and automated spectral analysis*. Magn Reson
 > Imaging;18(9):1159-65 (2000).
 
-*The following sections assume Vespa-Pulse has been downloaded and installed. See the [Vespa Installation guide](../installing/install.md) for details on how to install the software and package dependencies.*
+*The following sections assume you have downloaded and installed
+Vespa-Analysis. See the Vespa Installation guide on the Vespa main
+project wiki for details on how to install the software and package
+dependencies.* <https://vespa-mrs.github.io/vespa.io/>.
 
 In the following, screenshots are based on running Analysis on the
 Windows OS, but aside from starting the program, the basic commands are
@@ -111,14 +143,6 @@ the same on all platforms.
 
 Double click on the Analysis icon that the installer created on your
 Desktop.
-
-_Alternatively, find the install location for Vespa in miniconda. On my computer it is located in `D:\Users\bsoher\miniconda2\Lib\site-packages\vespa`. Change to that directory and from there you can launch an application by typing in a command window:_
-
-```
->python analysis\main.py
-```
-
-_or substitute in any other application name to run that application._
 
 Shown below is the Vespa-Analysis main window as it appears on first
 opening. No actual Dataset windows are open, only the ‘Welcome’ banner
@@ -138,15 +162,7 @@ the bottom plot. Also note that while Dataset1 tab has a Fitting tab,
 the Dataset2 tab does not. The functionality of all processing tabs will
 be described further in the following sections.
 
-<img src="media_analysis\media\image4.png" style="width:8.34167in;height:4.09597in" />
-
-### 1.4 Vespa Forum and Bug Reports
-
-If you have questions, comments or a solution about some topic in Vespa, please post them on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>). 
-
-Pure and simple Bug Reports should be sent to us directly at the main Vespa contact email - **vespa.bugs@gmail.com**. Alternatively, they can be posted on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>), too. Both methods send an email to the Vespa Team. 
-
-*Please remember to paste the Exception report provided by the application if the bug caused a crash.*
+<img src="media_analysis\media\image4.png" style="width:6.62138in;height:3.25127in" />
 
 ##  2. The Analysis Main Window
 
@@ -180,7 +196,7 @@ start/end points and distances between. Finally, it also reports short
 messages that reflect current processing while events are running. An
 overview of the elements that can populate the notebook is shown below.
 
-<img src="media_analysis\media\image6.png" style="width:8.35833in;height:3.84375in" />
+<img src="media_analysis\media\image6.png" style="width:6.93777in;height:3.19048in" />
 
 ### 2.1 On the Menu Bar
 
@@ -219,7 +235,7 @@ These are the functions of various menu items in the application:
     the spectral lines in the data. User can add and delete lines of
     various line width, area and ppm location. This spectrum is used in
     automated B0 shift and Phase 0/1 estimation routines. Parameters for
-    these routines can also be set in this dialog. See Section 2.4 for
+    these routines can also be set in this dialog. See Section 2.5 for
     details.
 
 -   **Processing→Edit User Metabolite Information…** Launches a modal
@@ -230,7 +246,7 @@ These are the functions of various menu items in the application:
     changes only take effect when user hits the OK button. No changes
     are applied if user hits Cancel.
 
--   **View → &lt;various&gt;** - (See Section 2.2) Changes plot options
+-   **View → &lt;various&gt;** - (See Section 2.3) Changes plot options
     in the plots on each workflow tab of the active dataset tab,
     including: display a zero line, turn x-axis on/off or choose units,
     select the data type (real, imag, magn) displayed, and various
@@ -244,7 +260,7 @@ These are the functions of various menu items in the application:
 
 -   **Help → About** - Giving credit where credit is due.
 
-### 2.1 The Dataset Notebook
+### 2.2 The Dataset Notebook
 
 The dataset notebook is an “advanced user interface” widget
 (AUINotebook). What that means to you and me is a lot of flexibility:
@@ -265,7 +281,7 @@ data sets by loading them into Dataset Tabs.
         -   Each Workflow Tab will display processing parameter widgets
             in either a single panel or two or more sub-tabs.
 
-### 2.2 Dataset Tabs
+### 2.3 Dataset Tabs
 
 The Dataset Notebook contains one or more Dataset Tabs, each of which
 contains the data, setting, and results of one Dataset. Dataset Tabs are
@@ -327,6 +343,10 @@ active tab**
     top 10% region, middle or bottom 10% region of the canvas as it is
     drawn on the screen
 
+-   **View→ZeroLine Spectral/Series -** (Preprocess tab) as above for
+    top/middle/bottom, but for either the Spectral or Series plot
+    windows.
+
 -   **View →Xaxis →Show** - display the x-axis or not
 
 -   **View →Xaxis→PPM/Hz** - x-axis value in PPM or Hz
@@ -353,6 +373,50 @@ active tab**
 -   **View →User Button Function →Output Area Value** - Writes areas
     under curve and between span selectors to a CSV text file selected
     by the user. If file already exists, the values are appended.
+
+-   **View→Derived Datasets→PlotA→&lt;various&gt;** - (Spectral tab
+    only) writes the values of the complex64 array displayed in PlotA
+    (top plot) into either an ASCII or binary file using the
+    numpy.tofile() method or into a Vespa VIFF file format. User is
+    prompted for a filename. The entire vector in the plot is saved, not
+    just the zoomed in portion (if zoom is applied). Note binary and
+    ASCII functionality is provided as a convenience to users only and
+    cannot be read back into Analysis.
+
+-   **View→Derived Datasets→PlotC→&lt;various&gt;** - (Spectral tab
+    only) writes the values of the complex64 array displayed in PlotC
+    (bottom plot) into either an ASCII or binary file using the
+    numpy.tofile() method or into a Vespa VIFF file format. User is
+    prompted for a filename. The entire vector in the plot is saved, not
+    just the zoomed in portion (if zoom is applied). Note binary and
+    ASCII functionality is provided as a convenience to users only and
+    cannot be read back into Analysis.
+
+-   **View→Derived Datasets→PlotC→Spectrum A+B-&gt;NewTab** (Spectral
+    tab only) regardless of what is in Plot C, this will perform a sum
+    of plots A and B and insert this spectrum into a new Dataset tab.
+    User is prompted for a filename. The entire vector in the plot is
+    saved, not just the zoomed in portion (if zoom is applied). This is
+    useful for performing DIFF/SUM processing of edited SVS data if
+    ON/OFF spectra are available in plots A and B.
+
+-   **View→Derived Datasets→PlotC→Spectrum A-B-&gt;NewTab -** (Spectral
+    tab only) as above, regardless of what is in Plot C, this will
+    perform a difference of plots A and B and insert this spectrum into
+    a new Dataset tab.
+
+-   **View→Derived Datasets→SVD Exports -** (Spectral tab only) saves
+    spectral/FID data from the Spectral – SVD Filter Parameters subtab
+    into VIFF XML raw data format files. User is prompted for a
+    filename. The entire vector in the plot is saved, not just the
+    zoomed in portion (if zoom is applied). In all cases, the data saved
+    is time domain data (for Analysis compatibility). An inverse FFT is
+    applied to the spectrum, if needed before data is saved.
+
+-   **View→Derived Datasets→SVD Exports→Plot A/B/C Spectrum -** As
+    above, but user can select which data to save from the three plots
+    displayed. In Plot B, if individual lines are displayed, they are
+    summed prior to being saved.
 
 -   **View →Output→View→&lt;various&gt;** - writes the entire plot to
     file as either PNG, SVG, EPS or PDF format
@@ -389,9 +453,9 @@ active tab**
     in either PNG or PDF format. These layouts include both tabular
     information about fitted parameters and plotted spectral results.
 
-### 2.3 Mouse Events in Plots
+### 2.4 Mouse Events in Plots
 
-Most processing workflow tabs have plots in their right hand panels.
+Most processing workflow tabs have plots in their right-hand panels.
 These plots may contain one or more axes which may change dynamically.
 For example, the SVD pane always has three axes displayed, but the
 Spectral tab may have one, two or three axes drawn. We will typically
@@ -462,7 +526,7 @@ updated in all other workflow tabs (and stored internally in just one
 location). Thus, there is effectively only one Phase0/1 regardless of
 however many plots and workflow tabs there are in a dataset.
 
-### 2.4 User Defined Prior Spectrum Dialog
+### 2.5 User Defined Prior Spectrum Dialog
 
 This dialog is a bit of a catch-all for spectral information that is
 user-derived (or at least user editable) but that needs to be available
@@ -487,10 +551,10 @@ metabolite features.
 The plot to the right displays the spectrum you are designing. The top
 plot shows each individual line you add. The bottom plot shows the sum
 of all lines. You can zoom in/out of this plot the same as described in
-Section 2.3. You will likely need to zoom in to clearly see the lines
+Section 2.4. You will likely need to zoom in to clearly see the lines
 you are creating.
 
-#### 2.4.1 On the User-Defined Prior Spectrum Dialog
+#### 2.5.1 On the User-Defined Prior Spectrum Dialog
 
 -   **Model Lines** - Use the Add and Delete buttons to create however
     many lines you want in your AutoPrior spectrum. As you change values
@@ -514,7 +578,7 @@ you are creating.
     -   **Phase 1 Pivot** - (spin control) float, ppm. This is the pivot
         point used in the phase 1 calculation.
 
-### 2.5 User Defined Metabolite Information Dialog
+### 2.6 User Defined Metabolite Information Dialog
 
 This dialog contains metabolite information that is typically
 user-derived (or at least user editable) but that needs to be available
@@ -554,7 +618,7 @@ currently under construction. When finished, the T2 Decay value listed
 here will serve as a default value for a given metabolite when it is
 read in as a part of a basis set.
 
-#### 2.5.1 On the User-Defined Metabolite Information Dialog
+#### 2.6.1 On the User-Defined Metabolite Information Dialog
 
 -   **Metabolite Lines** - Use the Add and Delete buttons to create
     however many lines you want. Each line contains an entry for a
@@ -581,7 +645,7 @@ read in as a part of a basis set.
 -   **Cancel** - (button) Quits the dialog without saving any changes to
     the main program.
 
-### 2.6 Dataset Presets Menu
+### 2.7 Dataset Presets Menu
 
 The **File→Presets** menu allows users to save dataset processing
 settings to a file, or retrieve processing settings from a file. In both
@@ -679,9 +743,9 @@ coming into the Spectral tab is the ‘summed’ FID time data.
 
 When SVS data is acquired as individual FIDs and/or individual coils, it
 is necessary to pre-process the Raw data into the ‘summed’ FID time data
-format that is passed to the Spectral workflow tab. This may
+format for it to be processed by the Spectral workflow tab. This may
 include: coil combination, data exclusion, summation of individual FIDs
-from single/multiple files and/or frequency shift or zero
+from a single file or from multiple files and/or frequency shift or zero
 order phase corrections for each FID to optimize the summed data. These
 processing step(s) occur in the Preprocess Workflow Tab.
 
@@ -709,7 +773,7 @@ side-by-side.
 
 **Processing Control Panels:** The left panel of the Preprocess tab
 displays widget control sections for performing: coil combination, data
-exclusion, FID correction and FID averaging. One or more of these
+exclusion and FID correction and averaging. One or more of these
 sections may be grayed out depending on the type of data loaded.
 
 **Plot Displays:** The Preprocess tab contains four plots, two spectral
@@ -721,19 +785,20 @@ controls as you change this index. The bottom spectrum plot is the sum
 of all FIDs with the peak shift and phase 0 corrections applied as they
 are currently calculated. Mouse controls in the plot for right/left
 mouse buttons (zoom and reference cursors) act as described in Section
-2.3, except that phase events are a bit more complex. The top left X-Y plot
+2.4, except that phase events are a bit more complex. The top right plot
 shows the alignment of all FIDs in a pseudo-2D waterfall plot. And the
-top right X-Y plot can be used to show the values for all FIDs of the first
+top right plot can be used to show the values for all FIDs of the first
 point in the FID, the calculated B0 shift values, or the calculated
-phase 0 values as selected using the '1D Plot' drop menu .
+phase 0 values.
 
-**Right Button Phase Events** – Phase 0/1 can be applied to the middle and
- bottom spectra as described below:
+**Right Button Phase Events** – Phase 0 is only applied to correct
+individual FID data, but a ‘global’ Phase 1 can be applied to correct
+the summed FID data.
 
 -   Phase events are only active in the two (spectral) plots in the
     middle and bottom of the screen.
 
--   Middle Spectrum Plot Phase 0 – Pressing the right button and moving
+-   Top Spectrum Plot Phase 0 – Pressing the right button and moving
     up/down will change the Phase 0 correction for (only) the FID
     currently displayed. The value in the Phase 0 widget will have phase
     added/subtracted to it as the mouse moves and the spectrum in the
@@ -875,9 +940,9 @@ summed FID calculation.
     you to ‘push’ the current Peak and Shift values for all FIDs in this
     dataset to all associated datasets.
 
-### 4.3 Step 1 - Coil Combination
+### 4.3 Coil Combine Algorithms
 
-The Coil Combination panel is used to combine data from individual elements
+The Coil Combine panel is used to combine data from individual elements
 of a multi-channel receive RF coil into a single FID before the FIDs are
 summed into a final Summed FID result that is sent on to the Spectral
 Tab. The coil combine panel is **only** available when there are
@@ -886,7 +951,7 @@ data dimension equals 1, then the panel is grayed out.
 
 There are three choices of algorithm for Coil Combination:
 
-1.  **'Siemens'** – This algorithm is similar to that in the Siemens
+1.  'Siemens' – This algorithm is similar to that in the Siemens
     IceSpectroF processing pipeline. Channels are combined using weights
     and phases calculated within each FID acquisition, independent of
     other FIDs. Weights are calculated from the magnitude value of the
@@ -894,7 +959,7 @@ There are three choices of algorithm for Coil Combination:
     square of the group. Zero order phase for each channel is calculated
     as the normalized complex conjugate of the first data point.
 
-2.  **'CMRR'** – This algorithm is courtesy of Dinesh Deelschand of the CMRR
+2.  'CMRR' – This algorithm is courtesy of Dinesh Deelschand of the CMRR
     group in Minnesota. Channels are combined using weights and phases
     calculated from the first FID and then applied equally to all
     subsequent FIDs. Zero order phase for each channel is calculated as
@@ -903,19 +968,19 @@ There are three choices of algorithm for Coil Combination:
     magnitude spectrum of the first FID. The last polynomial is the zero
     order coefficient and thus the channel weight.
 
-3.  **'CMRR-Sequential'** – This algorithm is the same as the ‘CMRR’
+3.  'CMRR-Sequential' – This algorithm is the same as the ‘CMRR’
     algorithm, except that it is applied individually to each FID,
     independent of the others.
 
-### 4.4 Step 2 - FID Exclusion
+### 4.4 Data Exclusion
 
-The FID Exclusion panel is used to remove individual FIDs from the
+The Data Exclusion panel is used to remove individual FIDs from the
 final Summed FID result that is sent on to the Spectral Tab. The data
 exclusion panel is **only** available when there are individual FIDs
 available in the raw data set. If the ‘number of FIDs’ data dimension
 equals 1, then the panel is grayed out.
 
-**FID exclusion is a manual process.** The user adds or removes FID
+**Data exclusion is a manual process.** The user adds or removes FID
 indices to a list (shown in the text field below the ‘Apply Data
 Exclusion check box) and during pre-processing these FIDs are excluded
 from the final Summed FID result. Data exclusion is only applied when
@@ -933,9 +998,9 @@ button. Note that the FID index number nearest to the mouse is listed in
 the status bar as the mouse moves. You can also zoom in/out to better
 select the FID you want.
 
-The top right plot X-Y plot can display three different types of data
+The bottom plot displays an X-Y plot with three different types of data
 to help you decide if a FID should be excluded. The x-axis is always the
-FID index. Use the ‘1D Plot’ drop list widget to select the values
+FID index. Use the ‘Plot Display’ drop list widget to select the values
 along the y-axis to be: 1) the absolute value of the first point of the
 FID, 2) the Peak Shift in Hz for the FID calculated in the Automated
 Data Corrections panel, or 3) the Phase 0 in degrees for the FID
@@ -944,7 +1009,7 @@ option 2 or 3 above may be all zeros if you have not performed
 correction calculations yet. You can switch back and forth between these
 three without losing the indices already marked.
 
-The bottom plot (summed FID spectrum) is updated as you toggle FID
+The middle plot (summed FID spectrum) is updated as you toggle FID
 indices. You will only see this plot change if the ‘Apply Data
 Exclusion’ box is checked. This is useful since you can slowly work
 through all FIDs and exclude them one by one, but at the end you can see
@@ -954,41 +1019,86 @@ box on/off.
 For your convenience, we list the number of FIDs remaining in the Summed
 FID result to the right of the ‘Plot Display’ widget.
 
-### 4.5 Step 3 - Frequency and Zero Order Phase Corrections 
+### 4.5 Automated Data Corrections – Peak Shift and Zero Order Phase
 
-The spectral quality of the final Summed FID result can sometimes be improved by correcting each individual FID for frequency and zero order phase errors. The algorithms for calculating frequency and phase0 deltas are described below. But, general behaviors of the Tab are given here first.
+The spectral quality of the final Summed FID result can sometimes be
+improved by correcting each individual FID for frequency and zero order
+phase errors.
 
-This panel allows the user to control Peak Shift and Phase0 correction processing. The selected algorithm is only performed when the ‘Calculate Corrections’ button is pressed (in Adjustments panel). Once calculated, the user can then control whether the corrections are applied by using the ‘Apply Peak Shift’ and ‘Apply Phase0’ check boxes, respectively (also in the Adjustments panel). Turning these on/off are a good way to check on the effect of the algorithms. Note. calculated correction values are not changed by turning them on/off. Use the ‘Reset Peak Shifts’ or ‘Reset Phase0 Values’ buttons to set these values back to zero for all FIDs.
+This panel allows the user to control Peak Shift and Phase0 correction
+processing. These algorithms are only performed when the ‘Calculate
+Corrections’ button is pressed. The user can turn each correction on/off
+using the ‘Apply Peak Shift’ and ‘Apply Phase0’ check boxes,
+respectively. If the box is checked, the algorithm is run and the Peak
+Shift and/or Phase0 results are updated. If the box is NOT checked, that
+algorithm is not run, but the values currently set for that variable are
+NOT changed either. Use the ‘Reset Peak Shifts’ or ‘Reset Phase0 Values’
+buttons to set these values back to zero for all FIDs.
 
-As you change the ‘FID Index’ widget value, the calculated values for Peak Shift and Phase0 are updated in the ‘Peak Shift \[Hz\]’ and ‘Phase 0 \[deg\]’ widgets. You can also plot these values in the top right plot as an X-Y plot for each FID index using the ‘1D Plot’ drop list widget in the 'Results and Display' panel.
+As you change the ‘FID Index’ widget value, the calculated values for
+Peak Shift and Phase0 are updated in the ‘Peak Shift \[Hz\]’ and ‘Phase
+0 \[deg\]’ widgets. You can also plot these values in the bottom plot as
+an X-Y plot for each FID index using the ‘Plot Display’ drop list widget
+in the Data Exclusion panel.
 
-**Frequency and Phase Correction Algorithms** – Use the 'Method' drop list to select the algorithm to use to calculate both frequency and phase corrections. The widgets displayed in the panel will change depending on the inputs the algorithm requires.
+**Peak Shift Algorithm** – Shifts (in Hz) are calculated relative to the
+reference peak and search width specified by the user. Each FID is
+transformed into the frequency domain and a peak search is performed in
+the reference peak +/- search width region of the magnitude data for the
+max peak. This correction is applied (if turned on) prior to Phase0
+corrections.
 
-- All methods compare each FID against a 'target' spectrum which is compose of some/all of the FIDs averaged together. The 'Target Spectrum Method' drop menu controls which FIDs are averaged.
-- **Optimized Search (vespa)** - Requires a search region  for both peak search and phase correction calculations (PPM center/width and start/end, respectively). Frequency shift is calculated from the max value of the search range of each FID's magnitude spectrum. The FID is shift corrected, then phase range is optimized by least squares comparison of the FID to the target spectrum.  
-- **Correlation (vespa)** - This algorithm is very similar to the one used in the Fit Tab to set initial values for B0 and Phase. The inputs for this algorithm are a bit more complicated, thus they are set in a pop-up dialog that is launched via the 'Dialog for Preprocessing Prior Settings' button. The user creates a (simplified) ideal spectrum used to correct each FID and sets ranges for B0 and phase correction (PPM start/end). B0 is calculated by shifting the FID through the B0 range and correlating the FID to the ideal spectrum. The absolute max correlation is taken as the B0 shift. The FID is B0 corrected and then the phase range is optimized by least squares comparison of the correlation of the FID to the target spectrum across a series of zero order phase values.
-- **Spectral Registration (suspect)** - This algorithm is based on the RATS algorithm in the Suspect package (https://github.com/openmrslab/suspect), which references: Near, J., Edden, R., Evans, C. J., Paquin, R., Harris, A., & Jezzard, P. (2014). Frequency and phase drift correction of magnetic resonance spectroscopy data by spectral registration in the time domain. Magnetic Resonance in Medicine, 73(1), 44–50.
-- **RATS (suspect)** - This algorithm is based on the RATS algorithm in the Suspect package (https://github.com/openmrslab/suspect), which references: Wilson, M. (2018). Robust retrospective frequency and phase correction for single-voxel MR spectroscopy. Magnetic Resonance in Medicine, 81(5), 2878–2886.
-
-### 4.6 Step 4 - Summed FID Creation and Manual Adjustments
-
-This panel allows the user to control which of the three steps above are included in the final summed FID creation. Results from Steps 1-3 can be turned on/off or reset. The summed FID can be left shifted and have additional zero or first order phase added. To simplify the plots, apodization can be applied, but is not part of the final summed FID passed to the Spectral tab.
+**Phase0 Algorithm** – Zero order phase corrections (in degrees) are
+calculated relative to a ‘standardized’ frequency spectrum created by
+summing all FIDs and transforming this into the frequency domain. If
+Shift corrections are calculated already, these are applied to this step
+as well. Phase 0 corrections for each FID are optimized to maximize a
+correlation function of the phased individual FID to the ‘standardized’
+spectrum in the range specified by the user. Note, that if the phase of
+the peak(s) in the user defined region do not show an absorption
+spectrum, then the resultant corrected FIDs will not either.
 
 ##  5. Workflow Tab – Spectral
 
 ### 5.1 General
 
-When a Dataset Tab is added to the Notebook, it automatically has two Workflow Tabs added to it called Raw and Spectral. The top line of controls includes (as in all Workflow Tabs) the filename of the displayed data, the x-voxel index, and the y-scale of the plot in the workflow tab. You can step through each spectrum in the dataset by increasing or decreasing the index in the ‘x-voxel’ widget. Parameter values specific to each spectrum are automatically updated in the widgets of each workflow tab. The y-scale on the plot can be adjusted by clicking on the arrows in the Scale control, typing in a value or using the roller ball on the mouse while in the plot.
-
-There are two workflow sub-tabs on the Spectral Workflow Tab. They are displayed along the top edge and are called ‘General Parameters’ and ‘SVD Filter Parameters’. 
+When a Dataset Tab is added to the Notebook, it automatically has two
+Workflow Tabs added to it called Raw and Spectral. The top line of
+controls includes (as in all Workflow Tabs) the filename of the
+displayed data, the x-voxel index, and the y-scale of the plot in the
+workflow tab. You can step through each spectrum in the dataset by
+increasing or decreasing the index in the ‘x-voxel’ widget. Parameter
+values specific to each spectrum are automatically updated in the
+widgets of each workflow tab. The y-scale on the plot can be adjusted by
+clicking on the arrows in the Scale control, typing in a value or using
+the roller ball on the mouse while in the plot.
 
 <img src="media_analysis\media\image13.png" style="width:6.56667in;height:4.44353in" />
 
+There are two workflow tabs on the Spectral Workflow Tab. They are
+displayed along the top edge and are called ‘General Parameters’ and
+‘SVD Filter Parameters’. The Spectral – General Parameters sub-tab
+provides controls for most of the typical processing steps involved in
+spectral processing including: eddy current correction, signal
+filtering, zero fill, signal apodization, B0 shift, zero and first order
+phase, first order phase pivot, DC offset, left shift and other
+convenience settings for interactive display of the results from
+changing these processing steps. Most results from changing setting in
+the Spectral tab are displayed in the plot windows as they are made.
+
+As shown in this figure, the eddy current correction and signal filter
+controls can be set to ‘None’ and have no sub-panel of controls showing.
+Or, a filtering method can be selected from the drop menu and a
+sub-panel of controls displayed for that particular algorithm. Due to
+the complexity of user interactions with the eddy current correction and
+signal filter panels, these controls are described in more detail in
+subsequent sections. However, due to the many possible ways of applying
+the results of the SVD filter, we have created an interactive sub-tab,
+SVD Filter Parameters, for you to use to visually examine the results of
+applying various results before applying them in the actual data
+processing.
+
 ### 5.2 On the Spectral – General Parameters Workflow Tab
-
-The General Parameters sub-tab provides controls for most of the typical processing steps involved in spectral processing including: eddy current correction, signal filtering, zero fill, signal apodization, B0 shift, zero and first order phase, first order phase pivot, DC offset, left shift and other convenience settings for interactive display of the results from changing these processing steps. Most results from changing setting in the Spectral tab are displayed in the plot windows as they are made.
-
-As shown in the figure, the eddy current correction and signal filter controls can be set to ‘None’ and have no sub-panel of controls showing. Or, a filtering method can be selected from the drop menu and a sub-panel of controls displayed for that particular algorithm. Due to the complexity of user interactions with the eddy current correction and signal filter panels, these controls are described in more detail in subsequent sections. However, due to the many possible ways of applying the results of the SVD filter, we have created an interactive sub-tab, SVD Filter Parameters, for you to use to visually examine the results of applying various results before applying them in the actual data processing.
 
 -   **Sync** - (check) Flag for whether to sync changes made to the main
     data to whatever data is selected in the PlotB drop menu. Not all
@@ -1066,8 +1176,8 @@ As shown in the figure, the eddy current correction and signal filter controls c
     are known, a time varying phase roll can be applied to the data to
     correct for the phase 1 added by dropping points.
 
--   **Do Automatic Phasing** - (button) Performs automatic set of
-    Phase01 values.
+-   **Do Automatic Phasing** - (button) Performs automatic set of Phase
+    0 value.
 
 The **Lock B0** and **Lock Ph01** check boxes allow these parameters to
 be changed simultaneously of all data that has been loaded “into the
@@ -1087,7 +1197,7 @@ The Spectral workflow tab may have one, two or three axes drawn. We will
 typically refer to these as top, middle and bottom plots, OR as Plot A,
 Plot B and Plot C respectively.
 
-Most mouse events in the plot are as described above in Section 2.3.
+Most mouse events in the plot are as described above in Section 2.4.
 However, one difference is that when an interactive phase 0/1 event
 (right mouse click and drag) starts within Plot B, then the phase of the
 dataset shown in Plot B is changed, not that for the main dataset (Plot
@@ -1142,12 +1252,16 @@ chance for an artifact to occur. B0 shifts in the main dataset are not
 corrected for by the method. Strong apodization can reduce any remaining
 artifacts, but broaden the effective lineshape.
 
-**Traff** – developed by Jerry Matson and Lana Kaiser. Similar to the
-QUECC method, however it determines the cross-over point automatically
-based on an estimate of signal T2 decay. Also, a Traff filter is applied
-to the data after the reference signal has been deconvolved in order to
-restore a Gaussian lineshape. Typically, no additional apodization is
-necessary.
+**Traff** – developed by Jerry Matson and Lana Kaiser. Based on (Daniel
+D. Traficante, Masoumeh Rajabzadeh. Optimum window function for
+sensitivity enhancement of NMR signals. Concepts in Magnetic Resonance,
+12(2): p83-101, 2000). (from Karl) The idea is to enhance S/N without
+sacrificing resolution - works great if the lines are Lorentzian, ergo
+preprocessing via reference deconvolution. Similar to the QUECC method,
+however it determines the cross-over point automatically based on an
+estimate of signal T2 decay. Also, a Traf filter is applied to the data
+after the reference signal has been deconvolved in order to restore a
+Gaussian lineshape. Typically, no additional apodization is necessary.
 
 ### 5.5 Signal Filtering Control
 
@@ -1296,9 +1410,14 @@ from version 0.5.0 onward.
 
 ### 5.7 Mouse Events in the Spectral – SVD Filter Parameters Plot
 
-The SVD Filtering Parameters sub-tab has a plot that always has three axes called the top, middle and bottom plots. The top plot displays the dataset without any water filtering. The middle plot displays an overlay plot of green lines of all the model results that are checked. The bottom plot displays the middle (results) plot subtracted from the top (data) plot.
+The SVD Filtering Parameters sub-tab has a plot that always has three
+axes drawn. We will typically refer to these as top, middle and bottom
+plots. The top plot displays the dataset without any water filtering.
+The middle plot displays an overlay plot of green lines of all the model
+results that are checked. The bottom plot displays the middle (results)
+plot subtracted from the top (data) plot.
 
-Most mouse events in the plot are as described above in Section 2.3.
+Most mouse events in the plot are as described above in Section 2.4.
 
 ##  6. Workflow Tab – Fitting
 
@@ -1396,7 +1515,7 @@ parameterize the metabolite signals in the spectrum being analyzed, with
 each metabolite modified by amplitude scale *A<sub>m</sub>*, and
 frequency shift adjustment term *ω<sub>m</sub>*.
 
-<img src="media_analysis\media\image15.png" style="width:7.04167in;height:3.78974in" />
+<img src="media_analysis\media\image15.png" style="width:6.37323in;height:3.43in" />
 
 Zero and first order phase terms, *φ*<sub>0</sub> and *φ*<sub>1</sub>,
 are applied globally to the spectral data. And, in the standard fitting
@@ -1433,49 +1552,82 @@ The Voigt Fitting workflow tab has a top line of controls that includes
     by clicking on the arrows in the Scale control, typing in a value or
     using the roller ball on the mouse while in the plot.
 
-An example of a fitted short TE PRESS spectrum is shown in the figure
-below with the results tab displayed.
+An example of a fitted MEGA-PRESS DIFFERENCE spectrum is shown in the
+figure below with the results tab displayed.
 
-<img src="media_analysis\media\image16.png" style="width:6.41667in;height:5.9765in" />
+<img src="media_analysis\media\image16.png" style="width:5.47in;height:5.03228in" />
 
-There are also four controls along the bottom of the tab just above the
-‘Fitting’ tab itself. These are visible regardless which Fitting
-workflow tab is selected.
+There are also three buttons and a check box along the bottom of the tab
+just above the ‘Fitting’ tab itself. These are visible regardless which
+Fitting workflow tab is selected.
 
-- **Update Initial Values** - (button) Most initial value parameter changes are automatically reflected on the plot. This button allows you to force a recalculation of these values. This is particularly needed if the 'Auto' box is not checked.
+-   **Update Initial Values** - (button) Most initial value parameter
+    changes are automatically reflected on the plot. This button allows
+    you to force a recalculation of these values.
 
-- **Auto** - (Check) Flag for whether initial value recalculations are done automatically when a widget is changed, or only when the 'Update Initial Values' button is hit. When 'on', any change in the Metabolites or Initial Values sub-tabs will trigger a recalculation of initial values. This calculation can take a noticable amount of time if more than 10 metabolites are selected for the model, OR if many widgets are being changed at once. One example of this is when you are selecting various metabolites to be on/off in the model. During that time, you may want to uncheck the Auto box until your selections are all made.
-    
-- **Fit the Spectrum** - (button) Triggers a fit of the data using the current set of parameters. Progress messages about the various steps of the fitting process are displayed in the status bar. Plots and the Results tab are updated automatically at the end of each fit.
+-   **Auto -** (check) When on, any widget change will trigger update of
+    values in the plot. When off, user much push “Update” button to
+    trigger plot changes. Turn auto update off if you want to change a
+    lot of subtab values and don’t want to wait for each one to
+    process/display.
 
-- **Batch Fit All Voxels** - (button) Triggers a fit of all voxels as if you had manually clicked to each Location-X setting and hit the ‘Fit the Spectrum’ button. Progress messages about the various steps of the fitting process are displayed in the status bar.
+-   **Fit the Spectrum** - (button) Triggers a fit of the data using the
+    current set of parameters. Progress messages about the various steps
+    of the fitting process are displayed in the status bar. Plots and
+    the Results tab are updated automatically at the end of each fit.
+
+-   **Batch Fit All Voxels** - (button) Triggers a fit of all voxels as
+    if you had manually clicked to each Location-X setting and hit the
+    ‘Fit the Spectrum’ button. Progress messages about the various steps
+    of the fitting process are displayed in the status bar.
 
 #### 6.2.1 On the Menu Bar
 
 There are some additional menu items on the Fitting tab not available on
 other tabs.
 
-- **View→NumberOfPlots** - The Fitting workflow tab can display between one and four axes drawn in the plot panel to the right. These are typically referred to as Plots A through D. The plot number is set in the View menu. Each of the four plots has its own control menu in the menu bar.
+-   **View→NumberOfPlots** - The Fitting workflow tab can display
+    between one and four axes drawn in the plot panel to the right.
+    These are typically referred to as Plots A through D. The plot
+    number is set in the View menu. Each of the four plots has its own
+    control menu in the menu bar.
 
-- **Plot A (B,C,D)→Plot Type** - There are 14 different plot types that can be displayed. For example, in the figure above, Plot A shows “Raw and InitialModel” , Plot B shows “Raw and Base” , Plot C shows “Raw and (Fit+Base)” and Plot D shows “Raw-Fit-Base” or the residual spectrum.
+-   **Plot A (B, C, D)→Plot Type** - There are 14 different plot types
+    that can be displayed. For example, in the figure above, Plot A
+    shows “Raw and InitialModel”, Plot B shows “Raw and Base” , Plot C
+    shows “Raw and (Fit+Base)” and Plot D shows “Raw-Fit-Base” or the
+    residual spectrum.
 
-- **Plot A (B,C,D)→Data Type** - Data shown in each plot can be Real, Imaginary or Complex. If the data in the plot consists of 2 or more summed contributions (such as metabolite bases in the fitted data result) you can select to see that result as either Summed or Individual plots.
+-   **Plot A (B, C, D)→Data Type** - Data shown in each plot can be
+    Real, Imaginary or Complex. If the data in the plot consists of 2 or
+    more summed contributions (such as metabolite bases in the fitted
+    data result) you can select to see that result as either Summed or
+    Individual plots.
 
-See Section 2.2 for a review of the other menu bar commands and selections that affect the plots and output options.
+See Section 2.2 for a review of the other menu bar commands and
+selections that affect the plots and output options.
 
 ### 6.3 Mouse Events in the Plot
 
-Most mouse events in the plot are as described above in Section 2.3.
+Most mouse events in the plot are as described above in Section 2.4.
 
 ### 6.4 Voigt Algorithm Parameter Control Panels
 
-Control widgets for Voigt fitting algorithm parameters are located in a notebook whose tabs are arrayed along the top of the left hand panel. These include: Metabolites, Initial Values, Baseline, Optimize, Quality and Results. Parameter values in these tabs typically apply to all voxels. Only the results panel is updated as you navigate through the Location-X widget. The controls in each panel are described in more detail below
+Control widgets for Voigt fitting algorithm parameters are located in a
+notebook whose tabs are arrayed along the top of the left hand panel.
+These include: Metabolites, Initial Values, Baseline, Optimize, Quality
+and Results. Parameter values in these tabs typically apply to all
+voxels. Only the results panel is updated as you navigate through the
+Location-X widget. The controls in each panel are described in more
+detail below
 
 #### 6.4.1 On the Metabolites Panel
 
-On this control panel, you select the source of prior information for the metabolite model. You can also specify which metabolites are included in the spectral model and manually modify starting values.
+On this control panel, you select the source of prior information for
+the metabolite model. You can also specify which metabolites are
+included in the spectral model and manually modify starting values.
 
-<img src="media_analysis\media\image17.png" style="width:5.9404in;height:6.03268in" />
+<img src="media_analysis\media\image17.png" style="width:4.99in;height:6.11487in" />
 
 -   **Prior from Database** - (button) Activates a dialog from which you
     select a Simulation-Experiment that contains the prior information
@@ -1517,6 +1669,14 @@ On this control panel, you select the source of prior information for the metabo
     that contribute insignificantly to the lines shape model. However,
     they may have some minimal effect on the eventual line shape
     modeled.
+
+-   **Calculate Metabolite Combinations -** (check) When on, commonly
+    combined metabolites will be calculated and added to the area
+    results table. These will include: naa+naag, cr+pcr, gpc+pcho,
+    cr2+pcr2, glu+gln, tau+glc, and gaba+. The original separate fitted
+    metabolites will remain in the table as well. Combination areas will
+    only be reported if both metabolites are listed in the metabolite
+    model.
 
 **Settings in the Dynamic Metabolite List Widget**
 
@@ -1671,7 +1831,7 @@ On this control panel you select the methods for calculating starting
 values for the Voigt model optimization. Values for each starting value
 are displayed in the respective section.
 
-<img src="media_analysis\media\image21.png" style="width:5.33333in;height:5.19167in" />
+<img src="media_analysis\media\image21.png" style="width:4.61in;height:5.66503in" />
 
 -   **Data Pre-processing** - These steps are performed prior to
     metabolite value estimation.
@@ -1768,11 +1928,11 @@ be applied to the data as part of the estimation. Note. The typical
 Voigt model uses wavelets for baseline estimation, but spline options
 are included for convenience.
 
-<img src="media_analysis\media\image22.png" style="width:4.85833in;height:3.24167in" />
+<img src="media_analysis\media\image22.png" style="width:5.41475in;height:3.6in" />
 
 or
 
-<img src="media_analysis\media\image23.png" style="width:4.94167in;height:3.275in" />
+<img src="media_analysis\media\image23.png" style="width:5.37in;height:3.51746in" />
 
 -   **Baseline Method** - (drop list) Options include None, Wavelet
     filter (basic), B-spline (fixed knot), and B-spline (variable knot).
@@ -1831,21 +1991,47 @@ or
         in both Fixed and Variable Knot options. Polynomial power value
         of the splines used in the model.
 
-**Notes on Baseline Algorithms (deprecated) **
+**Notes on Baseline Algorithms**
 
-Vespa-Analysis no longer **requires** the pywavelet module, but will use it if it exists in your envionment. 
+Wavelets are a great way to ‘dial in’ a baseline estimate that has a
+fixed amount of smoothness relative to a reasonable range of metabolite
+linewidths. That is, the baseline rate of change is fixed by the minimum
+dyad scale being used, which in turn is determined by some multiple of
+the calculated FWHM linewidth for a metabolite singlet peak. In some
+cases, typically when there are a few areas with very narrow linewidths,
+the minimum dyad scale can ‘jump’ up and down leading to small but
+noticeable regional differences in peak areas. The Wavelet Dyad Min
+Scale control can be used to mitigate this effect.
 
-Wavelets are a great way to ‘dial in’ a baseline estimate that has a fixed amount of smoothness relative to a reasonable range of metabolite linewidths. That is, the baseline rate of change is fixed by the minimum dyad scale being used, which in turn is determined by some multiple of the calculated FWHM linewidth for a metabolite singlet peak. In some cases, typically when there are a few areas with very narrow linewidths, the minimum dyad scale can ‘jump’ up and down leading to small but noticeable regional differences in peak areas. The Wavelet Dyad Min Scale control can be used to mitigate this effect.
+Both **fixed and variable spline baseline methods** use the
+scipy.interpolate.splrep() method, which is based on the FORTRAN routine
+curfit from FITPACK. It finds the b-spline representation of a 1-D curve
+given the set of data points (x\[i\], y\[i\]) it determines a smooth
+spline approximation of degree k on the interval xb &lt;= x &lt;= xe.
+The fixed spline representation places knots based on the user set
+spacing. The farther apart the knots, generally the smoother the spline
+baseline estimate. The variable knot representation uses the 's'
+smoothing condition that splrep can take to determine the tradeoff
+between closeness of knots and smoothness of the fit. Larger s means
+more smoothing while smaller values of s indicate less smoothing. See
+scipy docs for scipy.interpolate.splrep for more details.
 
-Both **fixed and variable spline baseline methods** use the scipy.interpolate.splrep() method, which is based on the FORTRAN routine curfit from FITPACK. It finds the b-spline representation of a 1-D curve given the set of data points (x\[i\], y\[i\]) it determines a smooth spline approximation of degree k on the interval xb &lt;= x &lt;= xe. The fixed spline representation places knots based on the user set spacing. The farther apart the knots, generally the smoother the spline baseline estimate. The variable knot representation uses the 's' smoothing condition that splrep can take to determine the tradeoff between closeness of knots and smoothness of the fit. Larger s means more smoothing while smaller values of s indicate less smoothing. See scipy docs for scipy.interpolate.splrep for more details.
-
-Note. In Analysis baseline smoothing factor widget value (for variable knot) is directly related to the ‘s’ value. Generally, the allowed range of 1-100 (unit-less) is mapped internally to a semi-linear increasing value of ‘s’ that was determined empirically for a variety of MRS single voxel data. In general, we only recommend the use of the variable spline baseline if the wavelet filter and fixed spline baseline routines have failed, due to the non-linear performance of this routine.
+Note. In Analysis baseline smoothing factor widget value (for variable
+knot) is directly related to the ‘s’ value. Generally, the allowed range
+of 1-100 (unit-less) is mapped internally to a semi-linear increasing
+value of ‘s’ that was determined empirically for a variety of MRS single
+voxel data. In general, we only recommend the use of the variable spline
+baseline if the wavelet filter and fixed spline baseline routines have
+failed, due to the non-linear performance of this routine.
 
 #### 6.4.4 On the Macromol Panel
 
-On this control panel you select a model for accounting for macromolecular signal components (at the moment, there is only one) and set the parameters for applying that model. Depending on the model chosen, different parameter panels may be displayed below the drop list.
+On this control panel you select a model for accounting for
+macromolecular signal components (at the moment, there is only one) and
+set the parameters for applying that model. Depending on the model
+chosen, different parameter panels may be displayed below the drop list.
 
-<img src="media_analysis\media\image24.png" style="width:6.48333in;height:4.35833in" />
+<img src="media_analysis\media\image24.png" style="width:5.93in;height:2.57664in" />
 
 -   **Macromolecule Model** - (drop list) Selects the model to use to
     account for Macromolecular signals from None or Single Basis
@@ -1869,25 +2055,47 @@ On this control panel you select a model for accounting for macromolecular signa
 
 #### 6.4.5 On the Optimize Panel
 
-On this control panel you select the general parameters for the optimization algorithm, set up the constraints on the Metabolite model, and create a Weighting schema to use in the least squares calculation.
+This control panel allows you select the algorithm and parameters for
+the optimization algorithm and set up the constraints, bounds and
+weights for the Metabolite model. There are two optimization algorithms,
+1) LMFit (left) and 2) Constrained Levenberg-Marquardt (right), shown in
+the figures below.
 
-<img src="media_analysis\media\image25.png" style="width:6.6in;height:6.5in" />
+-   **LMFit** allows users to set Bounds (min/max parameter values) and
+    Constraints (aka. Soft bounds, like choline must be &gt;0.2 ppm
+    apart) on the optimization.
 
-- **Algorithm** - (drop list) Selects the optimization algorithm from: None, Constrained Levenburg-Marquardt, LMFIT default, and LMFIT with Jacobian. The image above shows the panel with Constrained Levenburg-Marquardt selected. An additional panel is displayed if any of the LMFIT options are selected (see below).
+-   **Constrained Levenberg-Marquardt** only lets users set Bounds. This
+    method can run more quickly than LMFit, but may require tighter
+    bounds to perform equally.
 
-    - **Constrained Levenburg-Marquardt** - This method is based on "CURFIT", a least squares fit to a non-linear function, pages 237-239, Bevington, Data Reduction and Error Analysis for the Physical Sciences. A 'hard-wall mirroring' boundary mechanism has been added to this algorithm to allow users to bound the search space.
-    
-    - **LMFIT default and LMFIT with Jacobian** - Both choices use the **lmfit** package from PyPI. Docs available at: https://lmfit.github.io/lmfit-py/.  This method wraps the scipy 'least_squares' routine, which allows the user to specify a function to evaluate the model function Jacobian, or (by default) will estimate the Jacobian using a '2-point' method. The Vespa-Analysis Voigt model provides a Jacobian calculation, but sometimes it is good to check results using the estimation method as well.
+Also shown in the left/right figures are the different layout for Local
+or Evenly Distributed weighting schemes.
 
-- **Parameter Scaling** - (check) If checked, maintains a workable range between parameters in optimization by scaling prior to the fit, and then un-scaling after the parameters are optimized. This does not affect results.
+<img src="media_analysis\media\image25.png" style="width:6.17912in;height:4.53in" />
 
-- **Global Iterations** - (spin control) Sets the total number of baseline/metabolite iterations that are performed before stopping the optimization.
+-   **Optimization Algorithm** - These settings pertain to the
+    optimization algorithm in general.
 
-- **Stop Tolerance** - (spin control) float. Tolerance between iteration inside LM algorithm (recommend 0.01 to 0.001).
+-   **Algorithm** - (drop list) Selects the optimization algorithm from
+    None or Constrained Levenberg-Marquardt list.
 
-- **Max Matrix Iter** - (spin control) For iterations inside the LM algorithm (recommend only 20-100).
+-   **Parameter Scaling** - (check) If checked, maintains a workable
+    range between parameters in optimization by scaling prior to the
+    fit, and then un-scaling after the parameters are optimized. This
+    does not affect results.
 
-- **Optimization Weight Calculation**
+-   **Global Iterations** - (spin control) Sets the total number of
+    baseline/metabolite iterations that are performed before stopping
+    the optimization.
+
+-   **Stop Tolerance** - (spin control) float. Tolerance between
+    iteration inside LM algorithm (recommend 0.01 to 0.001).
+
+-   **Max Matrix Iter** - (spin control) For iterations inside the LM
+    algorithm (recommend only 20-100).
+
+-   **Optimization Weight Calculation**
 
     -   **Weight Scheme** - (drop list) Select the weight array creation
         from Equal Weighting and Local Weighting methods. Equal method
@@ -1924,15 +2132,31 @@ On this control panel you select the general parameters for the optimization alg
         fits to these smaller peaks to have more emphasis in the least
         squares calculation. Recommend (1-5).
 
-- **Bounds for Model Parameters**
+-   **Bounds for Metabolite Model Parameters**
 
-    - **&lt;various&gt;** - (spin control) These controls set the range +/- around the initial value that the optimization searches to find a result. Bounds are divided into those for individual metabolites (areas and frequencies) and those applied globally (phase and lineshape). If the 'Enable' boxes are checked, bounds can be further divided into 'Large' and 'Small' metabolite categories. 'Large' metabolites include: NAA, Cr, Cho, mIno and Glu/Glx. Note. The Ta and Tb ranges show what the min or max line width range would be when both have the same min and max Ta/Tb values.
+    -   **&lt;various&gt;** - (spin control) These controls set the
+        range +/- <u>around the initial value</u> that the optimization
+        searches to find a result. The Ta and Tb ranges show what the
+        min or max line width range would be when both have the same min
+        and max range.
 
-- **Inequality Constraints for Metabolite Model Parameters (LMFIT only)** - the LMFIT code allows us to set all the bounds listed above, but also include inter-metabolite constraints as well. One example would we maintaining at least 0.03 ppm separation between the NAA and NAAG basis functions if they were both included in a fit. The available constraints are shown in the Figure above in the panel labelled 'Constraints between Metabolite Model Paramters'. These are mainly frequency separation requirements, such as between:  NAAG to NAA, PCr to Cr, PCho to GPc, PCr2 to Cr2, Gln to Glu and Glc to Tau. Users can choose these constraints by checking the box next to each one. If the metabolites for a given constraint are NOT included in the fitting model, the check box will not be activated.
+-   **Constraints between Metabolite Model Parameters (LMFit only)**
 
-<img src="media_analysis\media\image25a.png" style="width:6.6in;height:7.5in" />
+    -   **&lt;various&gt; -** (check) There are six ‘soft bounds’ that
+        can be set currently that are hard set in the code (for lack of
+        an interactive GUI input). They maintain PPM separation between
+        NAA/NAAG, PCr/Cr, PCho/GPc, PCr2/Cr2, Gln/Glu, and Glc/Tau.
+        These bounds are only used in the optimization if both
+        metabolites are present in the list of metabolites to be fit.
+        Check boxes should automatically reset to OFF if one or both
+        metabolites are not present. Note – Use the ’User Metabolite
+        Information’ dialog to map the names of the metabolites in your
+        basis set to the ‘standard group of abbreviations’ that Analysis
+        searches to determine if both metabolites are available for the
+        soft bound. For example, you can have a metabolite in your basis
+        set called ‘bobs\_naa’ so long as you set up a mapping in the
+        dialog from ‘bobs\_naa’-’naa’
 
-    
 #### 6.4.6 On the Quality Panel
 
 On this control panel you set up the calculation of Confidence Limits
@@ -1954,7 +2178,7 @@ Young K, Khetselius D, Soher BJ and Maudsley AA. **Confidence images for
 spectroscopic imaging.** Magnetic Resonance in Medicine; 44:537-545
 (2000)
 
-<img src="media_analysis\media\image26.png" style="width:6.525in;height:2.95833in" />
+<img src="media_analysis\media\image26.png" style="width:5.82in;height:3.17302in" />
 
 -   **Do Confidence** - (check) flag. Select whether to calculate
     confidence interval values.
@@ -2026,6 +2250,8 @@ metabolite results in HTML tabular form. Dataset2, which is not active,
 contains a fitted water spectrum used as the reference peak for the
 calibration algorithm.
 
+### 
+
 ### 7.2 Calibration/Quantitation Algorithm
 
 In general, the algorithm can be stated as:
@@ -2035,7 +2261,7 @@ In general, the algorithm can be stated as:
 Where metabArea and waterArea are Fitting values calculated in the two
 Datasets.
 
-### 7.3 On the Quantitation Control Panel
+### 7.3 On the Spectral – General Parameters Sub-tab
 
 There are 5 panels on the Quant workflow tab:
 
@@ -2093,8 +2319,6 @@ the buttons with the same name in the Fitting tab’s Results sub-tab.
     containing all result column names is added before the result
     values.
 
-.
-
 ##  8. Results Output 
 
 ### 8.1 Plot results to image file formats
@@ -2125,7 +2349,7 @@ active Dataset Tab and selected Workflow Tab. Select the
 **Plot to EPS** item. The user will be prompted to pick an output
 filename to which will be appended the appropriate suffix.
 
-### 8.3 (Fitting/Quant Tabs) Fitting Plot/Text results to Standard Layouts 
+### 8.3 (Fitting Tab only) Fitting Plot/Text results to Standard Layouts 
 
 The main differences between this option and the two above is that this
 option is only available in the Fitting tab, and the format layouts are
@@ -2140,22 +2364,26 @@ outputs are image based (PDF and PNG) although they contain text within
 the image. Also, the plots are currently constrained to plot between 5.0
 and 0.0 ppm.
 
-**View→ResultsToFile→LCM Layout and LMC Layout Multi (Fit/Quant)**
-- 'LCM Layout' - is a single page plot and table layout that outputs to PDF similar to LCModel.
-- 'LCM Layout Multi' - Begins with the same first page as 'LCM Layout' but then adds multiple additional pages to the PDF file with overlay plots of each metabolite (and macromolecule) and baseline signal on top of the raw data.
+**View→ResultsToFile→LCM Layout**
 
 <img src="media_analysis\media\image30.png" style="width:5.00833in;height:3.86667in" />
 
-**View→ResultsToFile→Analysis 2 Plot Layout (Fit)**
+**View→ResultsToFile→Analysis 2 Plot Layout**
 
-<img src="media_analysis\media\image31.png" style="width:5.15833in;height:3.975in" />
+<img src="media_analysis\media\image31.png" style="width:5.07in;height:3.90693in" />
 
-**View→ResultsToFile→ Analysis 4 Plot Layout (Fit)**
+**  
+**
 
-- Plot 1 - Fit+Baseline (green) overlaid on Raw Data (black)
-- Plot 2 – Baseline (purple) overlaid on Raw Data (black)
-- Plot 3 – Fit (green) overlaid on Raw Data – Baseline (black)
-- Plot 4 – Residual data (Raw – Fit – Baseline) (black)
+**View→ResultsToFile→ Analysis 4 Plot Layout**
+
+Plot 1 - Fit+Baseline (green) overlaid on Raw Data (black)
+
+Plot 2 – Baseline (purple) overlaid on Raw Data (black)
+
+Plot 3 – Fit (green) overlaid on Raw Data – Baseline (black)
+
+Plot 4 – Residual data (Raw – Fit – Baseline) (black)
 
 <img src="media_analysis\media\image32.png" style="width:5.76667in;height:5.76667in" />
 
@@ -2164,7 +2392,7 @@ and 0.0 ppm.
 Data referred to in these tutorials need to be downloaded from the Vespa
 Analysis wiki at:
 
-[download tutorial data](files/tutorial_data_analysis.zip)
+<https://vespa-mrs.github.io/vespa.io/user_manuals/files/tutorial_data_analysis.zip>
 
 Data is in a zipped file called tutorial\_data\_analysis.zip. The zipped
 data file contains a parent directory called tutorial\_analysis. The
@@ -2544,7 +2772,7 @@ subclasses of a Vespa class called RawReader.
 You can implement your own RawReader subclass by following the example
 in this template:
 
-<http://scion.duhs.duke.edu/vespa/project/browser/trunk/analysis/src/fileio/template.py>
+<https://github.com/vespa-mrs/vespa/blob/main/vespa/analysis/fileio/template.py>
 
 Download that file to your hard drive to a location where it can remain
 (semi-)permanently so Analysis can find it each time it starts. Rename
@@ -2565,7 +2793,7 @@ analysis\_import\_menu\_additions.ini and it's in the Vespa data
 directory. See this page for instructions on how to find Vespa's data
 directory:
 
-<http://scion.duhs.duke.edu/vespa/project/wiki/VespaDataDirectory>
+<https://vespa-mrs.github.io/vespa.io/development/project_dev/technical/VespaDataDirectory.html>
 
 Follow the instructions in analysis\_import\_menu\_additions.ini to make
 your format appear on Analysis' menu.
@@ -2575,18 +2803,21 @@ your format appear on Analysis' menu.
 The following data formats are built into the Analysis “import”
 function.
 
-| **File Format**         | **Notes**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Bruker                  | Uses NMRGlue routines to read in Bruker acqus and fid files. Returns one dataset. Currently supports JCAMPDX v4.24 and 5.x formats.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| GE PROBE (\*.7)         | Extracts averaged FID data and acquisition parameters from GE P-file format data. Currently only works for PROBE-P acquired data. If there is both unsuppressed and suppressed data in the file, then two datasets will be returned. Each will contain the averaged FID data for the respective stack of FIDs. If there are multi-coil data in the P-file, the averaged data for each coil will be averaged together using the phase from the first point of the water data (unsuppressed FIDs) to correct for coil phase, but no coil weighting factor will be applied. |
-| Philips (\*.spar/sdat)  | Extracts averaged FID data and acquisition parameters from Philips spar/sdat file pairs. Returns one dataset.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Philips Sum FIDs        | Extracts individual FID data and acquisition parameters from Philips spar/sdat file pairs. Returns one dataset.                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Siemens DICOM           | Extracts averaged FID data and acquisition parameters from Siemens DICOM file. A DICOM browser is used to select a file from a given directory using exam and series information. Returns one dataset. Siemens VB data is well tested, but Siemens VD data is still in beta.                                                                                                                                                                                                                                                                                             |
-| Siemens DICOM Sum FIDs  | Extracts individual FID data and acquisition parameters from Siemens DICOM file. A DICOM browser is used to select a file from a given directory using exam and series information. Returns one dataset. Siemens VB data is well tested, but Siemens VD data is still in beta.                                                                                                                                                                                                                                                                                           |
-| Siemens Export (\*.rda) |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Varian                  | Uses NMRGlue routines to read in Varian procpar and fid files. Returns one dataset.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| VASF (\*.rsd/rsp)       | VA San Francisco file format. Paired files, a text header (\*.rsp) and binary data file (\*.rsd) that were used to store MRS data. Returns one dataset.                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| VIFF Raw Data (\*.xml)  | Vespa Interchange File Format is an XML format that is used to exchange data between Vespa applications. In this case, it allows Analysis to read Priorset files. Returns one dataset.                                                                                                                                                                                                                                                                                                                                                                                   |
+| **Manufacturer**       | **File Format**                                                                                                                                                                                                                                                                                              |
+|------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Bruker                 | Bruker acqus and fid files. Returns one dataset. Currently supports JCAMPDX v4.24 and 5.x formats.                                                                                                                                                                                                           |
+| GE                     | PROBE-P P-file (\*.7), Returns separate water and metabolite Datasets with either averaged or individual averages/coil data (as available) for preprocessing.                                                                                                                                                |
+| LCModel                | RAW files. Returns one Dataset.                                                                                                                                                                                                                                                                              |
+| NIfTI-MRS              | \*.nii files. Returns one Dataset with either averaged or individual averages/coil data (as available) for preprocessing.                                                                                                                                                                                    |
+| Philips                | \*.spar/\*.sdat file pairs. Returns one Dataset with either averaged or individual averages/coil data (as available) for preprocessing.                                                                                                                                                                      |
+| Philips                | DICOM. Returns one Dataset with either averaged or individual averages/coil data (as available) for preprocessing.                                                                                                                                                                                           |
+| Siemens                | DICOM. Returns one Dataset with either averaged or individual averages/coil data (as available) for preprocessing.                                                                                                                                                                                           |
+| Siemens                | \*.rda. Returns one Dataset with either averaged or individual averages/coil data (as available) for preprocessing.                                                                                                                                                                                          |
+| Siemens                | TWIX. Various sequence specific parsers. Returns one Dataset with either averaged or individual averages/coil data (as available) for preprocessing.                                                                                                                                                         |
+| Varian                 | procpar and fid files. Returns one Dataset with either averaged or individual averages/coil data (as available) for preprocessing.                                                                                                                                                                           |
+| VASF (\*.rsd/rsp)      | VA San Francisco file format. Paired files, a text header (\*.rsp) and binary data file (\*.rsd) that were used to store MRS data. Returns one dataset.                                                                                                                                                      |
+| VIFF Raw Data (\*.xml) | Vespa Interchange File Format is an XML format that is used to exchange data between Vespa applications. In this case, it allows Analysis to read DataSim files. Returns one dataset.                                                                                                                        |
+| Specialized Data       | There are a variety of specialized parsers that users select for specific types of data (such as MEGA-PRESS, or CMRR semi-LASER) that contain more than one data type within one file (typically DICOM or TWIX or P-File). These parsers are able to separate each data type into a separate Dataset object. |
 
 See Appendix B for if you need Analysis to import data from a format
 that it doesn't currently understand, it's not too difficult to do so as

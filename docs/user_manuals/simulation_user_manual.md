@@ -6,9 +6,9 @@ sort: 2
 
 # Simulation User Manual
 
-Version 1.0.0rc4 - Release date: February 15<sup>th</sup>, 2021
+Version 1.1.0 - Release date: May 10th, 2023
 
-Developed by:
+## Developed by:
 
 -   **Brian J. Soher, Ph.D.** - Duke University, Department of
     Radiology, Durham, NC
@@ -16,11 +16,23 @@ Developed by:
 -   **Philip Semanchuk** - Duke University, Department of Radiology,
     Durham, NC
 
--   **Karl Young, Ph.D.** - UCSF, San Francisco, CA
+-   **Karl Young, Ph.D.** - University of California, San Francisco, CA
 
--   **David Todd, Ph.D.** - UCSF, San Francisco, CA
+-   **David Todd, Ph.D.** - University of California, San Francisco, CA
 
-**Developed with support from NIH, grant \# EB008387-01A1**
+## Citation
+
+**If you publish material that makes use of Vespa, please cite:**
+
+> Soher B, Semanchuk P, Todd D, Ji X, Deelchand D, Joers J, Oz G and
+> Young K.  
+> Vespa: Integrated applications for RF pulse design, spectral
+> simulation and MRS data analysis. Magn Reson Med. 2023;1‐16. epub doi:
+> 10.1002/mrm.29686
+
+## NIH and Other Grant Support
+
+R01 EB008387, R01 EB000207, R01 NS080816 and R01 EB000822
 
 ##  1. Introduction to Simulation
 
@@ -31,13 +43,22 @@ written in the Python programming language that provides a user friendly
 front end to the GAMMA/PyGAMMA NMR simulation libraries. The
 Vespa-Simulation interface allows users to:
 
-1.  Create and run a simulated Experiment (consisting of one or more spectral simulations) from lists of metabolites and pulse sequences.
+1.  Create and run a simulated Experiment (consisting of one or more
+    spectral simulations) from lists of metabolites and pulse sequences.
+
 2.  Store simulated Experiment results in a database.
+
 3.  Display the results in a flexible plotting/graphing tool.
+
 4.  Compare side-by-side results from one or more simulated Experiments
+
 5.  Output results in text or graphical format
-6.  Export/Import experiments, metabolites or pulse sequences from other users
-7.  Design and test their own PyGAMMA pulse sequences for addition to the list of pulse sequences available for use in Experiments.
+
+6.  Export/Import experiments, metabolites or pulse sequences from other
+    users
+
+7.  Design and test their own PyGAMMA pulse sequences for addition to
+    the list of pulse sequences available for use in Experiments.
 
 ### 1.2 Basic Concepts
 
@@ -92,7 +113,10 @@ and spectral fitting:
 > 1.5 T: acquisition and automated spectral analysis*. Magn Reson
 > Imaging;18(9):1159-65 (2000).
 
-*The following sections assume Vespa-Pulse has been downloaded and installed. See the [Vespa Installation guide](../installing/install.md) for details on how to install the software and package dependencies.*
+*The following sections assume Vespa-Simulation has been downloaded and
+installed. See the Vespa Installation guide on the Vespa main project
+wiki for details on how to install the software and package
+dependencies.* <https://vespa-mrs.github.io/vespa.io/>.
 
 In the following, screenshots are based on running Simulation on the
 Windows OS, but aside from starting the program, the basic commands are
@@ -103,40 +127,24 @@ the same on all platforms.
 Double click on the Simulation icon that the installer created on your
 Desktop.
 
-_Alternatively, find the install location for Vespa in miniconda. On my computer it is located in `D:\Users\bsoher\miniconda2\Lib\site-packages\vespa`. Change to that directory and from there you can launch an application by typing in a command window:_
-
-```
->python simulation\main.py
-```
-
-_or substitute in any other application name to run that application._
-
 Shown below is the Vespa-Simulation main window as it appears on first
 opening. No actual Experiment windows are open, only the ‘Welcome’
 banner is displayed.
 
-<img src="media_simulation\media\image1.png" style="width:4.00833in;height:2.75in" />
+<img src="media_simulation\media\image1.png" style="width:5.91667in;height:4.05925in" />
 
 Use the Experiment menu to open existing Experiments into tabs, or to
 create a tab for designing a ‘new’ spectral simulation Experiment.
 
 Shown below is a screen shot of a Vespa-Simulation session with two
 Experiment tabs opened side by side for comparison. The functionality of
-all tools will be described in the following sections.
+all tools will be described further in the following sections.
 
-<img src="media_simulation\media\image2.png" style="width:6.5in;height:2.84167in" />
-
-### 1.4 Vespa Forum and Bug Reports
-
-If you have questions, comments or a solution about some topic in Vespa, please post them on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>). 
-
-Pure and simple Bug Reports should be sent to us directly at the main Vespa contact email - **vespa.bugs@gmail.com**. Alternatively, they can be posted on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>), too. Both methods send an email to the Vespa Team. 
-
-*Please remember to paste the Exception report provided by the application if the bug caused a crash.*
+<img src="media_simulation\media\image2.png" style="width:6.47468in;height:2.8306in" />
 
 ##  2. The Simulation Main Window
 
-<img src="media_simulation\media\image1.png" style="width:3.44792in;height:2.36806in" />
+<img src="media_simulation\media\image1.png" style="width:5.475in;height:3.76027in" />
 
 This is a view of the main Vespa-Simulation user interface window. It is
 the first window that appears when you run the program. It contains the
@@ -257,12 +265,12 @@ derived is pre-populated in this comment window for your convenience.
 
 Results from the Add/Subtract operations will be saved into a new
 Experiment Tab. This tab will NOT be saved into the database unless you
-select the Experiment → Save menu item. The results are saved into the
-dimension that contained the Off/On states. The Add result is stored in
-the loop location that the Off state was in, the Subtract is saved into
-the On state location. Note that because this is an Experiment derived
-from pre-existing results, you are not allowed to add new metabolites to
-it in the Simulate sub-tab.
+select the **Experiment → Save** menu item. The results are saved into
+the dimension that contained the Off/On states. The Add result is stored
+in the loop location that the Off state was in, the Subtract is saved
+into the On state location. Note that because this is an Experiment
+derived from pre-existing results, you are not allowed to add new
+metabolites to it in the Simulate sub-tab.
 
 Hitting the OK button causes the Add/Subtract operations to be performed
 and a new Experiment Tab to be added to the Notebook.
@@ -281,14 +289,14 @@ boundaries. In this manner, the tabs can be positioned side-by-side,
 top-to-bottom or stacked (as show in Sections 1 and 4). They can also be
 arranged in any mixture of these positions.
 
+<img src="media_simulation\media\image4.png" style="width:6.19167in;height:6.04292in" />
+
 The Experiment Notebook can be populated with one or more Experiment
 Tabs, each of which contains the results of one Experiment. Tabs can be
 closed using the X box on the tab or with a middle-click on the tab
 itself. When a Tab is closed, the Experiment is removed from memory, but
 can be reloaded from the database at a future time - assuming it was
 previously saved.
-
-<img src="media_simulation\media\image4.png" style="width:6.19167in;height:6.04292in" />
 
 ## 4. The Experiment Tab
 
@@ -630,7 +638,7 @@ XML files created using the Import/Export functions.
 
 ### 5.1 Manage Experiments dialog
 
-<img src="media_simulation\media\image9.png" style="width:4.71667in;height:3.77333in" />
+<img src="media_simulation\media\image9.png" style="width:4.71667in;height:3.77292in" />
 
 Access this dialog by clicking on the **Management→Manage Experiments**
 menu item. The dialog opens and blocks other activity until it is
@@ -922,7 +930,7 @@ Note: This tab can be moved and positioned in a variety of ways. Left
 click and drag the tab of the pane that you want to re-locate to the
 position that you want it.
 
-The Sequence Code tab is a text window in which PyGamma code can be
+The Sequence Code tab is a text window in which PyGAMMA code can be
 pasted and/or edited. See Appendix A for details of how Simulation
 interacts with your PyGAMMA code. There's an example in the figure
 below.
@@ -933,7 +941,7 @@ Note: This tab can be moved and positioned in a variety of ways. Left
 click and drag the tab of the pane that you want to re-locate to the
 position that you want it.
 
-This is a text window (like the Sequence Code tab) in which PyGamma code
+This is a text window (like the Sequence Code tab) in which PyGAMMA code
 can be pasted and/or edited. Simulation adds default binning code when
 the New Pulse Sequence dialog opens, but you can edit or delete it as
 you like. Again, details are in Appendix A.
@@ -1248,10 +1256,9 @@ methods, you can delete and overwrite them too.
 **Simulation passes 8 bit strings.** All strings passed to your code in
 the simulation description are UTF-8 encoded 8 bit strings. If you don't
 know what this means, you can probably just ignore it. Specifically, it
-means that the strings are [ safe for
-PyGAMMA](http://scion.duhs.duke.edu/vespa/gamma/intertrac/wiki%3APyGammaAndPythonStrings).
-(see
-<http://scion.duhs.duke.edu/vespa/gamma/wiki/PyGammaAndPythonStrings> )
+means that the strings are safe for PyGAMMA see:
+
+<https://pygamma-mrs.github.io/gamma.io/technical/pygamma/PyGammaAndPythonStrings.html>
 
 **Your code returns results via a** return **statement.** Your code
 (sequence or binning, as explained below) should return a 3-tuple of
@@ -1361,7 +1368,7 @@ same order as they were listed in the Pulse Sequence Designer dialog.
 The formal definition of the MinimalistPulse class is in
 vespa/public/minimalist\_pulse.py which you can view online here:
 
-<http://scion.duhs.duke.edu/vespa/project/browser/trunk/public/minimalist_pulse.py>
+<https://github.com/vespa-mrs/vespa/blob/main/vespa/public/minimalist_pulse.py>
 
 **‘spin\_system’** – (object) Via the attribute "spin\_system", the
 sim\_desc object provides a PyGamma spin\_system object constructed from
@@ -1477,7 +1484,7 @@ values from the transition table to the main Simulation program.
 Here is the PyGAMMA code that is in the sequence\_code string for the
 PRESS-CP with Variable R-groups” sequence:
 
-<img src="media_simulation\media\image23.png" style="width:6.11667in;height:27.1746in" />
+<img src="media_simulation\media\image23.png" style="width:5.77in;height:25.63447in" />
 
 The pulse sequence makes use of the “spin\_system” attribute. The first
 seven lines of code (ignoring comments) are good examples of how to
@@ -1773,7 +1780,7 @@ in the pulse sequence.
 The formal definition of the MinimalistPulse class is in
 vespa/public/minimalist\_pulse.py which you can view online here:
 
-<http://scion.duhs.duke.edu/vespa/project/browser/trunk/public/minimalist_pulse.py>
+<https://github.com/vespa-mrs/vespa/blob/main/vespa/public/minimalist_pulse.py>
 
 ##  Appendix C. Mixed Metabolite Output 
 

@@ -1,12 +1,14 @@
 ---
+
 sort: 1
+
 ---
 
 # Pulse User Manual
 
-Version 1.0.0rc4 - Release date: February 15<sup>th</sup>, 2021
+Version 1.1.0 - Release date: May 10th, 2023
 
-Developed by:
+## Developed by:
 
 -   **Brian J. Soher, Ph.D.** - Duke University, Department of
     Radiology, Durham, NC
@@ -14,11 +16,23 @@ Developed by:
 -   **Philip Semanchuk** - Duke University, Department of Radiology,
     Durham, NC
 
--   **Karl Young, Ph.D.** - UCSF, San Francisco, CA
+-   **Karl Young, Ph.D.** - University of California, San Francisco, CA
 
--   **David Todd, Ph.D.** - UCSF, San Francisco, CA
+-   **David Todd, Ph.D.** - University of California, San Francisco, CA
 
-**Developed with support from NIH, grant \# EB008387-01A1**
+## Citation
+
+**If you publish material that makes use of Vespa, please cite:**
+
+> Soher B, Semanchuk P, Todd D, Ji X, Deelchand D, Joers J, Oz G and
+> Young K.  
+> Vespa: Integrated applications for RF pulse design, spectral
+> simulation and MRS data analysis. Magn Reson Med. 2023;1‐16. epub doi:
+> 10.1002/mrm.29686
+
+## NIH and Other Grant Support
+
+R01 EB008387, R01 EB000207, R01 NS080816 and R01 EB000822
 
 ##  1. Introduction to Pulse
 
@@ -35,13 +49,23 @@ create/modify algorithms using the integrated design/test dialog.
 **What can Pulse do?**
 
 1.  Create new RF pulse designs from a list of user defined algorithms
+
 2.  Store pulse designs and their design parameters into a database
+
 3.  Re-load previous pulse designs
-4.  Display pulse results for each step of the design process in a flexible plotting tool
+
+4.  Display pulse results for each step of the design process in a
+    flexible plotting tool
+
 5.  Compare side-by-side results from one or more pulse designs
-6.  Output results in text or graphical format, including MR manufacturer platform formats
+
+6.  Output results in text or graphical format, including MR
+    manufacturer platform formats
+
 7.  Export/Import Vespa pulse designs to/from other users
-8.  Be an open source test bed for your own algorithms and transformations.
+
+8.  Be an open source test bed for your own algorithms and
+    transformations.
 
 ### 1.2 Basic Concepts
 
@@ -73,12 +97,15 @@ program both in general and screen by screen.
 In this manual, command line instructions will appear in a fixed-width
 font on individual lines, for example:
 
-`/Vespa-Pulse/ % ls`
+˜/Vespa-Pulse/ % ls
 
 Specific file and directory names will appear in a fixed-width font
 within the main text.
 
-*The following sections assume Vespa-Pulse has been downloaded and installed. See the [Vespa Installation guide](../installing/install.md) for details on how to install the software and package dependencies.*
+*The following sections assume Vespa-Pulse has been downloaded and
+installed. See the Vespa Installation guide on the Vespa main project
+wiki for details on how to install the software and package
+dependencies.* <https://vespa-mrs.github.io/vespa.io/>.
 
 In the following, screenshots are based on running Vespa-Pulse on the
 Windows OS, but aside from starting the program, the basic commands are
@@ -88,14 +115,6 @@ the same on all platforms.
 
 Double click on the Pulse icon that the installer created on your
 Desktop.
-
-_Alternatively, find the install location for Vespa in miniconda. On my computer it is located in `D:\Users\bsoher\miniconda2\Lib\site-packages\vespa`. Change to that directory and from there you can launch an application by typing in a command window:_
-
-```
->python pulse\main.py
-```
-
-_or substitute in any other application name to run that application._
 
 Shown below is the Vespa-Pulse main window as it appears on first
 opening. No actual RF pulse Design windows are open, only the ‘Welcome’
@@ -108,18 +127,10 @@ create a new tab for designing an RF pulse.
 
 Shown below is a screen shot of a Vespa-Pulse session with two pulse
 design tabs opened side by side for comparison. The functionality of all
-tools, algorithms and transformation will be described in the
+tools, algorithms and transformation will be described further in the
 following sections.
 
-<img src="media_pulse\media\image2.png" style="width:8.56667in;height:3.83795in" />
-
-### 1.4 Vespa Forum and Bug Reports
-
-If you have questions, comments or a solution about some topic in Vespa, please post them on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>). 
-
-Pure and simple Bug Reports should be sent to us directly at the main Vespa contact email - **vespa.bugs@gmail.com**. Alternatively, they can be posted on [the Vespa Forum on MRS Hub](<https://forum.mrshub.org/c/mrs-software/vespa/11>), too. Both methods send an email to the Vespa Team. 
-
-*Please remember to paste the Exception report provided by the application if the bug caused a crash.*
+<img src="media_pulse\media\image2.png" style="width:6.86565in;height:3.07588in" />
 
 ##  2. Quick Guide – The Nuts and Bolts of Pulse
 
@@ -275,7 +286,7 @@ together as a system to allow you to extend and personalize the
 application. You can also export Transform Kernels to share with others,
 or import functionality that others send to you.
 
-<img src="media_pulse\media\image5.png" style="width:7.91652in;height:1.40833in" />
+<img src="media_pulse\media\image5.png" style="width:6.86597in;height:1.22144in" />
 
 **And what is this Pulse Design thing?** Pulse Designs are the
 organizational object of the Pulse application. A Pulse Design’s *raison
@@ -889,7 +900,7 @@ example to help you get started. You can keep this code, alter it,
 replace it or delete it entirely. Other existing transform kernels can
 also be sources of examples and inspiration from which to start.
 
-<img src="media_pulse\media\image14.png" style="width:7.775in;height:4.02705in" />
+<img src="media_pulse\media\image14.png" style="width:6.90372in;height:3.57577in" />
 
 The New Pulse Sequence Editor dialogis shown above. It consists of a
 Notebook widget with two tabs: 1) the Design tab (shown) and 2) the
@@ -1027,9 +1038,9 @@ are represented on the Test tab. Note that the default values have been
 used in the Test tab and the Run button has been hit to display the
 results shown.
 
-<img src="media_pulse\media\image15.png" style="width:7.85351in;height:4.15833in" />
+<img src="media_pulse\media\image15.png" style="width:7.09347in;height:3.7559in" />
 
-<img src="media_pulse\media\image16.png" style="width:7.82847in;height:4.125in" />
+<img src="media_pulse\media\image16.png" style="width:7.09778in;height:3.73998in" />
 
 **Transform Tab:** The top two thirds of the Test tab example above
 contains a Transform tab representation of your transform kernel design
@@ -1211,7 +1222,7 @@ menu.
 
 ### A.2.1 Tab Diagram
 
-<img src="media_pulse\media\image20.png" style="width:7.675in;height:6.86667in" />
+<img src="media_pulse\media\image20.png" style="width:6.71376in;height:6.00667in" />
 
 ### A.2.2 General Usage 
 
@@ -1349,7 +1360,7 @@ to generate a corresponding RF pulse.
 
 ### A.3.1 Tab Diagram
 
-<img src="media_pulse\media\image21.png" style="width:8.10833in;height:7.06667in" />
+<img src="media_pulse\media\image21.png" style="width:6.96833in;height:6.07312in" />
 
 ### A.3.2 General Usage 
 
@@ -1435,7 +1446,7 @@ hyperbolic secant pulse of the above form.
 
 ### A.4.1 Tab Diagram
 
-<img src="media_pulse\media\image23.png" style="width:7.73333in;height:5.975in" />
+<img src="media_pulse\media\image23.png" style="width:6.52333in;height:5.04012in" />
 
 ### A.4.2 General Usage 
 
@@ -1526,7 +1537,7 @@ period when digitizing the waveform.
 
 ### A.5.1 Tab Diagram
 
-<img src="media_pulse\media\image25.png" style="width:8.975in;height:4.99167in" />
+<img src="media_pulse\media\image25.png" style="width:7.075in;height:3.93493in" />
 
 ### A.5.2 General Usage 
 
@@ -1557,7 +1568,7 @@ points in the range of +/- 1 micro Tesla.
 
 ### A.6.1 Tab Diagram
 
-<img src="media_pulse\media\image26.png" style="width:8.30833in;height:7.05in" />
+<img src="media_pulse\media\image26.png" style="width:6.72916in;height:5.71in" />
 
 ### A.6.2 General Usage 
 
@@ -1671,7 +1682,7 @@ right.
 
 ### A.7.1 Tab Diagram
 
-<img src="media_pulse\media\image27.png" style="width:8.38333in;height:5.45833in" />
+<img src="media_pulse\media\image27.png" style="width:7.13927in;height:4.64833in" />
 
 ### A.7.2 General Usage 
 
@@ -1705,7 +1716,7 @@ is returned.
 
 ### A.8.1 Tab Diagram
 
-<img src="media_pulse\media\image28.png" style="width:8.26667in;height:6.45in" />
+<img src="media_pulse\media\image28.png" style="width:6.88248in;height:5.37in" />
 
 ### A.8.2 General Usage 
 
