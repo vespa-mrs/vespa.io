@@ -8,9 +8,9 @@ sort: 1
 
 Vespa is a Python package. It requires a Python environment be installed with certain dependencies (all easily obtained) and then Vespa can be automatically installed from the PyPI web site. For historical reasons, the package on PyPI is called Vespa-Suite. 
 
-Vespa is an actively developed project that has frequent releases. Once you have it installed, it is simple to [Upgrade](upgrade.md). 
+Vespa is an actively developed project with ongoing releases. Once you have it installed, it is simple to [Upgrade](upgrade.md). 
 
-_Note. Vespa has been tested mainly under Python 3.7 due to our conversion from Python 2 to Python 3. Work is under way to make sure it runs under other Python 3.x versions._
+_Note. Vespa has been tested mainly under Python 3.7 due to our conversion from Python 2 to Python 3. Work is under way to evaluate other Python 3.x versions._
 
 The following instructions are based on using the 'Miniconda' installation, part of the Conda package management sytem, to install the dependencies that Vespa requires. We are only installing the packages we need for simplicity. You could install these packages yourself using other means, but these instructions use conda. 
 
