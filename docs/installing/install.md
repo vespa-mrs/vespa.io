@@ -148,3 +148,4 @@ If you want to report a bug, please email us directly at - vespa.bugs@gmail.com.
 ## Other Useful Notes
 
 1. For OS X and Linux users, we are aware (and maybe you are too) that Python comes preinstalled as part of OS X. The general consensus is that the preinstalled Python belongs to OS X and you shouldn't use it in case you change it in some way that breaks OS X (and vice versa). We recommend that you install another Python instead of using the preinstalled, system Python. This is covered in the installation guide above.
+2. If you need to use a Python version later than 3.7, at this point we would suggest Python 3.9 with matplotlib version 3.6.2, and wxpython version 4.2.0. This is our current dev environment on which we are testing Vespa.  Newer versions of the other dependencies may or may not have problems, but we have definitely seen issues in the Vespa plotting GUI for environments using wxpython 4.1 and matplotlib > 3.3.  
