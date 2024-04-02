@@ -56,7 +56,7 @@ This switches you from whatever virtual conda environment you are currently in, 
 
 At the command line, run this command:
  
-`>pip install  pygamma vespa-suite`
+`>pip install  pygamma nifti-mrs vespa-suite`
 
 
 ### Step 4 - Doublecheck Vepsa Dependencies 

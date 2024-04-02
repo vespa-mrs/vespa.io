@@ -19,7 +19,7 @@ This work has been supported by NIH grants: R01 EB008387, R01 EB000207, R01 NS08
 
 If you publish material that makes use of Vespa, please cite the following publication:
 
-Soher B, Semanchuk P, Todd D, Ji X, Deelchand D, Joers J, Oz G and Young K. Vespa: Integrated applications for RF pulse design, spectral simulation and MRS data analysis. Magn Reson Med. 2023;1-16. epub doi: 10.1002/mrm.29686
+Soher B, Semanchuk P, Todd D, Ji X, Deelchand D, Joers J, Oz G and Young K. Vespa: Integrated applications for RF pulse design, spectral simulation and MRS data analysis. Magn Reson Med. 2023 Sep;90(3):823-838. doi: 10.1002/mrm.29686. Epub 2023 May 15. PMID: 37183778; PMCID: PMC10330446.
 
 **Other Resources**
 
