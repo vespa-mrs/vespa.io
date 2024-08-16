@@ -50,7 +50,7 @@ This switches you from whatever virtual conda environment you are currently in, 
 
 2.3 Then run this command:
 
-`>conda install -c conda-forge lmfit pydicom pypubsub nibabel`
+`>conda install -c conda-forge lmfit pydicom pypubsub nibabel nifti-mrs`
 
 ### Step 3 - Now Install the Vespa Package 
 
