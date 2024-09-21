@@ -1,4 +1,4 @@
-#  Overview of the Vespa MRS Tools Package
+#  Overview of the Vespa MRS Tools Package   o-o
 
 Vespa is an integrated, open source, open development platform for magnetic resonance spectroscopy (MRS) research. It contains four  software applications, written in Python, called: 
 
