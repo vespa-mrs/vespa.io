@@ -10,7 +10,7 @@ Vespa is a Python package. It requires a Python environment be installed with ce
 
 Vespa is an actively developed project with ongoing releases. Once you have it installed, it is simple to [Upgrade](upgrade.md). 
 
-_Note. Vespa has been tested mainly under Python 3.7 due to our conversion from Python 2 to Python 3. Work is under way to evaluate other Python 3.x versions._
+_Note. Vespa has been tested mainly under Python 3.9. Work is under way to evaluate newer Python 3.x versions._
 
 The following instructions are based on using the 'Miniconda' installation, part of the Conda package management sytem, to install the dependencies that Vespa requires. We are only installing the packages we need for simplicity. You could install these packages yourself using other means, but these instructions use conda. 
 
@@ -18,25 +18,25 @@ You'll need to use the command line for most of these instructions. Be careful o
 
 ### Step 1 - Install Python (using Miniconda)
 
-Vespa has been tested under Python 3.7. These instructions assume that you used Miniconda to install 64-bit Python as described below.
+Vespa has been tested under Python 3.9. These instructions assume that you used Miniconda to install 64-bit Python as described below.
 
 Download [the 64-bit Miniconda3 package](https://docs.conda.io/en/latest/miniconda.html) for your system. Note - we recommend installing miniconda 'for yourself' vs 'all users' as this installs the 'miniconda3' subdirectory in your home directory. We assume for some hard coded paths below that this is the case.
 
-As of September 2020, this will install conda with a base Python of version 3.8 or 3.8, but Vespa has only been tested under Python 3.7. Not to worry, Miniconda allow you to create virtual environments with any version of Python 3, and this is what we will use to install/run the Vespa package. So, fire up the conda base command window and create your first environment. This is simple (see below) and it is good to do your actual work in a Python environment outside of the base environment.
+As of June 2025, this will install conda with a base Python of version 3.11 or 3.12, but Vespa has most thoroughly tested under Python 3.9. Not to worry, Miniconda allow you to create virtual environments with any version of Python 3, and this is what we will use to install/run the Vespa package. So, fire up the conda base command window and create your first environment. This is simple (see below) and it is good to do your actual work in a Python environment outside of the base environment.
 
 Start an Anaconda (aka 'miniconda') command prompt (on Win10) by clicking the Start button, scrolling down the Programs file list to Anaconda, and selecting "Anaconda Prompt".
 
-In the Anaconda prompt, create a new environment within your miniconda installation called 'python37' (or whatever you want to name it) by typing:  
+In the Anaconda prompt, create a new environment within your miniconda installation called 'python39' (or whatever you want to name it) by typing:  
 
-`>conda create --name python37 python=3.7` 
+`>conda create --name python39 python=3.9` 
 
 conda will think for a bit, then list the files it will install and ask you to confirm. Type 'y' and return. Conda will then download packages and install them.
 
-The last step here is to activate the new python37 environment by typing: 
+The last step here is to activate the new python39 environment by typing: 
 
-`>conda activate python37` 
+`>conda activate python39` 
 
-This switches you from whatever virtual conda environment you are currently in, into the 'python37' (or whatever name you chose) environment you just created. All the additional software installation steps will now be applied to that environment.
+This switches you from whatever virtual conda environment you are currently in, into the 'python39' (or whatever name you chose) environment you just created. All the additional software installation steps will now be applied to that environment.
 
 ### Step 2 - Install Vespa Dependencies
 
@@ -46,7 +46,7 @@ This switches you from whatever virtual conda environment you are currently in, 
 
 2.2 Then run this command:
 
-`>conda install matplotlib==3.3.4 wxpython==4.0.4`  (if these do not install, try from conda-forge, as in 2.3)
+`>conda install matplotlib==3.6.9 wxpython==4.2.1`  (if these do not install, try from conda-forge, as in 2.3)
 
 2.3 Then run this command:
 
@@ -87,7 +87,7 @@ Enjoy,
 
 The Vespa installation has had problems with shortcuts since Win 10 came out. This post will walk you through setting up shortcuts manually.
 
-So, this assumes that you have installed Python 3.7.x using miniconda. The command used below allows any conda environment that you have created in your miniconda directory to be used, so it’s OK if you have several set up other than 3.7.x
+So, this assumes that you have installed Python 3.9.x using miniconda. The command used below allows any conda environment that you have created in your miniconda directory to be used, so it’s OK if you have several set up other than 3.9.x
 
 1. Right click on your desktop, and create a New Shortcut.
 
@@ -98,13 +98,13 @@ So, this assumes that you have installed Python 3.7.x using miniconda. The comma
 1. Copy the following line (below) into a word process and modify it to match the locations of your Miniconda and Vespa installations on your computer. Detailed instructions are listed below. Use a word processor so it is easier to read/type. *_Be very careful to get the directory names and all the quote symbols correct!_* 
 
     ```
-    %windir%\System32\cmd.exe /k ““D:\Users\bsoher\miniconda3\Scripts\activate.bat” “D:\Users\bsoher\miniconda3\envs\python37” && python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py” && exit”
+    %windir%\System32\cmd.exe /k ““D:\Users\bsoher\miniconda3\Scripts\activate.bat” “D:\Users\bsoher\miniconda3\envs\python39” && python “D:\Users\bsoher\miniconda3\envs\python39\Lib\site-packages\vespa\analysis\main.py” && exit”
     ```
     
     This tells the Shortcut to do 4 things, in order: 
 
     - create a Windows cmd.exe window
-    - use a minconda script to activate your Python 3.7 conda environment in the cmd window
+    - use a minconda script to activate your Python 3.9 conda environment in the cmd window
     - run the Vespa Analysis main.py script
     - when Analysis quits, exit the cmd window 
 
@@ -118,13 +118,13 @@ So, this assumes that you have installed Python 3.7.x using miniconda. The comma
 
     change path to where your miniconda install lives (note two 'double quotes' at the start of the line)
 
-    `“D:\Users\bsoher\miniconda3\envs\python37”`
+    `“D:\Users\bsoher\miniconda3\envs\python39”`
 
-    change path to select the conda environment for Python 3.7
+    change path to select the conda environment for Python 3.9
 
-    `python “D:\Users\bsoher\miniconda3\envs\python37\Lib\site-packages\vespa\analysis\main.py”`
+    `python “D:\Users\bsoher\miniconda3\envs\python39\Lib\site-packages\vespa\analysis\main.py”`
 
-    change path to where Vespa is installed, usually under “Lib\site-packages\vespa” in your Python 3.7 directory
+    change path to where Vespa is installed, usually under “Lib\site-packages\vespa” in your Python 3.9 directory
 
 1. Copy the edited command from your text editor into the Shortcut you created. Right click its icon, click Properties. On “Shortcut” tab, delete all text in the Target line, and paste new command text into Target. Click OK and dialog should close. With luck, you can now click on the Shortcut icon and Vespa Analysis will run.
 
@@ -148,4 +148,4 @@ If you want to report a bug, please email us directly at - vespa.bugs@gmail.com.
 ## Other Useful Notes
 
 1. For OS X and Linux users, we are aware (and maybe you are too) that Python comes preinstalled as part of OS X. The general consensus is that the preinstalled Python belongs to OS X and you shouldn't use it in case you change it in some way that breaks OS X (and vice versa). We recommend that you install another Python instead of using the preinstalled, system Python. This is covered in the installation guide above.
-2. If you need to use a Python version later than 3.7, at this point we would suggest Python 3.9 with matplotlib version 3.6.2, and wxpython version 4.2.0. This is our current dev environment on which we are testing Vespa.  Newer versions of the other dependencies may or may not have problems, but we have definitely seen issues in the Vespa plotting GUI for environments using wxpython 4.1 and matplotlib > 3.3.  
+2. If you need to use a Python version later than 3.9, at this point we would suggest Python 3.11 with matplotlib version 3.9.2, and wxpython version 4.2.1. This is our current dev environment on which we are testing Vespa.  Newer versions of the other dependencies may or may not have problems, but we have definitely seen issues in the Vespa plotting GUI for environments using wxpython 4.1 and matplotlib > 3.3.  
