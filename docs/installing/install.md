@@ -46,7 +46,7 @@ This switches you from whatever virtual conda environment you are currently in, 
 
 2.2 Then run this command:
 
-`>conda install matplotlib==3.6.9 wxpython==4.2.1`  (if these do not install, try from conda-forge, as in 2.3)
+`>conda install matplotlib==3.6.2 wxpython==4.2.1`  (if these do not install, try from conda-forge, as in 2.3)
 
 2.3 Then run this command:
 
